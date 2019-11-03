@@ -96,6 +96,21 @@
                [ 'text-decoration' , td  ],
                [ 'text-transform'  , tt  ],
                [ 'z-index'         , zi  ]];
+
+      $('tbody td').e('click',x=>{
+
+        toCopy = $(x.target).html();
+
+        try {
+          var successful = document.execCommand(toCopy);
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('toCopy: ' + toCopy);
+          console.log('Copying text command was ' + msg);
+        } catch (err) {
+          console.log('Oops, unable to copy');
+        }
+
+      });
    </script>
 </head>
 <body class="fadeIn">
