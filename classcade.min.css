@@ -36,7 +36,7 @@
 .opa{opacity:var(--opa)}.opa-10{opacity:0.10}.opa-20{opacity:0.20}.opa-30{opacity:0.30}.opa-40{opacity:0.40}.opa-50{opacity:0.50}.opa-60{opacity:0.60}.opa-70{opacity:0.70}.opa-80{opacity:0.80}.opa-90{opacity:0.90}.opa-100{opacity:1.00}
 
 .p{padding:var(--pd)}.p0{padding:0}
-.posa,.absolute{position:absolute}.posf,.fixed{position:fixed}.posr,.relative{position:relative}.poss,.sticky{position:sticky}
+.pos-a,.absolute{position:absolute}.pos-f,.fixed{position:fixed}.pos-r,.relative{position:relative}.pos-s,.sticky{position:sticky}
 
 .ta-c,.center{text-align:center}.ta-j{text-align:justify}.ta-l{text-align:left}.ta-r{text-align:right}
 .td{text-decoration:var(--td)}.td-i{text-decoration:inherit}.td-lt{text-decoration:line-through}.td-n{text-decoration:none}.td-o,.overline{text-decoration:overline}.td-u,.underline{text-decoration:underline}
