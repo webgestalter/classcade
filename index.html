@@ -97,7 +97,7 @@
   });
 
 
-  function table(tableData,c,sub) {
+  function table(tableData,c,context) {
     var table = D.createElement('table');
 
     if(c){ $(table).c(c) }
@@ -118,8 +118,8 @@
 
     table.appendChild(tableBody);
 
-    sub ? sub.appendChild(table)
-        : document.body.appendChild(table)
+    context ? context.appendChild(table)
+            : document.body.appendChild(table)
   }
 
   </script>
