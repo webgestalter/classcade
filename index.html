@@ -130,7 +130,7 @@
 
       rowData.forEach(function(cellData) {
         var cell = D.createElement('td');
-//      var row = $('<td>');
+//      var cell = $('<td>');
         cell.appendChild(D.createTextNode(cellData));
         row.appendChild(cell);
       });
@@ -141,11 +141,11 @@
 
     if(tableHead){
       var tHead = D.createElement('thead');
-  //  var row = $('<thead>');
+  //  var tHead = $('<thead>');
 
       tableHead.forEach(function(tableHeadData){
         var cell = D.createElement('td');
-//      var row = $('<td>');
+//      var cell = $('<td>');
         cell.appendChild(D.createTextNode(tableHeadData));
         tHead.appendChild(cell);
       });
