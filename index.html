@@ -91,16 +91,16 @@
       var h = D.createElement('h3');
       h.innerHTML = x[0];
       sub.appendChild(h);
-      table(x[1],'w-100',sub);
+      table(x[1],'w-100',['w-25','w-75'],sub);
 
   //    table(x[1])
   });
 
 
-  function table(tableData,c,context) {
+  function table(tableData,tableClasses,rowClasses,context) {
     var table = D.createElement('table');
 
-    if(c){ $(table).c(c) }
+    if(classes){ $(table).c(classes) }
 
     var tableBody = D.createElement('tbody');
 
