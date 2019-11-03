@@ -44,18 +44,34 @@
   <h1>Wiki</h1>
   <script src="https://webgestalter.github.io/manfred/mf.js"></script>
   <script language="JavaScript">
+
     var el = [[ 'align-content'    , 'ac'  ],
               [ 'justify-content'  , 'jc'  ],
               [ 'z-index'          , 'zi'  ]];
 
+    var jc = [[ '.jc'   , 'justify-content:var(--jc)'     ],
+              [ '.jcc'  , 'justify-content:center'        ],
+              [ '.jcfe' , 'justify-content:flex-end'      ],
+              [ '.jcfs' , 'justify-content:flex-start'    ],
+              [ '.jcsa' , 'justify-content:space-around'  ],
+              [ '.jcsb' , 'justify-content:space-between' ]];
+
     el.forEach(x => {
       $('#wiki').ap('<div class="disib"><h3>'+x+'</h3></div>');
+
+      var sub = D.createElement('div');
+      $(sub).c('disib');
+
+      var h3 = D.createElement('h3');
+      sub.appendChild(h3);
+      table(jc,sub);
+
   //    table(x[1])
   });
 
 
-  function createTable(tableData) {
-    var table = D.createElement('table');
+  function table(tableData) {
+    var table     = D.createElement('table');
     var tableBody = D.createElement('tbody');
 
     tableData.forEach(function(rowData) {
@@ -71,10 +87,15 @@
     });
 
     table.appendChild(tableBody);
-    document.body.appendChild(table);
+    if( sub ){
+      sub.appendChild(table);
+    } else {
+      document.body.appendChild(table);
+    }
+
   }
 
-  createTable(el);
+  table(jc);
 
 
 
@@ -88,41 +109,8 @@
 
 
 
- var jc = [[ '.jc'   , 'justify-content:var(--jc)'     ],
-           [ '.jcc'  , 'justify-content:center'        ],
-           [ '.jcfe' , 'justify-content:flex-end'      ],
-           [ '.jcfs' , 'justify-content:flex-start'    ],
-           [ '.jcsa' , 'justify-content:space-around'  ],
-           [ '.jcsb' , 'justify-content:space-between' ]];
 
-  function table(x){
 
-    if(x){
-
-      var r;
-
-      r += '<table class="w100">';
-
-        r += '<thead>';
-          r += '<tr style=""><td style="">...</td><td style="">...</td></tr>';
-        r += '</thead>';
-
-        r += '<tbody>';
-          forEach(x => {
-            r += '<tr style="">
-              <td style="width:25%;">'+x+'</td>
-              <td style="width:75%;">'+x+'</td>
-              </tr>';
-          });
-        r += '</tbody>';
-
-      r += '</table>';
-
-      return r;
-
-    }
-
-  }
   </script>
 </body>
 </html>
