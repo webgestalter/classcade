@@ -96,13 +96,13 @@
       var h = D.createElement('h3');
       h.innerHTML = x[0];
       sub.appendChild(h);
-      table(x[1],'w-100',['w-25','w-75'],sub);
+      table(x[1],['class','CSS statement(s)'],'w-100',['w-25','w-75'],sub);
 
   //    table(x[1])
   });
 
 
-  function table(tableData,tableClasses,rowClasses,context) {
+  function table(tableData,tableHead,tableClasses,rowClasses,context) {
     var table = D.createElement('table');
 //  var table = $('<table>');
 
@@ -111,6 +111,8 @@
 
     var tableBody = D.createElement('tbody');
 //  var row = $('<tbody>');
+
+
 
     tableData.forEach(function(rowData) {
       var row = D.createElement('tr');
@@ -125,6 +127,21 @@
 
       tableBody.appendChild(row);
     });
+
+
+    if(tableHead){
+      var tHead = D.createElement('thead');
+  //  var row = $('<thead>');
+
+      tableHead.forEach(function(tableHeadData){
+        var cell = D.createElement('td');
+//      var row = $('<td>');
+        cell.appendChild(D.createTextNode(tableHeadData));
+        tHead.appendChild(cell);
+      });
+
+      table.appendChild(tHead);
+    }
 
     table.appendChild(tableBody);
 
