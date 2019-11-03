@@ -9,6 +9,7 @@
    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
    <style>
       * {
+        font-family:"Roboto Slab";
         margin:0;
         padding:0;
       }
@@ -32,6 +33,40 @@
         padding:calc(var(--gap)/8);
       }
    </style>
+   <script language="JavaScript">
+
+     var ac = [[ '.ai'    , 'align-items:var(--ai)'         ],
+               [ '.ai-a'  , 'align-items:auto'              ],
+               [ '.ai-c'  , 'align-items:center'            ],
+               [ '.ai-fe' , 'align-items:flex-end'          ],
+               [ '.ai-fs' , 'align-items:flex-start'        ],
+               [ '.ai-sa' , 'align-items:space-around'      ],
+               [ '.ai-sb' , 'align-items:space-between'     ],
+               [ '.ai-s'  , 'align-items:stretch'           ]];
+     var dis =[[ '.dis-b' , 'display:block'                 ],
+               [ '.dis-f' , 'display:flex'                  ],
+               [ '.dis-i' , 'display:inline'                ],
+               [ '.dis-ib', 'display:inline-block'          ],
+               [ '.dis-if', 'display:inline-flex'           ]];
+     var jc = [[ '.jc'    , 'justify-content:var(--jc)'     ],
+               [ '.jc-c'  , 'justify-content:center'        ],
+               [ '.jc-fe' , 'justify-content:flex-end'      ],
+               [ '.jc-fs' , 'justify-content:flex-start'    ],
+               [ '.jc-sa' , 'justify-content:space-around'  ],
+               [ '.jc-sb' , 'justify-content:space-between' ]];
+     var zi = [[ '.zi-0'  , 'z-index:0'                     ],
+               [ '.zi-1'  , 'z-index:1'                     ],
+               [ '.zi-2'  , 'z-index:2'                     ],
+               [ '.zi-3'  , 'z-index:3'                     ],
+               [ '.zi-4'  , 'z-index:4'                     ],
+               [ '.zi-5'  , 'z-index:5'                     ]];
+
+     var el = [[ 'align-content'   , ac  ],
+               [ 'display'         , dis ],
+               [ 'justify-content' , jc  ],
+               [ 'z-index'         , zi  ]];
+
+   </script>
 </head>
 <body class="fadeIn">
 
@@ -55,33 +90,6 @@
   <div class="cc-3"></div>
   <script src="https://webgestalter.github.io/manfred/mf.js"></script>
   <script language="JavaScript">
-
-    var ac = [[ '.ai'    , 'align-items:var(--ai)'     ],
-              [ '.ai-a'  , 'align-items:auto'          ],
-              [ '.ai-c'  , 'align-items:center'        ],
-              [ '.ai-fe' , 'align-items:flex-end'      ],
-              [ '.ai-fs' , 'align-items:flex-start'    ],
-              [ '.ai-sa' , 'align-items:space-around'  ],
-              [ '.ai-sb' , 'align-items:space-between' ],
-              [ '.ai-s'  , 'align-items:stretch'       ]];
-
-    var jc = [[ '.jc'    , 'justify-content:var(--jc)'     ],
-              [ '.jc-c'  , 'justify-content:center'        ],
-              [ '.jc-fe' , 'justify-content:flex-end'      ],
-              [ '.jc-fs' , 'justify-content:flex-start'    ],
-              [ '.jc-sa' , 'justify-content:space-around'  ],
-              [ '.jc-sb' , 'justify-content:space-between' ]];
-
-    var zi = [[ '.zi-0' , 'z-index:0' ],
-              [ '.zi-1' , 'z-index:1' ],
-              [ '.zi-2' , 'z-index:2' ],
-              [ '.zi-3' , 'z-index:3' ],
-              [ '.zi-4' , 'z-index:4' ],
-              [ '.zi-5' , 'z-index:5' ]];
-
-    var el = [[ 'align-content'   , ac  ],
-              [ 'justify-content' , jc  ],
-              [ 'z-index'         , zi  ]];
 
     el.forEach(x => {
 
