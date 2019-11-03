@@ -19,6 +19,9 @@
       body {
         padding:var(--gap);
       }
+      h3 {
+        margin-top:calc(var(--gap)/2);
+      }
       ul {
         list-style:none;
       }
@@ -102,7 +105,7 @@
       $(sub).c('dis-ib').c('w-100');
 
       var h = D.createElement('h3');
-      $(h).c('ta-c');
+      $(h).c('ta-c').c('tt-u');
 
       h.innerHTML = x[0];
       sub.appendChild(h);
