@@ -17,3 +17,22 @@
 	justify-content:center;
 	margin:auto;
 }
+
+/* EFFECTS */
+
+@keyframes opa {
+  from {opacity:var(--f);}
+  to 	 {opacity:var(--t);	 }
+}
+
+.fadeIn {
+		--f:0;
+		--t:1;
+    animation:opa ease-in 1s;
+}
+.fadeOut {
+		--f:1;
+		--t:0;
+    animation:opa ease-out 1s;
+		opacity:0;
+}
