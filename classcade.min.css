@@ -2,7 +2,8 @@
 .ai{align-items:var(--ai)}.ai-b{align-items:baseline}.ai-c{align-items:center}.ai-fe{align-items:flex-end}.ai-fs{align-items:flex-start}.ai-s{align-items:stretch}
 .as{align-self:var(--ai)}.as-a{align-self:auto}.as-b{align-self:baseline}.as-c{align-self:center}.as-fe{align-self:flex-end}.as-fs{align-self:flex-start}.as-s{align-self:stretch}
 
-.bgn{background:none}.bgs-c,.bgsc{background-size:cover}.b-1{border:1px}.b-2{border:2px}.b-3{border:3px}.b-4{border:4px}.b-5{border:5px}.b-da{border:dashed}.b-do{border:dotted}.b-s{border:solid}.b-n{border:none}
+.bgn{background:none}.bgs-c,.bgsc{background-size:cover}
+.b-1{border:1px}.b-2{border:2px}.b-3{border:3px}.b-4{border:4px}.b-5{border:5px}.b-da{border:dashed}.b-do{border:dotted}.b-s{border:solid}.b-n{border:none}
 .brad{border-radius:var(--brad)}.brad-0{border-radius:0}
 .bs{box-shadow:var(--bs)}
 .bsbb,.bs-bb{box-sizing:border-box}
@@ -37,7 +38,7 @@
 .p{padding:var(--pd)}.p0{padding:0}
 .posa,.absolute{position:absolute}.posf,.fixed{position:fixed}.posr,.relative{position:relative}.poss,.sticky{position:sticky}
 
-.tac{text-align:center}.taj{text-align:justify}.tal{text-align:left}.tar{text-align:right}
+.ta-c,.center{text-align:center}.ta-j{text-align:justify}.ta-l{text-align:left}.ta-r{text-align:right}
 .td{text-decoration:var(--td)}.td-i{text-decoration:inherit}.td-lt{text-decoration:line-through}.td-n{text-decoration:none}.td-o,.overline{text-decoration:overline}.td-u,.underline{text-decoration:underline}
 .tt{text-transform:var(--tt)}.tt-c,.capitalize{text-transform:capitalize}.tt-fw{text-transform:full-width}.tt-l,.lowercase{text-transform:lowercase}.tt-u,.uppercase{text-transform:uppercase}.tt-n{text-transform:none}
 .trae{transition:all var(--s) ease}.tra1e{transition:all 1s ease}.tra2e{transition:all 2s ease}
