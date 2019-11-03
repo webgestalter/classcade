@@ -57,14 +57,14 @@
               [ '.jcsb' , 'justify-content:space-between' ]];
 
     el.forEach(x => {
-      $('#wiki').ap('<div class="disib"><h3>'+x+'</h3></div>');
+      $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
 
       var sub = D.createElement('div');
       $(sub).c('disib');
 
       var h3 = D.createElement('h3');
       sub.appendChild(h3);
-      table(jc,sub);
+      table(x[1],sub);
 
   //    table(x[1])
   });
@@ -95,22 +95,8 @@
 
   }
 
-  // table(jc);
-
-
-
-
-
   </script>
 </section>
 
-
-<script language="JavaScript">
-
-
-
-
-
-  </script>
 </body>
 </html>
