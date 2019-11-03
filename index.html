@@ -49,6 +49,12 @@
               [ 'justify-content'  , 'jc'  ],
               [ 'z-index'          , 'zi'  ]];
 
+    const obj = {
+                  { name: 'align-content',    code: 'ac', },
+                  { name: 'justify-content',  code: 'jc', },
+                  { name: 'z-index',          code: 'zi', }
+                };
+
     var ac = [[ '.jc'   , 'justify-content:var(--jc)'     ],
               [ '.jcc'  , 'justify-content:center'        ],
               [ '.jcfe' , 'justify-content:flex-end'      ],
@@ -82,7 +88,7 @@
 
       var h3 = D.createElement('h3');
       sub.appendChild(h3);
-      table(eval(x[1]),sub);
+      table(x[code],sub);
 
   //    table(x[1])
   });
