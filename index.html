@@ -42,6 +42,7 @@
         padding:calc(var(--gap)/8);
       }
    </style>
+   <script src="https://webgestalter.github.io/manfred/mf.js"></script>
    <script language="JavaScript">
      var ac = [[ '.ai'    , 'align-items:var(--ai)'         ],
                [ '.ai-a'  , 'align-items:auto'              ],
@@ -116,15 +117,12 @@
 
 <section id="wiki">
   <h1 class="ta-c">Wiki</h1>
-  <h2 class="ta-c tt-u">Standard Classes</h2>
-  <div class="cc-4"></div>
-  <script src="https://webgestalter.github.io/manfred/mf.js"></script>
+    <h2 class="ta-c tt-u">Standard Classes</h2>
+    <div class="cc-4"></div>
+
   <script language="JavaScript">
 
     el.forEach(x => {
-
-      C.log('x[0]: '+x[0]);
-      C.log('x[1]: '+x[1]);
 
   //    $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
 
@@ -141,9 +139,6 @@
       table(x[1],['class','CSS statement(s)'],'w-100',['w-25','w-75'],sub);
 
   });
-
-
-
 
   </script>
 </section>
