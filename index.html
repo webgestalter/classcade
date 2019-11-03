@@ -12,6 +12,10 @@
 
 <section id="wiki cc3">
   <script language="JavaScript">
+    var el = [[ 'align-content'    , 'ac'  ],
+              [ 'justify-content'  , 'jc'  ],
+              [ 'z-index'          , 'zi'  ]];
+
     el.forEach(x => {
       $('#wiki').ap('<div class="disib"><h3>'+x+'</h3></div>');
   //    table(x[1])
@@ -22,9 +26,7 @@
 <script src="https://webgestalter.github.io/manfred/mf.js"></script>
 <script language="JavaScript">
 
- var el = [[ 'align-content'    , 'ac'  ],
-           [ 'justify-content'  , 'jc'  ],
-           [ 'z-index'          , 'zi'  ]];
+
 
  var jc = [[ '.jc'   , 'justify-content:var(--jc)'     ],
            [ '.jcc'  , 'justify-content:center'        ],
