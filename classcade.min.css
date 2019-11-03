@@ -25,14 +25,15 @@
   to 	 {opacity:var(--t);	 }
 }
 
+.s1{--s:1s}.s2{--s:2s}.s3{--s:3s}.s4{--s:4s}.s5{--s:5s}
 .fadeIn {
 		--f:0;
 		--t:1;
-    animation:opa ease-in 1s;
+    animation:opa ease-in var(--s,1s);
 }
 .fadeOut {
 		--f:1;
 		--t:0;
-    animation:opa ease-out 1s;
+    animation:opa ease-out var(--s,1s);
 		opacity:0;
 }
