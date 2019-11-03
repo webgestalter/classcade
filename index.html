@@ -128,52 +128,7 @@
   });
 
 
-  function table(tableData,tableHead,tableClasses,rowClasses,context) {
-    var table = D.createElement('table');
-//  var table = $('<table>');
 
-    if(tableClasses){ isA(tableClasses) ? tableClasses.forEach(z =>{$(table).c(tableClasses)})
-                                        : $(table).c(tableClasses) }
-
-    var tableBody = D.createElement('tbody');
-//  var row = $('<tbody>');
-
-
-
-    tableData.forEach(function(rowData) {
-      var row = D.createElement('tr');
-//    var row = $('<tr>');
-
-      rowData.forEach(function(cellData) {
-        var cell = D.createElement('td');
-//      var cell = $('<td>');
-        cell.appendChild(D.createTextNode(cellData));
-        row.appendChild(cell);
-      });
-
-      tableBody.appendChild(row);
-    });
-
-
-    if(tableHead){
-      var tHead = D.createElement('thead');
-  //  var tHead = $('<thead>');
-
-      tableHead.forEach(function(tableHeadData){
-        var cell = D.createElement('td');
-//      var cell = $('<td>');
-        cell.appendChild(D.createTextNode(tableHeadData));
-        tHead.appendChild(cell);
-      });
-
-      table.appendChild(tHead);
-    }
-
-    table.appendChild(tableBody);
-
-    context ? context.appendChild(table)
-            : document.body.appendChild(table)
-  }
 
   </script>
 </section>
