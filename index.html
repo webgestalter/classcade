@@ -21,6 +21,9 @@
       ul {
         list-style:none;
       }
+      tbody tr:nth-child(2n+1) {
+        background:rgba(0,0,0,0.10);
+      }
    </style>
 </head>
 <body class="fadeIn">
@@ -88,14 +91,17 @@
       var h = D.createElement('h3');
       h.innerHTML = x[0];
       sub.appendChild(h);
-      table(x[1],sub);
+      table(x[1],'w-100',sub);
 
   //    table(x[1])
   });
 
 
-  function table(tableData,sub) {
+  function table(tableData,c,sub) {
     var table     = D.createElement('table');
+
+    if(c){ $(table).c(c) }
+
     var tableBody = D.createElement('tbody');
 
     tableData.forEach(function(rowData) {
@@ -111,12 +117,9 @@
     });
 
     table.appendChild(tableBody);
-    if( sub ){
-      sub.appendChild(table);
-    } else {
-      document.body.appendChild(table);
-    }
 
+    sub ? sub.appendChild(table)
+        : document.body.appendChild(table)
   }
 
   </script>
