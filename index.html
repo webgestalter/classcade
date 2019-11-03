@@ -97,20 +97,7 @@
                [ 'text-transform'  , tt  ],
                [ 'z-index'         , zi  ]];
 
-      $('tbody td').e('click',x=>{
-
-        toCopy = $(x.target).html();
-
-        try {
-          var successful = document.execCommand(toCopy);
-          var msg = successful ? 'successful' : 'unsuccessful';
-          console.log('toCopy: ' + toCopy);
-          console.log('Copying text command was ' + msg);
-        } catch (err) {
-          console.log('Oops, unable to copy');
-        }
-
-      });
+  
    </script>
 </head>
 <body class="fadeIn">
@@ -134,7 +121,27 @@
   <h1 class="ta-c">Wiki</h1>
     <h2 class="ta-c tt-u">Basic Classes</h2>
     <div class="cc-4"></div>
+    <script language="JavaScript">
 
+      el.forEach(x => {
+
+        //    $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
+
+        var sub = D.createElement('div');
+        var aaa = D.querySelector('#wiki > div');
+        aaa.appendChild(sub);
+        $(sub).c('dis-ib').c('w-100');
+
+        var h = D.createElement('h3');
+        $(h).c('ta-c').c('tt-u');
+
+        h.innerHTML = x[0];
+        sub.appendChild(h);
+        table(x[1],['class','CSS statement(s)'],'w-100',['w-25','w-75'],sub);
+
+      });
+
+    </script>
     <h2 class="ta-c tt-u">Extra Classes</h2>
 </section>
 
