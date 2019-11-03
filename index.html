@@ -98,7 +98,6 @@
 
     </script>
 </head>
-<script src="https://webgestalter.github.io/manfred/mf.js"></script>
 <body class="fadeIn">
 
   <header class="ta-c">
@@ -116,48 +115,50 @@
     <h1 class="ta-c">Download</h1>
   </section>
 
-<section id="wiki">
-  <h1 class="ta-c">Wiki</h1>
-    <h2 class="ta-c tt-u">Basic Classes</h2>
-    <div class="cc-4"></div>
-    <script language="JavaScript">
+  <section id="wiki">
+    <h1 class="ta-c">Wiki</h1>
+      <h2 class="ta-c tt-u">Basic Classes</h2>
+      <div class="cc-4"></div>
 
-      el.forEach(x => {
+      <h2 class="ta-c tt-u">Extra Classes</h2>
+  </section>
+  
+  <script src="https://webgestalter.github.io/manfred/mf.js"></script>
+  <script language="JavaScript">
 
-        //    $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
+    el.forEach(x => {
 
-        var sub = D.createElement('div');
-        var aaa = D.querySelector('#wiki > div');
-        aaa.appendChild(sub);
-        $(sub).c('dis-ib').c('w-100');
+      //    $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
 
-        var h = D.createElement('h3');
-        $(h).c('ta-c').c('tt-u');
+      var sub = D.createElement('div');
+      var aaa = D.querySelector('#wiki > div');
+      aaa.appendChild(sub);
+      $(sub).c('dis-ib').c('w-100');
 
-        h.innerHTML = x[0];
-        sub.appendChild(h);
-        table(x[1],['class','CSS statement(s)'],'w-100',['w-25','w-75'],sub);
+      var h = D.createElement('h3');
+      $(h).c('ta-c').c('tt-u');
 
-      });
+      h.innerHTML = x[0];
+      sub.appendChild(h);
+      table(x[1],['class','CSS statement(s)'],'w-100',['w-25','w-75'],sub);
 
-      $('tbody td').e('click',x=>{
+    });
 
-        toCopy = $(x.target).html();
+    $('tbody td').e('click',x=>{
 
-        try {
-          var successful = document.execCommand(toCopy);
-          var msg = successful ? 'successful' : 'unsuccessful';
-          console.log('toCopy: ' + toCopy);
-          console.log('Copying text command was ' + msg);
-        } catch (err) {
-          console.log('Oops, unable to copy');
-        }
+      toCopy = $(x.target).html();
 
-      });
+      try {
+        var successful = document.execCommand(toCopy);
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('toCopy: ' + toCopy);
+        console.log('Copying text command was ' + msg);
+      } catch (err) {
+        console.log('Oops, unable to copy');
+      }
 
-    </script>
-    <h2 class="ta-c tt-u">Extra Classes</h2>
-</section>
+    });
 
+  </script>
 </body>
 </html>
