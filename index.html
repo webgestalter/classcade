@@ -10,35 +10,30 @@
 </head>
 <body class="fadeIn s1">
 
-<?php
-
-
-  $el = [[ 'align-content'    , 'ac'  ],
-         [ 'justify-content'  , 'jc'  ],
-         [ 'z-index'          , 'zi'  ]];
-
-  $jc = [[ '.jc'   , 'justify-content:var(--jc)'     ],
-         [ '.jcc'  , 'justify-content:center'        ],
-         [ '.jcfe' , 'justify-content:flex-end'      ],
-         [ '.jcfs' , 'justify-content:flex-start'    ],
-         [ '.jcsa' , 'justify-content:space-around'  ],
-         [ '.jcsb' , 'justify-content:space-between' ]];
-?>
-
 <section id="wiki cc3">
-  <?php foreach($el as $x){ ?>
-    <div class="disib">
-      <h3><?=$x[0]?></h3>
-      <?=table($$x[1])?>
-    </div>
-  <?php } ?>
+  <script language="JavaScript">
+    el.forEach(x){
+      $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
+  //    table(x[1])
+    }
+  </script>
 </section>
-
-<?=table($jc)?>
 
 <script src="https://webgestalter.github.io/manfred/mf.js"></script>
 <script language="JavaScript">
-  function table(x=''){
+
+ var el = [[ 'align-content'    , 'ac'  ],
+           [ 'justify-content'  , 'jc'  ],
+           [ 'z-index'          , 'zi'  ]];
+
+ var jc = [[ '.jc'   , 'justify-content:var(--jc)'     ],
+           [ '.jcc'  , 'justify-content:center'        ],
+           [ '.jcfe' , 'justify-content:flex-end'      ],
+           [ '.jcfs' , 'justify-content:flex-start'    ],
+           [ '.jcsa' , 'justify-content:space-around'  ],
+           [ '.jcsb' , 'justify-content:space-between' ]];
+
+  function table(x){
 
     if( !empty() ){
 
@@ -48,16 +43,16 @@
 
         r += '<thead>';
           r += '<tr style="height: 23px;">
-            <td style="width: 25%; height: 23px;">&nbsp;.jc</td>
-            <td style="width: 75%; height: 23px;">&nbsp;justify-content:var(--jc)</td>
+            <td style="width: 25%; height: 23px;">...</td>
+            <td style="width: 75%; height: 23px;">...</td>
             </tr>';
         r += '</thead>';
 
         r += '<tbody>';
-          foreach( $x as $y ){
+          forEach(x){
             r += '<tr style="height: 23px;">
-              <td style="width:25%;height:23px;">'+$y[0]+'</td>
-              <td style="width:75%;height:23px;">'+$y[1]+'</td>
+              <td style="width:25%;height:23px;">'+x[0]+'</td>
+              <td style="width:75%;height:23px;">'+x[1]+'</td>
               </tr>';
           }
         r += '</tbody>';
