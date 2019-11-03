@@ -84,9 +84,11 @@
   //    $('#wiki').ap('<div class="disib"><h3>'+x[0]+'</h3></div>');
 
       var sub = D.createElement('div');
-      $(sub).c('disib');
+      var aaa = D.querySelector('#wiki');
+      aaa.appendChild(sub);
+//      $(sub).c('disib');
 
-      D.querySelector('#wiki').appendChild(sub);
+
 
       var h3 = D.createElement('h3');
       h3.innerHTML = x[0];
