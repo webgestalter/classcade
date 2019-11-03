@@ -96,21 +96,7 @@
                [ 'text-transform'  , tt  ],
                [ 'z-index'         , zi  ]];
 
-      $('tbody td').e('click',x=>{
-
-        toCopy = $(x.target).html();
-
-        try {
-          var successful = document.execCommand(toCopy);
-          var msg = successful ? 'successful' : 'unsuccessful';
-          console.log('toCopy: ' + toCopy);
-          console.log('Copying text command was ' + msg);
-        } catch (err) {
-          console.log('Oops, unable to copy');
-        }
-
-      });
-   </script>
+    </script>
 </head>
 <body class="fadeIn">
 <script src="https://webgestalter.github.io/manfred/mf.js"></script>
@@ -151,6 +137,21 @@
         h.innerHTML = x[0];
         sub.appendChild(h);
         table(x[1],['class','CSS statement(s)'],'w-100',['w-25','w-75'],sub);
+
+      });
+
+      $('tbody td').e('click',x=>{
+
+        toCopy = $(x.target).html();
+
+        try {
+          var successful = document.execCommand(toCopy);
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('toCopy: ' + toCopy);
+          console.log('Copying text command was ' + msg);
+        } catch (err) {
+          console.log('Oops, unable to copy');
+        }
 
       });
 
