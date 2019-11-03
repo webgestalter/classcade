@@ -11,35 +11,7 @@
 <body class="fadeIn s1">
 
 <?php
-  function table($x=''){
 
-    if( !empty() ){
-
-      $r = '<table class="w100">';
-
-        $r.= '<thead>';
-          $r.= '<tr style="height: 23px;">
-            <td style="width: 25%; height: 23px;">&nbsp;.jc</td>
-            <td style="width: 75%; height: 23px;">&nbsp;justify-content:var(--jc)</td>
-            </tr>';
-        $r.= '</thead>';
-
-        $r.= '<tbody>';
-          foreach( $x as $y ){
-            $r.= '<tr style="height: 23px;">
-              <td style="width:25%;height:23px;">'.$y[0].'</td>
-              <td style="width:75%;height:23px;">'.$y[1].'</td>
-              </tr>';
-          }
-        $r.= '</tbody>';
-
-      $r.= '</table>';
-
-      return $r;
-
-    }
-
-  }
 
   $el = [[ 'align-content'    , 'ac'  ],
          [ 'justify-content'  , 'jc'  ],
@@ -65,7 +37,38 @@
 <?=table($jc)?>
 
 <script src="https://webgestalter.github.io/manfred/mf.js"></script>
-<script language="JavaScript"></script>
+<script language="JavaScript">
+  function table(x=''){
 
+    if( !empty() ){
+
+      var r;
+
+      r += '<table class="w100">';
+
+        r += '<thead>';
+          r += '<tr style="height: 23px;">
+            <td style="width: 25%; height: 23px;">&nbsp;.jc</td>
+            <td style="width: 75%; height: 23px;">&nbsp;justify-content:var(--jc)</td>
+            </tr>';
+        r += '</thead>';
+
+        r += '<tbody>';
+          foreach( $x as $y ){
+            r += '<tr style="height: 23px;">
+              <td style="width:25%;height:23px;">'+$y[0]+'</td>
+              <td style="width:75%;height:23px;">'+$y[1]+'</td>
+              </tr>';
+          }
+        r += '</tbody>';
+
+      r += '</table>';
+
+      return r;
+
+    }
+
+  }
+  </script>
 </body>
 </html>
