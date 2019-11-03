@@ -20,6 +20,9 @@
         padding:var(--gap);
       }
       h2 {
+        margin:var(--gap) 0 calc(var(--gap)/2) 0;
+      }
+      h3 {
         margin-top:calc(var(--gap)/2);
       }
       ul {
@@ -71,7 +74,7 @@
 </head>
 <body class="fadeIn">
 
-  <header class="tac">
+  <header class="ta-c">
     <img src="logo/1.svg" />
     <ul>
       <li>
@@ -88,6 +91,7 @@
 
 <section id="wiki">
   <h1>Wiki</h1>
+  <h2 class="ta-c tt-u">Standard Classes</h2>
   <div class="cc-3"></div>
   <script src="https://webgestalter.github.io/manfred/mf.js"></script>
   <script language="JavaScript">
@@ -104,7 +108,7 @@
       aaa.appendChild(sub);
       $(sub).c('dis-ib').c('w-100');
 
-      var h = D.createElement('h2');
+      var h = D.createElement('h3');
       $(h).c('ta-c').c('tt-u');
 
       h.innerHTML = x[0];
