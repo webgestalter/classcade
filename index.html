@@ -45,10 +45,6 @@
   <script src="https://webgestalter.github.io/manfred/mf.js"></script>
   <script language="JavaScript">
 
-    var el = [[ 'align-content'    , ac  ],
-              [ 'justify-content'  , jc  ],
-              [ 'z-index'          , zi  ]];
-
     var ac = [[ '.jc'   , 'justify-content:var(--jc)'     ],
               [ '.jcc'  , 'justify-content:center'        ],
               [ '.jcfe' , 'justify-content:flex-end'      ],
@@ -69,6 +65,10 @@
               [ '.jcfs' , 'justify-content:flex-start'    ],
               [ '.jcsa' , 'justify-content:space-around'  ],
               [ '.jcsb' , 'justify-content:space-between' ]];
+
+    var el = [[ 'align-content'   , ac  ],
+              [ 'justify-content' , jc  ],
+              [ 'z-index'         , zi  ]];
 
     el.forEach(x => {
 
