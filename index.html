@@ -99,18 +99,21 @@
 
   function table(tableData,tableClasses,rowClasses,context) {
     var table = D.createElement('table');
-//    var table = $('<table>');
+//  var table = $('<table>');
 
     if(tableClasses){ isA(tableClasses) ? tableClasses.forEach(z =>{$(table).c(tableClasses)})
                                         : $(table).c(tableClasses) }
 
     var tableBody = D.createElement('tbody');
+//  var row = $('<tbody>');
 
     tableData.forEach(function(rowData) {
       var row = D.createElement('tr');
+//    var row = $('<tr>');
 
       rowData.forEach(function(cellData) {
         var cell = D.createElement('td');
+//      var row = $('<td>');
         cell.appendChild(D.createTextNode(cellData));
         row.appendChild(cell);
       });
