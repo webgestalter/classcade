@@ -55,15 +55,15 @@
 
 
   function createTable(tableData) {
-    var table = document.createElement('table');
-    var tableBody = document.createElement('tbody');
+    var table = D.createElement('table');
+    var tableBody = D.createElement('tbody');
 
     tableData.forEach(function(rowData) {
-      var row = document.createElement('tr');
+      var row = D.createElement('tr');
 
       rowData.forEach(function(cellData) {
-        var cell = document.createElement('td');
-        cell.appendChild(document.createTextNode(cellData));
+        var cell = D.createElement('td');
+        cell.appendChild(D.createTextNode(cellData));
         row.appendChild(cell);
       });
 
