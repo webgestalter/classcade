@@ -101,7 +101,8 @@
     var table = D.createElement('table');
 //    var table = $('<table>');
 
-    if(tableClasses){ $(table).c(tableClasses) }
+    if(tableClasses){ isA(tableClasses) ? tableClasses.forEach(z =>{$(table).c(tableClasses)})
+                                        : $(table).c(tableClasses) }
 
     var tableBody = D.createElement('tbody');
 
