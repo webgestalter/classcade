@@ -39,6 +39,6 @@ console.log(result)
                                     var val  = spl[1]; val  =       values[val];
                                     document.querySelectorAll('.'+c).forEach(z=>{z.style[prop] = val;});
 
-                                    console.log(prop);
-                                    console.log(val);
+                                    console.log('prop: '+prop);
+                                    console.log('val: '+val);
   });
