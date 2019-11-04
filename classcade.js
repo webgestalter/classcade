@@ -37,7 +37,7 @@ console.log(result)
                                     var spl  = c.split('-');
                                     var prop = spl[0]; prop = properties[prop];
                                     var val  = spl[1]; val  =       values[val];
-                                    document.querySelectorAll(c).style[prop] = val;
+                                    document.querySelectorAll('.'+c).style[prop] = val;
 
                                     console.log(prop);
                                     console.log(val);
