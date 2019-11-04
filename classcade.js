@@ -1,14 +1,25 @@
+D=document;
+
+ qs=(s,c)=>{(c||D).querySelector(s)}
+qsa=(s,c)=>{(c||D).querySelectorAll(s)}
+
 properties = {
   ac  : 'align-content'   ,
   ai  : 'align-items'     ,
-  as  : 'align-items'     ,
+  as  : 'align-self'      ,
+  b   : 'bottom'          ,
   cc  : 'column-count'    ,
+  cg  : 'column-gap'      ,
   dis : 'display'         ,
   jc  : 'justify-content' ,
+  l   : 'left'            ,
   m   : 'margin'          ,
   p   : 'padding'         ,
+  r   : 'right'           ,
   pos : 'position'        ,
-  ta  : 'text-align'
+  t   : 'top'             ,
+  ta  : 'text-align'      ,
+  va  : 'vertical-align'
 }
 
 values = {
@@ -24,6 +35,7 @@ values = {
   fs  : 'flex-start'    ,
   i   : 'inline'        ,
   ib  : 'inline-block'  ,
+  m   : 'middle'        ,
   n   : 'none'          ,
   rel : 'relative'      ,
   sa  : 'space-around'  ,
