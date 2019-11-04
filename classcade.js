@@ -38,7 +38,6 @@ classesWithDash = [...classesWithDash];
   console.log(classesWithDash);
 
 
-
   classesWithDash.forEach( c => {
                                     var spl  = c.split('-');
                                     var prop = spl[0]; prop = properties[prop];
