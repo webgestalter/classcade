@@ -24,18 +24,13 @@ values = {
   st  : 'sticky'
 }
 
-let classesWithDash = new Set();
-document.querySelectorAll('*').forEach(element => {
-  for (const cls of element.className.split(' ').filter(name => name.includes("-"))) {
-      classesWithDash.add(cls);
-  }
-});
-// Now, `classesWithDash` is a set containing the class names with dashes
-// If you want an array:
-console.log(classesWithDash);
-classesWithDash = [...classesWithDash];
+const result = [...new Set( // use a Set to get an array of unique items
+  Array.from(document.querySelectorAll('[class*="-"]')) // select all elements with classes that contain hyphens
 
-  console.log(classesWithDash);
+  .flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))) // create an array of all classes with hyphens
+)]
+
+console.log(result)
 
 
   classesWithDash.forEach( c => {
