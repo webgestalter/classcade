@@ -3,9 +3,11 @@ properties = {
   ai  : 'align-items'     ,
   as  : 'align-items'     ,
   cc  : 'column-count'    ,
+  dis : 'display'         ,
   jc  : 'justify-content' ,
   m   : 'margin'          ,
   p   : 'padding'         ,
+  pos : 'position'        ,
   ta  : 'text-align'
 }
 
@@ -13,11 +15,15 @@ values = {
   a   : 'auto'          ,
   a0  : 'auto 0'        ,
   abs : 'absolute'      ,
+  b   : 'block'         ,
   bl  : 'baseline'      ,
   c   : 'center'        ,
+  f   : 'flex'          ,
   fix : 'fixed'         ,
   fe  : 'flex-end'      ,
   fs  : 'flex-start'    ,
+  i   : 'inline'        ,
+  ib  : 'inline-block'  ,
   n   : 'none'          ,
   rel : 'relative'      ,
   sa  : 'space-around'  ,
