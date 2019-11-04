@@ -3,6 +3,7 @@ properties = {
   ai  : 'align-items'     ,
   as  : 'align-items'     ,
   cc  : 'column-count'    ,
+  jc  : 'justify-content' ,
   m   : 'margin'          ,
   p   : 'padding'         ,
   ta  : 'text-align'
