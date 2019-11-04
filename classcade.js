@@ -33,7 +33,7 @@ const result = [...new Set(
 console.log(result)
 
 
-  result.forEach( c => {
+  result.forEach( c => {          console.log('c: '+c);
                                     var spl  = c.split('-');
                                     var prop = spl[0]; prop = properties[prop];
                                     var val  = spl[1]; val  =       values[val];
