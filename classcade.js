@@ -24,10 +24,10 @@ values = {
   st  : 'sticky'
 }
 
-const result = [...new Set( // use a Set to get an array of unique items
-  Array.from(document.querySelectorAll('[class*="-"]')) // select all elements with classes that contain hyphens
+const result = [...new Set(
+  Array.from(document.querySelectorAll('[class*="-"]'))
 
-  .flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))) // create an array of all classes with hyphens
+  .flatMap(el => Array.from(el.classList).filter(c => c.includes('-')))
 )]
 
 console.log(result)
@@ -36,7 +36,7 @@ console.log(result)
   result.forEach( c => {
                                     var spl  = c.split('-');
                                     var prop = spl[0]; prop = properties[prop];
-                                    var val  = spl[1]; val  =       value[val];
+                                    var val  = spl[1]; val  =       values[val];
                                     document.querySelectorAll(c).style[prop] = val;
 
                                     console.log(prop);
