@@ -25,7 +25,7 @@ values = {
 }
 
 
-var cc = (s) => {
+
 
   var getClasses     = document.querySelectorAll(c).className.split(' ');
   var classesContain = [];
@@ -40,7 +40,3 @@ var cc = (s) => {
                                     console.log(prop);
                                     console.log(val);
   });
-
-
-
-}
