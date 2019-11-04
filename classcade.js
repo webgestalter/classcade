@@ -19,7 +19,8 @@ properties = {
   pos : 'position'        ,
   t   : 'top'             ,
   ta  : 'text-align'      ,
-  va  : 'vertical-align'
+  va  : 'vertical-align'  ,
+  zi  : 'z-index'
 }
 
 values = {
