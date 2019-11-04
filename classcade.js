@@ -54,8 +54,16 @@ console.log(result)
 
   result.forEach( c => {          console.log('c: '+c);
                                     var spl  = c.split('-');
+
+
+                                    // set property
                                     var prop = spl[0]; prop = properties[prop];
-                                    var val  = spl[1]; val  =       values[val];
+
+                                    // set value
+                                    var val  = spl[1];
+                                    val = values[val] || val;
+
+                                    //
                                     document.querySelectorAll('.'+c).forEach(z=>{z.style[prop] = val;});
 
                                     console.log('prop: '+prop);
