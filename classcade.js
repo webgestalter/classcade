@@ -27,8 +27,12 @@ values = {
 
 
 
-  var getClasses     = document.querySelectorAll('*').className.split(' ');
+  var getClasses     = [];
   var classesContain = [];
+
+  document.querySelectorAll('*').forEach( z => { var y = z.className.split(' '); getClasses.push(y); console.log('add: '+y); } );
+  console.log(getClasses);
+
 
       getClasses.forEach( c => { if(c.contains('-')){ classesContain.push(c); } } );
   classesContain.forEach( c => {
