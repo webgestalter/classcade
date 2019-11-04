@@ -38,6 +38,9 @@ var cc = (s) => {
                                     var prop = spl[0]; prop = properties[prop];
                                     var val  = spl[1]; val  =       value[val];
                                     document.querySelectorAll(c).style[prop] = val;
+
+                                    console.log(prop);
+                                    console.log(val);
   });
 
 
