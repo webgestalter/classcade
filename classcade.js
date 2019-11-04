@@ -9,8 +9,6 @@ properties = {
 }
 
 values = {
-  0   : '0'             ,
-  0a  : '0 auto'        ,
   a   : 'auto'          ,
   a0  : 'auto 0'        ,
   abs : 'absolute'      ,
