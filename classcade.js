@@ -35,8 +35,8 @@ var cc = (s) => {
       getClasses.forEach( c => { if(c.contains('-')){ classesContain.push(c); } } );
   classesContain.forEach( c => {
                                     var spl  = c.split('-');
-                                    var prop = spl[0];
-                                    var val  = spl[1];
+                                    var prop = spl[0]; prop = properties[prop];
+                                    var val  = spl[1]; val  =       value[val];
                                     document.querySelectorAll(c).style[prop] = val;
   });
 
