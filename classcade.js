@@ -33,7 +33,7 @@ const result = [...new Set( // use a Set to get an array of unique items
 console.log(result)
 
 
-  classesWithDash.forEach( c => {
+  result.forEach( c => {
                                     var spl  = c.split('-');
                                     var prop = spl[0]; prop = properties[prop];
                                     var val  = spl[1]; val  =       value[val];
