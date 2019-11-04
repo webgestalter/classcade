@@ -1,11 +1,11 @@
 * {--P:var(--V)}
 
-*[class^="ac-" ]{ --P:align-content }
-*[class^="ai-" ]{ --P:align-items   }
-*[class^="as-" ]{ --P:align-self    }
-*[class^="m-"  ]{ --P:margin        }
-*[class^="p-"  ]{ --P:padding       }
-*[class^="ta-" ]{ --P:text-align    }
+*[class^="ac-" ]{ align-content :var(--V) }
+*[class^="ai-" ]{ align-items   :var(--V) }
+*[class^="as-" ]{ align-self    :var(--V) }
+*[class^="m-"  ]{ margin        :var(--V) }
+*[class^="p-"  ]{ padding       :var(--V) }
+*[class^="ta-" ]{ text-align    :var(--V) }
 
 *[class$="-0"  ]{ --V:0             }
 *[class$="-0a" ]{ --V:0 auto        }
