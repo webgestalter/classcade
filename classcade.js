@@ -24,22 +24,22 @@ values = {
   st  : 'sticky'
 }
 
-let classesWithDash = new Set();
-document.querySelectorAll('*').forEach(element => {
-  for (const cls of element.className.split(' ').filter(name => name.includes("-"))) {
-      classesWithDash.add(cls);
-  }
+var getClasses = [];
+var classesContain = [];
+
+document.querySelectorAll('*').forEach(x => {
+  var y = x.className.split(/\s+/g); // use a regex to cater for multiple spaces
+  y.forEach(className => {
+    if (className.indexOf('-') > -1)
+      classesContain.push(className);
+  });
 });
-// Now, `classesWithDash` is a set containing the class names with dashes
-// If you want an array:
-console.log(classesWithDash);
-classesWithDash = [...classesWithDash];
 
-  console.log(classesWithDash);
+console.log('Final class list: ', classesContain);
 
 
 
-  classesWithDash.forEach( c => {
+  classesContain.forEach( c => {
                                     var spl  = c.split('-');
                                     var prop = spl[0]; prop = properties[prop];
                                     var val  = spl[1]; val  =       value[val];
