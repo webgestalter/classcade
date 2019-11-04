@@ -1,29 +1,3 @@
-.ac{--AC:var(--ai)}.ac-a{--AC:auto}.ac-c{--AC:center}.ac-fe{--AC:flex-end}.ac-fs{--AC:flex-start}.ac-sa{--AC:space-around}.ac-sb{--AC:space-between}.ac-s{--AC:stretch}
-.ai{--AI:var(--ai)}.ai-b{--AI:baseline}.ai-c{--AI:center}.ai-fe{--AI:flex-end}.ai-fs{--AI:flex-start}.ai-s{--AI:stretch}
-.as{align-self:var(--as)}.as-a{align-self:auto}.as-b{align-self:baseline}.as-c{align-self:center}.as-fe{align-self:flex-end}.as-fs{align-self:flex-start}.as-s{align-self:stretch}
-
-.as{--AS:var(--as)}.as-a{--AS:auto}.as-b{--AS:baseline}.as-c{--AS:center}.as-fe{--AS:flex-end}.as-fs{--AS:flex-start}.as-s{--AS:stretch}
-
-html {
-
-  /* properties */
-
-  --AC:align-content;
-  --AI:align-items;
-  --AS:align-self;
-
-  /* values */
-
-  --a :auto;
-  --bl:baseline;
-  --c :center;
-  --fe:flex-end;
-  --fs:flex-start;
-  --sa:space-around;
-  --sb:space-between;
-  --s :stretch;
-}
-
 * {var(--P):var(--V)}
 
 *[class^="ac-" ]{ --P:align-content }
@@ -48,18 +22,3 @@ html {
 *[class$="-sa" ]{ --V:space-around  }
 *[class$="-sb" ]{ --V:space-between }
 *[class$="-st" ]{ --V:sticky        }
-
-
-
-
-
-
-
-* {--P:var(--v)}
-
-*[class^="ac-"]{ align-content:var(--ac) }
-*[class^="ai-"]{ align-items:  var(--ai) }
-*[class^="as-"]{ align-self:   var(--as) }
-
-
-div[id$="-c"]  {  --ac:center      }
