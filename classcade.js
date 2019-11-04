@@ -29,7 +29,7 @@ values = {
 
 var cc = (s) => {
 
-  var getClasses     = document.querySelectorAll(c).classList;
+  var getClasses     = document.querySelectorAll(c).className.split(' ');
   var classesContain = [];
 
       getClasses.forEach( c => { if(c.contains('-')){ classesContain.push(c); } } );
