@@ -72,16 +72,6 @@ values = {
   ul  : 'underline'
 }
 
-values = {
-  bl     : 'bottom:0;left:0;'        ,
-  br     : 'bottom:0;right:0;'       ,
-  tbl    : 'top:0;bottom:0;left:0;'  ,
-
-  fixed  : 'position:fixed'     ,
-  flex   : 'display:flex'       ,
-  sticky : 'position:sticky'
-}
-
 const result = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))))];
 const result2 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => !c.includes('-'))))];
 
