@@ -2,3 +2,14 @@
 
 .fadeIn  {--f:0;--t:1;animation:opa ease-in  var(--s,1s)          }
 .fadeOut {--f:1;--t:0;animation:opa ease-out var(--s,1s);opacity:0}
+
+
+.bl       {bottom:0;left:0}
+.br       {bottom:0;right:0}
+.tbl      {top:0;bottom:0;left:0}
+
+.absolute {position:absolute}
+.fixed    {position:fixed}
+.sticky   {position:sticky}
+
+.flex     {display:flex}
