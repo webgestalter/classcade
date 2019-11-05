@@ -83,8 +83,11 @@ properties = {
   hw  : ['h,w'],
   tl  : ['t,l'],
   tr  : ['t,r'],
+  rbl : ['r,b,l'],
+  trl : ['t,r,l'],
   trb : ['t,r,b'],
-  tbl : ['t,b,l']
+  tbl : ['t,b,l'],
+  trbl: ['t,r,b,l']
 }
 
 const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
