@@ -1,4 +1,8 @@
-/*  effects */
+/* defaults */
+
+button,.clickable {cursor:pointer}
+
+/* effects */
 
 @keyframes opa {from{opacity:var(--f)}to{opacity:var(--t)}}
 
