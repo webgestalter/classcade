@@ -24,6 +24,7 @@ properties = {
   jc  : 'justify-content' ,
   h   : 'height'          ,
   l   : 'left'            ,
+  ls  : 'list-style'      ,
   m   : 'margin'          ,
   of  : 'overflow'        ,
   ofx : 'overflow-x'      ,
