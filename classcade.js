@@ -38,7 +38,6 @@ properties = {
   w   : 'width'           ,
   zi  : 'z-index'
 }
-
 values = {
   a   : 'auto'          ,
   a0  : 'auto 0'        ,
@@ -83,38 +82,34 @@ console.log('r1: '+r1);
 console.log('r2: '+r2);
 console.log('r3: '+r3);
 
-  r2.forEach( c => {
-    var spl = c.split('-');
-    var prop = properties[spl[0]];                // set property
-    var val = spl[1]; val = values[val] || val;   // set value
-    qsa('.'+c).forEach(z=>{z.style[prop] = val}); //
-  });
+r2.forEach( c => {
+  var spl = c.split('-');
+  var prop = properties[spl[0]];                // set property
+  var val = spl[1]; val = values[val] || val;   // set value
+  qsa('.'+c).forEach(z=>{z.style[prop] = val}); //
+});
 
 function cc(s){
 
   const x = {
+    element: qs(s),
+          _: (a,b) => {
 
-     ///// SELECTOR
-  element: qs(s),
-        _: (a,b) => {
+             if(b){
 
-           if(b){
+               let z = x[0].classList;
+               z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
 
-             let z = x[0].classList;
-             z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
+             } else {
 
-           } else {
-             strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1))})
-                                   :               x.classList.remove(a.slice(1))
-                         : isNL(x) ? x.forEach(y=>{y.classList.add(a)})
-                                   :               x.classList.add(a)
-           }
+               strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1))})
+                                     :               x.classList.remove(a.slice(1))
+                           : isNL(x) ? x.forEach(y=>{y.classList.add(a)})
+                                     :               x.classList.add(a)
+             }
+             return this
+         }
+  }
 
-           return x
-       },
-
-}
-
-return x
-
+  return x
 }
