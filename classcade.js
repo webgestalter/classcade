@@ -80,6 +80,13 @@ const result2 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.
 console.log('result1: '+result1);
 console.log('result2: '+result2);
 
+const all = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
+const r1  = all.filter(c => !c.includes('-'));
+const r2  = all.filter(c =>  c.includes('-'));
+
+console.log('r1: '+r1);
+console.log('r2: '+r2);
+
   result1.forEach( c => {
                                     var spl  = c.split('-');
 
