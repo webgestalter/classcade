@@ -78,7 +78,11 @@ properties = {
   w   : 'wrap'
 }
     extras = {
-  hw  : ['height','width']
+  hw  : ['h,w'],
+  tl  : ['t,l'],
+  tr  : ['t,r'],
+  trb : ['t,r,b'],
+  tbl : ['t,b,l']
 }
 
 const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
