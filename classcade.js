@@ -61,7 +61,7 @@ values = {
   lt  : 'line-through'  ,
   m   : 'middle'        ,
   n   : 'none'          ,
-  nw  : 'nowrap'          ,
+  nw  : 'nowrap'        ,
   ol  : 'overline'      ,
   p   : 'pointer'       ,
   rel : 'relative'      ,
@@ -84,20 +84,10 @@ console.log('r2: '+r2);
 console.log('r3: '+r3);
 
   r2.forEach( c => {
-                                    var spl = c.split('-');
-
-
-                                    // set property
-                                    var prop = properties[spl[0]];
-
-                                    // set value
-                                    var val = spl[1];
-                                    val = values[val] || val;
-
-                                    //
-                                    qsa('.'+c).forEach(z=>{z.style[prop] = val;});
-
-
+    var spl = c.split('-');
+    var prop = properties[spl[0]];                // set property
+    var val = spl[1]; val = values[val] || val;   // set value
+    qsa('.'+c).forEach(z=>{z.style[prop] = val}); //
   });
 
 function cc(s){
