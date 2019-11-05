@@ -118,20 +118,20 @@ function cc(s){
     element: qs(s),
           _: (a,b) => {
 
-             if(b){
+       if(b){
 
-               let z = x[0].classList;
-               z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
+         let z = x[0].classList;
+         z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
 
-             } else {
+       } else {
 
-               strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1))})
-                                     :               x.classList.remove(a.slice(1))
-                           : isNL(x) ? x.forEach(y=>{y.classList.add(a)})
-                                     :               x.classList.add(a)
-             }
-             return this
-         }
+         strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1))})
+                               :               x.classList.remove(a.slice(1))
+                     : isNL(x) ? x.forEach(y=>{y.classList.add(a)})
+                               :               x.classList.add(a)
+       }
+       return this
+    }
   }
 
   return x
