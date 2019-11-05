@@ -1,7 +1,4 @@
-D=document;
-
- qs=(s,c)=>{(c||D).querySelector(s)}
-qsa=(s,c)=>{(c||D).querySelectorAll(s)}
+D=document; qsa=(s,c)=>{return (c||D).querySelectorAll(s)}
 
 properties = {
   ac  : 'align-content'   ,
@@ -75,28 +72,59 @@ values = {
 }
 
 const result = [...new Set(
-  Array.from(document.querySelectorAll('[class*="-"]'))
+  Array.from(qsa('[class*="-"]'))
 
   .flatMap(el => Array.from(el.classList).filter(c => c.includes('-')))
 )]
 
-console.log(result)
 
 
-  result.forEach( c => {          console.log('c: '+c);
+  result.forEach( c => {
                                     var spl  = c.split('-');
 
 
                                     // set property
-                                    var prop = spl[0]; prop = properties[prop];
+                                    var prop = properties[spl[0]];
 
                                     // set value
                                     var val  = spl[1];
                                     val = values[val] || val;
 
                                     //
-                                    document.querySelectorAll('.'+c).forEach(z=>{z.style[prop] = val;});
+                                    qsa('.'+c).forEach(z=>{z.style[prop] = val;});
 
-                                    console.log('prop: '+prop);
-                                    console.log('val: '+val);
+
   });
+
+function cc(s){
+
+  const x = {
+
+     ///// SELECTOR
+  element: qs(s),
+
+     ///// BASIC METHODS
+        _: (a)     => {
+
+        if(strB(a,'data-')){
+
+          z = isNL(x) ? x[0] : x ;
+
+          if (!("params" in z.dataset)){
+              x = z.closest('*['+a+']');
+          }
+          return x.getAttribute(a);
+
+        } else {
+
+          x = [x[0].closest(a)];
+          return x;
+        }
+
+    }
+
+}
+
+return x
+
+}
