@@ -62,6 +62,7 @@ values = {
   m   : 'middle'        ,
   n   : 'none'          ,
   ol  : 'overline'      ,
+  p   : 'pointer'       ,
   rel : 'relative'      ,
   rowr: 'row-reverse'   ,
   sa  : 'solid'         ,
@@ -110,9 +111,9 @@ function cc(s){
              z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
 
            } else {
-             strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1));})
+             strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1))})
                                    :               x.classList.remove(a.slice(1))
-                         : isNL(x) ? x.forEach(y=>{y.classList.add(a);})
+                         : isNL(x) ? x.forEach(y=>{y.classList.add(a)})
                                    :               x.classList.add(a)
            }
 
