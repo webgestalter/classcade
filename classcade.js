@@ -10,10 +10,12 @@ properties = {
   bsh : 'box-shadow'      ,
   bg  : 'background'      ,
   brad: 'border-radius'   ,
+  c   : 'color'           ,
   cc  : 'column-count'    ,
   cg  : 'column-gap'      ,
   cur : 'cursor'          ,
   dis : 'display'         ,
+  f   : 'fill'            ,
   fb  : 'flex-basis'      ,
   fd  : 'flex-direction'  ,
   fg  : 'flex-grow'       ,
@@ -32,6 +34,7 @@ properties = {
   pos : 'position'        ,
   t   : 'top'             ,
   ta  : 'text-align'      ,
+  tc  : 'color'           ,
   td  : 'text-decoration' ,
   tt  : 'text-transform'  ,
   va  : 'vertical-align'  ,
@@ -71,6 +74,9 @@ properties = {
   st  : 'sticky'        ,
   ul  : 'underline'     ,
   w   : 'wrap'
+}
+    extras = {
+  hw  : ['height','width']
 }
 
 const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
