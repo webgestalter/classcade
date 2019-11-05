@@ -26,4 +26,5 @@
 .nowrap   {flex-wrap:nowrap}
 .wrap     {flex-wrap:wrap}
 
+.half     {width:50%}
 .fit      {width:100%}
