@@ -88,7 +88,7 @@ console.log('r1: '+r1);
 console.log('r2: '+r2);
 
   result1.forEach( c => {
-                                    var spl  = c.split('-');
+                                    var spl = c.split('-');
 
 
                                     // set property
