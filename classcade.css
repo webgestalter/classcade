@@ -7,10 +7,14 @@
 
 /* additional classcade */
 
+.tl       {top:0;left:0}
+.tr       {top:0;right:0}
 .bl       {bottom:0;left:0}
-.br       {bottom:0;right:0}
+.rb       {right:0;bottom:0}
+.trl      {top:0;right:0;left:0}
 .rbl      {right:0;bottom:0;left:0}
 .tbl      {top:0;bottom:0;left:0}
+.tbr      {top:0;bottom:0;right:0}
 
 .absolute {position:absolute}
 .fixed    {position:fixed}
