@@ -38,7 +38,7 @@ properties = {
   w   : 'width'           ,
   zi  : 'z-index'
 }
-values = {
+    values = {
   a   : 'auto'          ,
   a0  : 'auto 0'        ,
   abs : 'absolute'      ,
