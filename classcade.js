@@ -74,20 +74,16 @@ values = {
   w   : 'wrap'
 }
 
-const result1 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))))];
-const result2 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => !c.includes('-'))))];
-
-console.log('result1: '+result1);
-console.log('result2: '+result2);
-
-const all = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
-const r1  = all.filter(c => !c.includes('-'));
-const r2  = all.filter(c =>  c.includes('-'));
+const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
+const r1 = r.filter( c =>  c.includes('--')                    );
+const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
+const r3 = r.filter( c =>                     !c.includes('-') );
 
 console.log('r1: '+r1);
 console.log('r2: '+r2);
+console.log('r3: '+r3);
 
-  result1.forEach( c => {
+  r2.forEach( c => {
                                     var spl = c.split('-');
 
 
