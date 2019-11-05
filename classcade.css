@@ -17,3 +17,6 @@
 .sticky   {position:sticky}
 
 .flex     {display:flex}
+
+.nowrap   {flex-wrap:nowrap}
+.wrap     {flex-wrap:wrap}
