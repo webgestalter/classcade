@@ -72,12 +72,13 @@ values = {
   ul  : 'underline'
 }
 
-const result = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))))];
+const result1 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))))];
 const result2 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => !c.includes('-'))))];
 
+console.log('result1: '+result1);
 console.log('result2: '+result2);
 
-  result.forEach( c => {
+  result1.forEach( c => {
                                     var spl  = c.split('-');
 
 
