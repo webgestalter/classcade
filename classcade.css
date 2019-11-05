@@ -1,8 +1,11 @@
+/*  effects */
+
 @keyframes opa {from{opacity:var(--f)}to{opacity:var(--t)}}
 
 .fadeIn  {--f:0;--t:1;animation:opa ease-in  var(--s,1s)          }
 .fadeOut {--f:1;--t:0;animation:opa ease-out var(--s,1s);opacity:0}
 
+/* additional classcade */
 
 .bl       {bottom:0;left:0}
 .br       {bottom:0;right:0}

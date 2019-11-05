@@ -61,6 +61,7 @@ values = {
   lt  : 'line-through'  ,
   m   : 'middle'        ,
   n   : 'none'          ,
+  nw  : 'nowrap'          ,
   ol  : 'overline'      ,
   p   : 'pointer'       ,
   rel : 'relative'      ,
@@ -69,7 +70,8 @@ values = {
   sa  : 'space-around'  ,
   sb  : 'space-between' ,
   st  : 'sticky'        ,
-  ul  : 'underline'
+  ul  : 'underline'     ,
+  w   : 'wrap'
 }
 
 const result1 = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList).filter(c => c.includes('-'))))];
