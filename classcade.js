@@ -83,10 +83,10 @@ console.log('r2: '+r2);
 console.log('r3: '+r3);
 
 r2.forEach( c => {
-  var spl = c.split('-');
-  var prop = properties[spl[0]];                // set property
-  var val = spl[1]; val = values[val] || val;   // set value
-  qsa('.'+c).forEach(z=>{z.style[prop] = val}); //
+  var s = c.split('-');
+  var p = properties[s[0]];              // set property
+  var v = s[1];v=values[v]||v;           // set value
+  qsa('.'+c).forEach(z=>{z.style[p]=v}); //
 });
 
 function cc(s){
