@@ -87,7 +87,7 @@ const result = [...new Set(
                                     var prop = properties[spl[0]];
 
                                     // set value
-                                    var val  = spl[1];
+                                    var val = spl[1];
                                     val = values[val] || val;
 
                                     //
@@ -102,26 +102,22 @@ function cc(s){
 
      ///// SELECTOR
   element: qs(s),
+        _: (a,b) => {
 
-     ///// BASIC METHODS
-        _: (a)     => {
+           if(b){
 
-        if(strB(a,'data-')){
+             let z = x[0].classList;
+             z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
 
-          z = isNL(x) ? x[0] : x ;
+           } else {
+             strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1));})
+                                   :               x.classList.remove(a.slice(1))
+                         : isNL(x) ? x.forEach(y=>{y.classList.add(a);})
+                                   :               x.classList.add(a)
+           }
 
-          if (!("params" in z.dataset)){
-              x = z.closest('*['+a+']');
-          }
-          return x.getAttribute(a);
-
-        } else {
-
-          x = [x[0].closest(a)];
-          return x;
-        }
-
-    }
+           return x
+       },
 
 }
 
