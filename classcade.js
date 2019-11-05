@@ -1,4 +1,4 @@
-D=document; qsa=(s,c)=>{return (c||D).querySelectorAll(s)}
+var qsa=(s)=>{return document.querySelectorAll(s)}
 
 properties = {
   ac  : 'align-content'   ,
