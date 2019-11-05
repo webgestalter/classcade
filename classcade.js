@@ -61,6 +61,7 @@ properties = {
   i   : 'inline'        ,
   ib  : 'inline-block'  ,
   inh : 'inherit'       ,
+  it  : 'italic'        ,
   lt  : 'line-through'  ,
   m   : 'middle'        ,
   n   : 'none'          ,
