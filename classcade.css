@@ -1,5 +1,6 @@
 /* defaults */
 
+*                 {box-sizing:border-box}
 button,.clickable {cursor:pointer}
 
 /* effects */
