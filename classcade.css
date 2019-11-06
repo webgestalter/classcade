@@ -33,3 +33,5 @@ button,.clickable {cursor:pointer}
 
 .half     {width:50%}
 .fit      {width:100%}
+
+.clear    {clear:both}
