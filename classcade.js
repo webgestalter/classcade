@@ -111,15 +111,17 @@ var varClasses( theArray ) => {
     qsa('.'+c).forEach(z=>{z.style[p]=v}); //
   });
 }
+var simpleClasses( theArray ) => {
+  theArray.forEach( c => {
+    var s = c.split('-');
+    var p = properties[s[0]];              // set property
+    var v = s[1];v=values[v]||v;           // set value
+    qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+  });
+}
 
-varClasses(r1);
-
-r2.forEach( c => {
-  var s = c.split('-');
-  var p = properties[s[0]];              // set property
-  var v = s[1];v=values[v]||v;           // set value
-  qsa('.'+c).forEach(z=>{z.style[p]=v}); //
-});
+   varClasses(r1);
+simpleClasses(r2);
 
 function cc(s){
 
