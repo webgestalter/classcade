@@ -140,7 +140,7 @@ var isNL =(a)  =>(
 function cc(s){
 
   const x = {
-    element: qs(s),
+    element: qsa(s),
          cc: (a,b) => {
 
        if(b){
