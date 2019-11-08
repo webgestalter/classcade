@@ -150,10 +150,8 @@ function cc(s){
 
        } else {
 
-         strB(a,'!') ? isNL(x) ? x.forEach(y=>{y.classList.remove(a.slice(1))})
-                               :               x.classList.remove(a.slice(1))
-                     : isNL(x) ? x.forEach(y=>{y.classList.add(a)})
-                               :               x.classList.add(a)
+         strB(a,'!') ? x.forEach(y=>{y.classList.remove(a.slice(1))})
+                     : x.forEach(y=>{y.classList.add(a)})
        }
        return this
     }
