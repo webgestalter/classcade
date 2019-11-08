@@ -103,7 +103,7 @@ console.log('r1: '+r1);
 console.log('r2: '+r2);
 console.log('r3: '+r3);
 
-var varClasses( theArray ) => {
+var varClasses = ( theArray ) => {
   theArray.forEach( c => {
     var s = c.split('--');
     var p = properties[s[0]];              // set property
@@ -111,7 +111,7 @@ var varClasses( theArray ) => {
     qsa('.'+c).forEach(z=>{z.style[p]=v}); //
   });
 }
-var simpleClasses( theArray ) => {
+var simpleClasses = ( theArray ) => {
   theArray.forEach( c => {
     var s = c.split('-');
     var p = properties[s[0]];              // set property
