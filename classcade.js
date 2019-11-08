@@ -94,7 +94,7 @@ properties = {
   trbl: ['t,r,b,l']
 }
 
-var ccMaker = (selector) => {
+var classcade = (selector) => {
 
     const r  = [...new Set(Array.from(qsa(selector)).flatMap(el => Array.from(el.classList)))];
     const r1 = r.filter( c =>  c.includes('--')                    );
@@ -127,7 +127,7 @@ var ccMaker = (selector) => {
 
 }
 
-ccMaker('[class*="-"]');
+classcade('[class*="-"]');
 
 
 function cc(s){
@@ -155,7 +155,7 @@ function cc(s){
   return x
 }
 
-var classcade = (selector,classes) => {
+var cc2 = (selector,classes) => {
 
   var elements = qs(selector);
 
