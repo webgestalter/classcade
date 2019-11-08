@@ -134,7 +134,7 @@ function cc(s){
 
   const x = {
     element: qs(s),
-          _: (a,b) => {
+         cc: (a,b) => {
 
        if(b){
 
