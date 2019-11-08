@@ -1,4 +1,4 @@
-var qsa=(s)=>{return document.querySelectorAll(s)}
+var qsa=(s)=>(document.querySelectorAll(s))
 
 properties = {
   ac  : 'align-content'   ,
