@@ -102,10 +102,6 @@ var classcade = (selector) => {
     const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
     const r3 = r.filter( c =>                     !c.includes('-') );
 
-    console.log('r1: '+r1);
-    console.log('r2: '+r2);
-    console.log('r3: '+r3);
-
     var    varClasses = ( theArray ) => {
       theArray.forEach( c => {
         var s = c.split('--');
@@ -129,56 +125,3 @@ var classcade = (selector) => {
 }
 
 classcade('[class*="-"]');
-
-var is   =(s,o)=>(
-  typeof s==o
-);
-var isNL =(a)  =>(
-  NodeList.prototype.isPrototypeOf(a)
-);
-
-
-function cc(s){
-
-  const x = {
-    element: qsa(s),
-         cc: (a,b) => {
-
-       if(b){
-
-         let z = x[0].classList;
-         z.contains(a) ? (m=a,n=b) : (m=b,n=a) ; (z.remove(m),z.add(n))
-
-       } else {
-
-         strB(a,'!') ? x.forEach(y=>{y.classList.remove(a.slice(1))})
-                     : x.forEach(y=>{y.classList.add(a)})
-       }
-       return this
-    }
-  }
-
-  return x
-}
-
-var cc2 = (selector,classes) => {
-
-  var elements = qs(selector);
-
-  elements.forEach(el=>{
-
-    if( strB(classes,'!') ){
-
-      el.classList.remove(classes.slice(1))
-
-    } else {
-
-      el.classList.add(classes)
-
-    }
-
-    //
-
-  });
-
-}
