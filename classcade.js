@@ -129,6 +129,13 @@ var classcade = (selector) => {
 
 classcade('[class*="-"]');
 
+var is   =(s,o)=>(
+  typeof s==o
+);
+var isNL =(a)  =>(
+  NodeList.prototype.isPrototypeOf(a)
+);
+
 
 function cc(s){
 
