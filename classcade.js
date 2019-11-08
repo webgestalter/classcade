@@ -140,3 +140,23 @@ function cc(s){
 
   return x
 }
+
+var classcade = (selector,classes) => {
+
+  var elements = qs(selector);
+
+  elements.forEach(el=>{
+
+    if( strB(classes,'!') ){
+
+      el.classList.remove(classes.slice(1))
+
+    } else {
+
+      el.classList.add(classes)
+
+    }
+
+  });
+
+}
