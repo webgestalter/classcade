@@ -97,7 +97,9 @@ properties = {
 
 var classcade = (selector) => {
 
-    const r  = [...new Set(Array.from(qsa(selector)).flatMap(el => Array.from(el.classList)))];
+    var s = selector || '[class]' ;
+
+    const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))];
     const r1 = r.filter( c =>  c.includes('--')                    );
     const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
     const r3 = r.filter( c =>                     !c.includes('-') );
@@ -124,4 +126,4 @@ var classcade = (selector) => {
 
 }
 
-classcade('[class*="-"]');
+classcade();
