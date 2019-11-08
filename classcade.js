@@ -94,34 +94,41 @@ properties = {
   trbl: ['t,r,b,l']
 }
 
-const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
-const r1 = r.filter( c =>  c.includes('--')                    );
-const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
-const r3 = r.filter( c =>                     !c.includes('-') );
+var ccMaker = () => {
 
-console.log('r1: '+r1);
-console.log('r2: '+r2);
-console.log('r3: '+r3);
+    const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
+    const r1 = r.filter( c =>  c.includes('--')                    );
+    const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
+    const r3 = r.filter( c =>                     !c.includes('-') );
 
-var varClasses = ( theArray ) => {
-  theArray.forEach( c => {
-    var s = c.split('--');
-    var p = properties[s[0]];              // set property
-    var v = 'var(--'+s[1]+')';             // set value
-    qsa('.'+c).forEach(z=>{z.style[p]=v}); //
-  });
+    console.log('r1: '+r1);
+    console.log('r2: '+r2);
+    console.log('r3: '+r3);
+
+    var    varClasses = ( theArray ) => {
+      theArray.forEach( c => {
+        var s = c.split('--');
+        var p = properties[s[0]];              // set property
+        var v = 'var(--'+s[1]+')';             // set value
+        qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+      });
+    }
+    var simpleClasses = ( theArray ) => {
+      theArray.forEach( c => {
+        var s = c.split('-');
+        var p = properties[s[0]];              // set property
+        var v = s[1];v=values[v]||v;           // set value
+        qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+      });
+    }
+
+       varClasses(r1);
+    simpleClasses(r2);
+
 }
-var simpleClasses = ( theArray ) => {
-  theArray.forEach( c => {
-    var s = c.split('-');
-    var p = properties[s[0]];              // set property
-    var v = s[1];v=values[v]||v;           // set value
-    qsa('.'+c).forEach(z=>{z.style[p]=v}); //
-  });
-}
 
-   varClasses(r1);
-simpleClasses(r2);
+ccMaker();
+
 
 function cc(s){
 
@@ -163,6 +170,8 @@ var classcade = (selector,classes) => {
       el.classList.add(classes)
 
     }
+
+    //
 
   });
 
