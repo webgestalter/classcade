@@ -103,12 +103,17 @@ console.log('r1: '+r1);
 console.log('r2: '+r2);
 console.log('r3: '+r3);
 
-r1.forEach( c => {
-  var s = c.split('--');
-  var p = properties[s[0]];              // set property
-  var v = 'var(--'+s[1]+')';             // set value
-  qsa('.'+c).forEach(z=>{z.style[p]=v}); //
-});
+var varClasses( theArray ) => {
+  theArray.forEach( c => {
+    var s = c.split('--');
+    var p = properties[s[0]];              // set property
+    var v = 'var(--'+s[1]+')';             // set value
+    qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+  });
+}
+
+varClasses(r1);
+
 r2.forEach( c => {
   var s = c.split('-');
   var p = properties[s[0]];              // set property
