@@ -94,9 +94,9 @@ properties = {
   trbl: ['t,r,b,l']
 }
 
-var ccMaker = () => {
+var ccMaker = (selector) => {
 
-    const r  = [...new Set(Array.from(qsa('[class*="-"]')).flatMap(el => Array.from(el.classList)))];
+    const r  = [...new Set(Array.from(qsa(selector)).flatMap(el => Array.from(el.classList)))];
     const r1 = r.filter( c =>  c.includes('--')                    );
     const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
     const r3 = r.filter( c =>                     !c.includes('-') );
@@ -127,7 +127,7 @@ var ccMaker = () => {
 
 }
 
-ccMaker();
+ccMaker('[class*="-"]');
 
 
 function cc(s){
