@@ -123,7 +123,7 @@ var classcade = (selector) => {
         // set value
         var v = s[1];
         v = values[v] || v;
-        if( s[0] === 'bg' && ( v.length == 6 || v.length == 8 ){ v = '#'+v; }
+        if( s[0] === 'bg' && ( v.length == 6 || v.length == 8 ) ){ v = '#'+v; }
 
         qsa('.'+c).forEach(z=>{z.style[p]=v}); //
       });
