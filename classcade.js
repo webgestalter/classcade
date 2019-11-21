@@ -107,9 +107,6 @@ var classcade = (selector) => {
     var    varClasses = ( theArray ) => {
       theArray.forEach( c => {
         var s = c.split('--');
-
-        if( s[0] === 'bg' && s[1].length == 6 ){ s[1] = '#'+s[1]; }
-
         var p = properties[s[0]];              // set property
         var v = 'var(--'+s[1]+')';             // set value
         qsa('.'+c).forEach(z=>{z.style[p]=v}); //
@@ -118,8 +115,16 @@ var classcade = (selector) => {
     var simpleClasses = ( theArray ) => {
       theArray.forEach( c => {
         var s = c.split('-');
+
+
+
         var p = properties[s[0]];              // set property
-        var v = s[1];v=values[v]||v;           // set value
+
+        // set value
+        var v = s[1];
+        v = values[v] || v;           
+        if( s[0] === 'bg' && v.length == 6 ){ v = '#'+v; }
+
         qsa('.'+c).forEach(z=>{z.style[p]=v}); //
       });
     }
