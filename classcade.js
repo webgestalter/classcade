@@ -100,13 +100,16 @@ var classcade = (selector) => {
     var s = selector || '[class]' ;
 
     const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))];
-    const r1 = r.filter( c =>  c.includes('--')                    );
-    const r2 = r.filter( c => !c.includes('--') && c.includes('-') );
-    const r3 = r.filter( c =>                     !c.includes('-') );
+    const r1 = r.filter( c =>  c.includes('--')                    ); // set variables (custom properties) as value
+    const r2 = r.filter( c => !c.includes('--') && c.includes('-') ); // set value
+    const r3 = r.filter( c =>                     !c.includes('-') ); // other classes
 
     var    varClasses = ( theArray ) => {
       theArray.forEach( c => {
         var s = c.split('--');
+
+        if( s[0] === 'bg' && s[1].length == 6 ){ s[1] = '#'+s[1]; }
+
         var p = properties[s[0]];              // set property
         var v = 'var(--'+s[1]+')';             // set value
         qsa('.'+c).forEach(z=>{z.style[p]=v}); //
