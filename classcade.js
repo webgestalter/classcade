@@ -193,9 +193,11 @@ var qsa=s=>(document.querySelectorAll(s)),
 
          theArray.forEach( c => {
 
-           console.log('CHECK alias: '+c);
+           console.log('CHECK class: '+c);
 
            Object.keys(alias).forEach( d => {
+
+             console.log('CHECK alias: '+d);
 
              if( c === d ){
               classApplier(alias[d],c);
