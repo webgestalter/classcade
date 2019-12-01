@@ -97,10 +97,11 @@ var qsa=s=>(document.querySelectorAll(s)),
      extras2 = [
        'masonry'
      ],
-     extras3 = {
+     alias = {
        absolute  : 'pos-abs',
        block     : 'dis-b',
-       fixed     : 'dis-fix',
+       fixed     : 'pos-fix',
+       flex      : 'dis-f',
        italic    : 'fs-it',
        justify   : 'ta-j',
        nowrap    : 'fw-nw',
@@ -108,7 +109,10 @@ var qsa=s=>(document.querySelectorAll(s)),
        pointer   : 'cur-p',
        position  : 'pos-st',
        underline : 'td-ul',
-       wrap      : 'fw-w'
+       wrap      : 'fw-w',
+
+       fit       : 'w-50',
+       half      : 'w-100'
      },
 
    classcade = (selector) => {
@@ -164,14 +168,17 @@ var qsa=s=>(document.querySelectorAll(s)),
        specialClasses  = ( theArray ) => {
 
     };
-       specialClasses2 = ( theArray ) => {
+
+////////// ALIAS CLASSES ///////////////////////////////////////////////////////
+
+       aliasClasses = ( theArray ) => {
 
          theArray.forEach( c => {
 
-           extras3.forEach( d => {
+           alias.forEach( d => {
 
              if( c === d ){
-              classApplier(extras3[c],c);
+              classApplier(alias[c],c);
              }
 
            });
@@ -187,7 +194,7 @@ var qsa=s=>(document.querySelectorAll(s)),
            varClasses(r1);
         simpleClasses(r2);
     // specialClasses(r3);
-      specialClasses3(r3);
+         aliasClasses(r3);
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
