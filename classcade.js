@@ -207,7 +207,7 @@ var qsa=s=>(document.querySelectorAll(s)),
            varClasses(r1);
         simpleClasses(r2);
     // specialClasses(r3);
-         aliasClasses(r3);
+    //     aliasClasses(r3);
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
