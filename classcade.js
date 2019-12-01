@@ -94,9 +94,9 @@ var qsa=s=>(document.querySelectorAll(s)),
     tbl : ['t,b,l'],
     trbl: ['t,r,b,l']
   },
-     extras2 = {
-  masonry  : masonry()
-},
+     extras2 = [
+       'masonry'
+     ],
 
    classcade = (selector) => {
 
@@ -143,14 +143,25 @@ var qsa=s=>(document.querySelectorAll(s)),
 
        specialClasses = ( theArray ) => {
 
-    }
+    };
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////// APPLICTION //////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-       varClasses(r1);
-    simpleClasses(r2);
+           varClasses(r1);
+        simpleClasses(r2);
+    // specialClasses(r3);
+
+////////// FUNCTION CLASSES ////////////////////////////////////////////////////
+
+          extras2.forEach( c => {
+
+            window[c]('.'+c);
+
+          };
+
+
 
 }
 
