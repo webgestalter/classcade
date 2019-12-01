@@ -191,6 +191,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
              if( c === d ){
               classApplier(alias[d],c);
+              console.log('apply alias: '+alias[d]+' // '+c);
              }
 
            });
