@@ -97,24 +97,37 @@ var qsa=s=>(document.querySelectorAll(s)),
      extras2 = [
        'masonry'
      ],
+     extras3 = {
+       absolute  : properties[pos] +':'+ values[abs],
+       block     : properties[dis] +':'+ values[b],
+       fixed     : properties[dis] +':'+ values[fix],
+       italic    : properties[fs]  +':'+ values[it],
+       justify   : properties[ta]  +':'+ values[j],
+       nowrap    : properties[fw]  +':'+ values[nw],
+       relative  : properties[pos] +':'+ values[r],
+       pointer   : properties[cur] +':'+ values[p],
+       position  : properties[pos] +':'+ values[st],
+       underline : properties[td]  +':'+ values[ul],
+       wrap      : properties[fw]  +':'+ values[w]
+     },
 
    classcade = (selector) => {
 
     var s = selector || '[class]' ;
 
     const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))];
-    const r1 = r.filter( c =>  c.includes('--')                    ); // set variables (custom properties) as value
-    const r2 = r.filter( c => !c.includes('--') && c.includes('-') ); // set value
-    const r3 = r.filter( c =>                     !c.includes('-') ); // other classes
+    const r1 = r.filter( c =>  c.includes('--')                    ); // schema: prop--var
+    const r2 = r.filter( c => !c.includes('--') && c.includes('-') ); // schema: prop-val
+    const r3 = r.filter( c =>                     !c.includes('-') ); // schema: classname
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
     var    varClasses = ( theArray ) => {
       theArray.forEach( c => {
         var s = c.split('--');
-        var p = properties[s[0]];              // set property
-        var v = 'var(--'+s[1]+')';             // set value
-        qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+        var x = properties[s[0]];              // set property
+        var y = 'var(--'+s[1]+')';             // set value
+        qsa('.'+c).forEach(z=>{z.style[x]=y}); //
       });
     },
 
@@ -141,9 +154,33 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
 
-       specialClasses = ( theArray ) => {
+       specialClasses  = ( theArray ) => {
 
     };
+       specialClasses2 = ( theArray ) => {
+
+         theArray.forEach( c => {
+
+           extras3.forEach( d => {
+
+             if( c === d ){
+
+              qsa(d).forEach(z=>{
+
+                x = extras3[d];
+                z.style[x]=y
+
+
+
+              });
+
+             }
+
+           });
+
+         });
+
+       };
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////// APPLICTION //////////////////////////////////////////////////////////
@@ -152,6 +189,7 @@ var qsa=s=>(document.querySelectorAll(s)),
            varClasses(r1);
         simpleClasses(r2);
     // specialClasses(r3);
+    //  specialClasses3(r3);
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
