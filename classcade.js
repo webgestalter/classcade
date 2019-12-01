@@ -191,17 +191,18 @@ var qsa=s=>(document.querySelectorAll(s)),
 
          console.log('START: apply aliases');
 
-         theArray.forEach( c => {
-
-           console.log('CHECK class: '+c);
 
            Object.keys(alias).forEach( d => {
 
-             console.log('CHECK alias: '+d);
+           console.log('CHECK alias: '+d);
+
+             theArray.forEach( c => {
+
+             console.log('CHECK class: '+c);
 
              if( c === d ){
               classApplier(alias[d],c);
-              console.log('apply alias: '+alias[d]+' // '+c);
+              console.log('APPLY alias: '+alias[d]+' // '+c);
              }
 
            });
