@@ -129,6 +129,10 @@ var qsa=s=>(document.querySelectorAll(s)),
 
    classcade = (selector) => {
 
+     // SHORTHANDS
+     var fltr = (a,b) => ( a.filter(b) );
+     var ea   = (a,b) => { a.forEach(b) };
+
     var s = selector || '[class]' ;
 
     const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))];
@@ -185,7 +189,11 @@ var qsa=s=>(document.querySelectorAll(s)),
 
        aliasClasses = ( theArray ) => {
 
+         console.log('START: apply aliases');
+
          theArray.forEach( c => {
+
+           console.log('CHECK alias: '+c);
 
            Object.keys(alias).forEach( d => {
 
@@ -197,6 +205,8 @@ var qsa=s=>(document.querySelectorAll(s)),
            });
 
          });
+
+         console.log('END: apply aliases');
 
        };
 
