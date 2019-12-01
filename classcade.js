@@ -181,7 +181,7 @@ var qsa=s=>(document.querySelectorAll(s)),
           var v = s[1];
           v = values[v] || v;
           if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )     ){ console.log(v+' is a hex-color');      v = '#'+v             }
-          if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ console.log(v+' is a Prozentangabe');  v = v.slice(0,-1)+'%'   }
+          if( v.endsWith === 'p' && isNaN(v.charAt(v.length-2))         ){ console.log(v+' is a Prozentangabe');  v = v.slice(0,-1)+'%'   }
           if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1))    ){ console.log(v+' is a Teilungsangabe'); v = 'calc(100%/${v})' }
 
           var c = b || a ;
