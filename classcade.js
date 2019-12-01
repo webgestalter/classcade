@@ -172,8 +172,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
              if( c === d ){
 
-              theClass = extras3[c];
-              classApplier(theClass,c);
+              classApplier(extras3[c],c);
 
 
               });
