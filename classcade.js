@@ -156,13 +156,8 @@ var qsa=s=>(document.querySelectorAll(s)),
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
           extras2.forEach( c => {
-
             window[c]('.'+c);
-            console.log('apply '+c);
-
           });
-
-
 
 }
 
