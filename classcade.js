@@ -187,7 +187,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
          theArray.forEach( c => {
 
-           alias.forEach( d => {
+           window[alias].forEach( d => {
 
              if( c === d ){
               classApplier(alias[c],c);
