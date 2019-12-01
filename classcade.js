@@ -166,7 +166,9 @@ var qsa=s=>(document.querySelectorAll(s)),
 
           var v = s[1];
           v = values[v] || v;
-          if( s[0] === 'bg' && ( v.length == 6 || v.length == 8 ) ){ v = '#'+v; }
+          if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )     ){ console.log(v+' is a hex-color');      v = '#'+v             }
+          if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ console.log(v+' is a Prozentangabe');  v = v.slice(0,-1)+'%'   }
+          if( ( s[0] === 'h' || s[0] === 'w' ) && ( isNaN(v.slice(-1) ) ){ console.log(v+' is a Teilungsangabe'); v = 'calc(100%/${v})' }
 
           var c = b || a ;
           qsa('.'+c).forEach(z=>{z.style[p]=v}); //
@@ -188,29 +190,11 @@ var qsa=s=>(document.querySelectorAll(s)),
 ////////// ALIAS CLASSES ///////////////////////////////////////////////////////
 
        aliasClasses = ( theArray ) => {
-
-         console.log('START: apply aliases');
-
-
-           Object.keys(alias).forEach( d => {
-
-           console.log('CHECK alias: '+d);
-
-             theArray.forEach( c => {
-
-             console.log('CHECK class: '+c);
-
-             if( c === d ){
-              classApplier(alias[d],c);
-              console.log('APPLY alias: '+alias[d]+' // '+c);
-             }
-
+         Object.keys(alias).forEach( d => {
+           theArray.forEach( c => {
+             if( c === d ){ classApplier(alias[d],c) }
            });
-
          });
-
-         console.log('END: apply aliases');
-
        };
 
 ////////////////////////////////////////////////////////////////////////////////
