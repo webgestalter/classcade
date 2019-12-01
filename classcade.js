@@ -171,12 +171,7 @@ var qsa=s=>(document.querySelectorAll(s)),
            extras3.forEach( d => {
 
              if( c === d ){
-
               classApplier(extras3[c],c);
-
-
-              });
-
              }
 
            });
