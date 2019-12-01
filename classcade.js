@@ -119,7 +119,7 @@ var qsa=s=>(document.querySelectorAll(s)),
        nowrap    : 'fw-nw',
        relative  : 'pos-r',
        pointer   : 'cur-p',
-       position  : 'pos-st',
+       sticky    : 'pos-st',
        underline : 'td-ul',
        wrap      : 'fw-w',
 
