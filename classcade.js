@@ -96,7 +96,7 @@ var qsa=s=>(document.querySelectorAll(s)),
     ul  : 'underline'     ,
     w   : 'wrap'
   },
-      extras = {
+        xtra = {
     hw  : ['h,w'],
     tl  : ['t,l'],
     tr  : ['t,r'],
@@ -106,7 +106,7 @@ var qsa=s=>(document.querySelectorAll(s)),
     tbl : ['t,b,l'],
     trbl: ['t,r,b,l']
   },
-     extras2 = [
+       xtra2 = [
        'masonry'
      ],
        alias = {
@@ -252,7 +252,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-    extras2.forEach( c => { window[c]('.'+c); });
+    xtra2.forEach( c => { window[c]('.'+c); });
 
 }
 
