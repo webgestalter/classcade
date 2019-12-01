@@ -154,6 +154,17 @@ var qsa=s=>(document.querySelectorAll(s)),
       });
     },
 
+////////// VARIABLE CLASSES FOR CHILDS /////////////////////////////////////////
+
+     varClassesChilds = ( theArray ) => {
+              theArray.forEach( c => {
+                var s = c.split('--');
+                var x = properties[s[0]];              // set property
+                var y = 'var(--'+s[1]+')';             // set value
+                qsa('.'+c).forEach(z=>{z.style[x]=y}); //
+              });
+            },
+
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
         classApplier = ( a,b ) => {
@@ -184,11 +195,41 @@ var qsa=s=>(document.querySelectorAll(s)),
           });
         },
 
+////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
+
+       classApplierChilds = ( a,b ) => {
+
+        var s = a.split('-');
+
+
+        ////////// SET PROPERTY
+
+        var p = properties[s[0]];
+
+        ////////// SET VALUE
+
+        var v = s[1];
+        v = values[v] || v;
+        if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )     ){ console.log(v+' is a hex-color');      v = '#'+v             }
+        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ console.log(v+' is a Prozentangabe');  v = v.slice(0,-1)+'%'   }
+        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1))    ){ console.log(v+' is a Teilungsangabe'); v = 'calc(100%/${v})' }
+
+        var c = b || a ;
+        qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+
+      },
+
+      simpleClassesChilds = ( theArray ) => {
+          theArray.forEach( c => {
+            classApplierChilds(c);
+          });
+        },
+
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
 
        specialClasses  = ( theArray ) => {
 
-    };
+    },
 
 ////////// ALIAS CLASSES ///////////////////////////////////////////////////////
 
@@ -211,9 +252,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-          extras2.forEach( c => {
-            window[c]('.'+c);
-          });
+    extras2.forEach( c => { window[c]('.'+c); });
 
 }
 
