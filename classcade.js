@@ -98,17 +98,17 @@ var qsa=s=>(document.querySelectorAll(s)),
        'masonry'
      ],
      extras3 = {
-       absolute  : properties[pos] +':'+ values[abs],
-       block     : properties[dis] +':'+ values[b],
-       fixed     : properties[dis] +':'+ values[fix],
-       italic    : properties[fs]  +':'+ values[it],
-       justify   : properties[ta]  +':'+ values[j],
-       nowrap    : properties[fw]  +':'+ values[nw],
-       relative  : properties[pos] +':'+ values[r],
-       pointer   : properties[cur] +':'+ values[p],
-       position  : properties[pos] +':'+ values[st],
-       underline : properties[td]  +':'+ values[ul],
-       wrap      : properties[fw]  +':'+ values[w]
+       absolute  : 'pos-abs',
+       block     : 'dis-b',
+       fixed     : 'dis-fix',
+       italic    : 'fs-it',
+       justify   : 'ta-j',
+       nowrap    : 'fw-nw',
+       relative  : 'pos-r',
+       pointer   : 'cur-p',
+       position  : 'pos-st',
+       underline : 'td-ul',
+       wrap      : 'fw-w'
      },
 
    classcade = (selector) => {
@@ -133,24 +133,31 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
+        classApplier = ( a,b ) => {
+
+          var s = a.split('-');
+
+
+          ////////// SET PROPERTY
+
+          var p = properties[s[0]];
+
+          ////////// SET VALUE
+
+          var v = s[1];
+          v = values[v] || v;
+          if( s[0] === 'bg' && ( v.length == 6 || v.length == 8 ) ){ v = '#'+v; }
+
+          var c = b || a ;
+          qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+
+        },
+
         simpleClasses = ( theArray ) => {
-      theArray.forEach( c => {
-        var s = c.split('-');
-
-
-        ////////// SET PROPERTY
-
-        var p = properties[s[0]];
-
-        ////////// SET VALUE
-
-        var v = s[1];
-        v = values[v] || v;
-        if( s[0] === 'bg' && ( v.length == 6 || v.length == 8 ) ){ v = '#'+v; }
-
-        qsa('.'+c).forEach(z=>{z.style[p]=v}); //
-      });
-    },
+          theArray.forEach( c => {
+            classApplier(c);
+          });
+        },
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
 
@@ -165,11 +172,8 @@ var qsa=s=>(document.querySelectorAll(s)),
 
              if( c === d ){
 
-              qsa(d).forEach(z=>{
-
-                x = extras3[d];
-                z.style[x]=y
-
+              theClass = extras3[c];
+              classApplier(theClass,c);
 
 
               });
@@ -189,7 +193,7 @@ var qsa=s=>(document.querySelectorAll(s)),
            varClasses(r1);
         simpleClasses(r2);
     // specialClasses(r3);
-    //  specialClasses3(r3);
+      specialClasses3(r3);
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
