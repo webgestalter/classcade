@@ -109,7 +109,7 @@ var qsa=s=>(document.querySelectorAll(s)),
      extras2 = [
        'masonry'
      ],
-     alias = {
+       alias = {
        absolute  : 'pos-abs',
        block     : 'dis-b',
        fixed     : 'pos-fix',
@@ -187,10 +187,10 @@ var qsa=s=>(document.querySelectorAll(s)),
 
          theArray.forEach( c => {
 
-           window[alias].forEach( d => {
+           Object.keys(alias).forEach( d => {
 
              if( c === d ){
-              classApplier(alias[c],c);
+              classApplier(alias[d],c);
              }
 
            });
