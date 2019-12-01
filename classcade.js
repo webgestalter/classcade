@@ -160,7 +160,7 @@ var qsa=s=>(document.querySelectorAll(s)),
             window[c]('.'+c);
             console.log('apply '+c);
 
-          };
+          });
 
 
 
