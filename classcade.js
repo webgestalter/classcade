@@ -259,3 +259,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 }
 
 classcade();
+
+window.addEventListener('resize', function () {
+    classcade();
+});
