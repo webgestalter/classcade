@@ -13,7 +13,7 @@
     this.loaded     = 0;
     this.failed     = 0;
     this.total      = 0;
-    this.watch      = function(selector, fn) {
+    this.watch      = function(selector,fn){
         var images = document.querySelectorAll(selector);
         if (!images.length)
             return console.log('[imgStatus]: There aren\'t any images associated with this selector (' + selector + ')!');
@@ -48,7 +48,7 @@
         fn(this);
       }
     };
-    this.isDone     = function() {
+    this.isDone     = function(){
         return ((this.loaded + this.failed) === this.total)? true:false;
     }
 
