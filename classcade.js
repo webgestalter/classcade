@@ -127,7 +127,7 @@ var qsa=s=>(document.querySelectorAll(s)),
        half      : 'w-100'
      },
 
-   classcade = (selector) => {
+   classcade = selector => {
 
      // SHORTHANDS
      var   ea = (a,b) => { a.forEach(b)  },
@@ -152,7 +152,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
-    var    varClasses = ( theArray ) => {
+    var    varClasses = theArray => {
       theArray.forEach( c => {
         var s = c.split('--'),
             x = properties[s[0]],              // set property
@@ -163,7 +163,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// VARIABLE CLASSES FOR CHILDS /////////////////////////////////////////
 
-     varClassesChilds = ( theArray ) => {
+     varClassesChilds = theArray => {
               theArray.forEach( c => {
                 var s = c.split('--'),
                     x = properties[s[0]],              // set property
@@ -174,7 +174,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
-         classApplier = ( a,b )      => {
+         classApplier = (a,b)    => {
 
           var s = a.split('-'),
 
@@ -196,13 +196,13 @@ var qsa=s=>(document.querySelectorAll(s)),
           qsa('.'+c).forEach(z=>{z.style[p]=v}); //
 
         },
-        simpleClasses = ( theArray ) => {
+        simpleClasses = theArray => {
           theArray.forEach( c => { classApplier(c) });
         },
 
 ////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
 
-       classApplierChilds = ( a,b )      => {
+       classApplierChilds = (a,b)    => {
 
         var s = a.split('-'),
 
@@ -222,19 +222,19 @@ var qsa=s=>(document.querySelectorAll(s)),
         qsa('.'+c).forEach(z=>{z.style[p]=v})
 
       },
-      simpleClassesChilds = ( theArray ) => {
+      simpleClassesChilds = theArray => {
           theArray.forEach( c => { classApplierChilds(c) });
         },
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
 
-       specialClasses  = ( theArray ) => {
+       specialClasses  = theArray => {
 
     },
 
 ////////// ALIAS CLASSES ///////////////////////////////////////////////////////
 
-       aliasClasses = ( theArray ) => {
+       aliasClasses = theArray => {
          Object.keys(alias).forEach( d => {
            theArray.forEach( c => {
              if( c === d ){ classApplier(alias[d],c) }
