@@ -27,7 +27,7 @@
                 images[i].addEventListener('error',this._setFailed.bind(this,fn));
             } else {
                 images[i].attachEvent('onload', this._setLoaded.bind(this,fn));
-                images[i].attachEvent('onerror',this._setFailed.bind(this fn));
+                images[i].attachEvent('onerror',this._setFailed.bind(this,fn));
             }
         }
     }
