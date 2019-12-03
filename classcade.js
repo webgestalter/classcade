@@ -174,7 +174,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
-        classApplier = ( a,b ) => {
+         classApplier = ( a,b )      => {
 
           var s = a.split('-');
 
@@ -197,7 +197,6 @@ var qsa=s=>(document.querySelectorAll(s)),
           qsa('.'+c).forEach(z=>{z.style[p]=v}); //
 
         },
-
         simpleClasses = ( theArray ) => {
           theArray.forEach( c => {
             classApplier(c);
@@ -206,7 +205,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
 
-       classApplierChilds = ( a,b ) => {
+       classApplierChilds = ( a,b )      => {
 
         var s = a.split('-');
 
@@ -227,7 +226,6 @@ var qsa=s=>(document.querySelectorAll(s)),
         qsa('.'+c).forEach(z=>{z.style[p]=v}); //
 
       },
-
       simpleClassesChilds = ( theArray ) => {
           theArray.forEach( c => {
             classApplierChilds(c);
