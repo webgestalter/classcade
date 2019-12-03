@@ -132,11 +132,11 @@ var qsa=s=>(document.querySelectorAll(s)),
      // SHORTHANDS
      var   ea = (a,b) => { a.forEach(b)  },
          fltr = (a,b) => ( a.filter(b)   ),
-          inc = (a,b) => ( a.includes(b) );
+          inc = (a,b) => ( a.includes(b) ),
 
-    var s = selector || '[class]' ;
+    s = selector || '[class]' ;
 
-    const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))];
+    const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))],
 
 //    const r1 = r.filter( c =>  c.includes('--')                     ); // schema: prop--var
 //    const r2 = r.filter( c => !c.includes('--') &&  c.includes('-') ); // schema: prop-val
@@ -144,19 +144,19 @@ var qsa=s=>(document.querySelectorAll(s)),
 //    const r4 = r.filter( c => !c.includes('__') &&  c.includes('_') ); // schema: prop_val
 //    const r5 = r.filter( c => !c.includes('-')  && !c.includes('_') ); // schema: classname
 
-    const r1 = fltr( r, c => {  inc(c,'--')                } ); // schema: prop--var
-    const r2 = fltr( r, c => { !inc(c,'--') &&  inc(c,'-') } ); // schema: prop-val
-    const r3 = fltr( r, c => {  inc(c,'__')                } ); // schema: prop__var
-    const r4 = fltr( r, c => { !inc(c,'__') &&  inc(c,'_') } ); // schema: prop_val
-    const r5 = fltr( r, c => { !inc(c,'-')  && !inc(c,'_') } ); // schema: classname
+    r1 = fltr( r, c => {  inc(c,'--')                } ), // schema: prop--var
+    r2 = fltr( r, c => { !inc(c,'--') &&  inc(c,'-') } ), // schema: prop-val
+    r3 = fltr( r, c => {  inc(c,'__')                } ), // schema: prop__var
+    r4 = fltr( r, c => { !inc(c,'__') &&  inc(c,'_') } ), // schema: prop_val
+    r5 = fltr( r, c => { !inc(c,'-')  && !inc(c,'_') } ); // schema: classname
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
     var    varClasses = ( theArray ) => {
       theArray.forEach( c => {
-        var s = c.split('--');
-        var x = properties[s[0]];              // set property
-        var y = 'var(--'+s[1]+')';             // set value
+        var s = c.split('--'),
+            x = properties[s[0]],              // set property
+            y = 'var(--'+s[1]+')';             // set value
         qsa('.'+c).forEach(z=>{z.style[x]=y}); //
       });
     },
@@ -165,9 +165,9 @@ var qsa=s=>(document.querySelectorAll(s)),
 
      varClassesChilds = ( theArray ) => {
               theArray.forEach( c => {
-                var s = c.split('--');
-                var x = properties[s[0]];              // set property
-                var y = 'var(--'+s[1]+')';             // set value
+                var s = c.split('--'),
+                    x = properties[s[0]],              // set property
+                    y = 'var(--'+s[1]+')';             // set value
                 qsa('.'+c).forEach(z=>{z.style[x]=y}); //
               });
             },
@@ -176,60 +176,54 @@ var qsa=s=>(document.querySelectorAll(s)),
 
          classApplier = ( a,b )      => {
 
-          var s = a.split('-');
-
+          var s = a.split('-'),
 
           ////////// SET PROPERTY
 
-          var p = properties[s[0]];
+          p = properties[s[0]],
 
           ////////// SET VALUE
 
-          var w = s[0],
-              v = s[1];
+          w = s[0],
+          v = s[1];
           v = values[v] || v;
 
-          if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ console.log(v+' is a hex-color');      v = '#'+v             }
-          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))     ){ console.log(v+' is a Prozentangabe');  v = v.slice(0,-1)+'%' }
-          if( !isNaN(v.slice(-1)) && ( w === 'h' || w === 'w' )   ){ console.log(v+' is a Teilungsangabe'); v = 'calc(100%/${v})' }
+          if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             }
+          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))     ){ v = v.slice(0,-1)+'%' }
+          if( !isNaN(v.slice(-1)) && ( w === 'h' || w === 'w' )   ){ v = 'calc(100%/${v})' }
 
           var c = b || a ;
           qsa('.'+c).forEach(z=>{z.style[p]=v}); //
 
         },
         simpleClasses = ( theArray ) => {
-          theArray.forEach( c => {
-            classApplier(c);
-          });
+          theArray.forEach( c => { classApplier(c) });
         },
 
 ////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
 
        classApplierChilds = ( a,b )      => {
 
-        var s = a.split('-');
-
+        var s = a.split('-'),
 
         ////////// SET PROPERTY
 
-        var p = properties[s[0]];
+        p = properties[s[0]],
 
         ////////// SET VALUE
 
-        var v = s[1];
+        v = s[1];
         v = values[v] || v;
-        if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )     ){ console.log(v+' is a hex-color');      v = '#'+v             }
-        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ console.log(v+' is a Prozentangabe');  v = v.slice(0,-1)+'%'   }
-        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1))    ){ console.log(v+' is a Teilungsangabe'); v = 'calc(100%/${v})' }
+        if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             }
+        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))      ){ v = v.slice(0,-1)+'%' }
+        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1)) ){ v = 'calc(100%/${v})' }
 
         var c = b || a ;
-        qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+        qsa('.'+c).forEach(z=>{z.style[p]=v})
 
       },
       simpleClassesChilds = ( theArray ) => {
-          theArray.forEach( c => {
-            classApplierChilds(c);
-          });
+          theArray.forEach( c => { classApplierChilds(c) });
         },
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
