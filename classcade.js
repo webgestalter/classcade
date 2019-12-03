@@ -185,8 +185,10 @@ var qsa=s=>(document.querySelectorAll(s)),
           ////////// SET VALUE
 
           w = s[0],
-          v = s[1];
+          v = s[1]; console.log('VALUE: '+v);
           v = values[v] || v;
+
+
 
           if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ console.log('COLOR! '+v); v = '#'+v             };
           if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))     ){ v = v.slice(0,-1)+'%' };
