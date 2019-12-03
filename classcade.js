@@ -253,7 +253,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-    xtra2.forEach( c => { window[c]('.'+c); });
+    xtra2.forEach( c => { window[c]('.'+c) });
 
 }
 
