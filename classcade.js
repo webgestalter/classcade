@@ -157,8 +157,8 @@ var qsa=s=>(document.querySelectorAll(s)),
         var s = c.split('--'),
             x = properties[s[0]],              // set property
             y = 'var(--'+s[1]+')';             // set value
-        qsa('.'+c).forEach(z=>{z.style[x]=y}); //
-      });
+        qsa('.'+c).forEach(z=>{z.style[x]=y})
+      })
     },
 
 ////////// VARIABLE CLASSES FOR CHILDS /////////////////////////////////////////
@@ -168,8 +168,8 @@ var qsa=s=>(document.querySelectorAll(s)),
                 var s = c.split('--'),
                     x = properties[s[0]],              // set property
                     y = 'var(--'+s[1]+')';             // set value
-                qsa('.'+c).forEach(z=>{z.style[x]=y}); //
-              });
+                qsa('.'+c).forEach(z=>{z.style[x]=y})
+              })
             },
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
@@ -188,12 +188,12 @@ var qsa=s=>(document.querySelectorAll(s)),
           v = s[1];
           v = values[v] || v;
 
-          if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             }
-          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))     ){ v = v.slice(0,-1)+'%' }
-          if( !isNaN(v.slice(-1)) && ( w === 'h' || w === 'w' )   ){ v = 'calc(100%/${v})' }
+          if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             };
+          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))     ){ v = v.slice(0,-1)+'%' };
+          if( !isNaN(v.slice(-1)) && ( w === 'h' || w === 'w' )   ){ v = 'calc(100%/${v})' };
 
           var c = b || a ;
-          qsa('.'+c).forEach(z=>{z.style[p]=v}); //
+          qsa('.'+c).forEach(z=>{z.style[p]=v})
 
         },
         simpleClasses = theArray => {
@@ -214,9 +214,9 @@ var qsa=s=>(document.querySelectorAll(s)),
 
         v = s[1];
         v = values[v] || v;
-        if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             }
-        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))      ){ v = v.slice(0,-1)+'%' }
-        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1)) ){ v = 'calc(100%/${v})' }
+        if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             };
+        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))      ){ v = v.slice(0,-1)+'%' };
+        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1)) ){ v = 'calc(100%/${v})' };
 
         var c = b || a ;
         qsa('.'+c).forEach(z=>{z.style[p]=v})
