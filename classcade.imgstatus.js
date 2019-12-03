@@ -31,24 +31,24 @@
             }
         }
     }
-    this.isCached   = function(src){
-        var image = new Image();
-        image.src = src;
-        return image.complete;
+    this.isCached   = src => {
+        var img = new Image();
+        img.src = src;
+        return img.complete;
     }
-    this._setFailed = function(fn,e){
+    this._setFailed = (fn,e) => {
       ++this.failed;
       if( typeof fn === 'function' ){
         fn(this);
       }
     }
-    this._setLoaded = function(fn,e){
+    this._setLoaded = (fn,e) => {
       ++this.loaded;
       if( typeof fn === 'function' ){
         fn(this);
       }
     };
-    this.isDone     = function(){
+    this.isDone     = () => {
         return ((this.loaded + this.failed) === this.total)? true:false;
     }
 
