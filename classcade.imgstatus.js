@@ -20,7 +20,7 @@
     this.isCached   = src    => { var img = new Image(); img.src = src; return img.complete };
     this._setFailed = (f,e) => { ++this.failed; if( typeof f === 'function' ){ f(this) } };
     this._setLoaded = (f,e) => { ++this.loaded; if( typeof f === 'function' ){ f(this) } };
-    this.isDone     = ()     => ( ( (this.loaded + this.failed) === this.total) ? true : false )
+    this.isDone     = ()     => ( ( (this.loaded + this.failed) === this.total) ? true : false );
 
     if( typeof window === "object" ){ window.imgStatus = this }
 
