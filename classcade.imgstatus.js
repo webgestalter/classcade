@@ -10,10 +10,10 @@
 */
 
 ;(function() {
-    this.loaded = 0;
-    this.failed = 0;
-    this.total = 0;
-    this.watch = function(selector, fn) {
+    this.loaded     = 0;
+    this.failed     = 0;
+    this.total      = 0;
+    this.watch      = function(selector, fn) {
         var images = document.querySelectorAll(selector);
         if (!images.length)
             return console.log('[imgStatus]: There aren\'t any images associated with this selector (' + selector + ')!');
@@ -31,28 +31,24 @@
             }
         }
     }
-
-    this.isCached = function(src){
+    this.isCached   = function(src){
         var image = new Image();
         image.src = src;
         return image.complete;
     }
-
     this._setFailed = function(fn,e){
       ++this.failed;
       if( typeof fn === 'function' ){
         fn(this);
       }
     }
-
     this._setLoaded = function(fn,e){
       ++this.loaded;
       if( typeof fn === 'function' ){
         fn(this);
       }
     };
-
-    this.isDone = function() {
+    this.isDone     = function() {
         return ((this.loaded + this.failed) === this.total)? true:false;
     }
 
