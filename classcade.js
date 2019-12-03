@@ -144,11 +144,11 @@ var qsa=s=>(document.querySelectorAll(s)),
 //    const r4 = r.filter( c => !c.includes('__') &&  c.includes('_') ); // schema: prop_val
 //    const r5 = r.filter( c => !c.includes('-')  && !c.includes('_') ); // schema: classname
 
-    r1 = fltr( r, c => {  inc(c,'--')                } ), // schema: prop--var
-    r2 = fltr( r, c => { !inc(c,'--') &&  inc(c,'-') } ), // schema: prop-val
-    r3 = fltr( r, c => {  inc(c,'__')                } ), // schema: prop__var
-    r4 = fltr( r, c => { !inc(c,'__') &&  inc(c,'_') } ), // schema: prop_val
-    r5 = fltr( r, c => { !inc(c,'-')  && !inc(c,'_') } ); // schema: classname
+    r1 = fltr( r, c =>  inc(c,'--')                ), // schema: prop--var
+    r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // schema: prop-val
+    r3 = fltr( r, c =>  inc(c,'__')                ), // schema: prop__var
+    r4 = fltr( r, c => !inc(c,'__') &&  inc(c,'_') ), // schema: prop_val
+    r5 = fltr( r, c => !inc(c,'-')  && !inc(c,'_') ); // schema: classname
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
