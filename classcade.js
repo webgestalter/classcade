@@ -130,18 +130,25 @@ var qsa=s=>(document.querySelectorAll(s)),
    classcade = (selector) => {
 
      // SHORTHANDS
-     var   ea = (a,b) => { a.forEach(b) },
-         fltr = (a,b) => ( a.filter(b) ),
+     var   ea = (a,b) => { a.forEach(b)  },
+         fltr = (a,b) => ( a.filter(b)   ),
           inc = (a,b) => ( a.includes(b) );
 
     var s = selector || '[class]' ;
 
     const r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))];
-    const r1 = r.filter( c =>  c.includes('--')                     ); // schema: prop--var
-    const r2 = r.filter( c => !c.includes('--') &&  c.includes('-') ); // schema: prop-val
-    const r3 = r.filter( c =>  c.includes('__')                     ); // schema: prop__var
-    const r4 = r.filter( c => !c.includes('__') &&  c.includes('_') ); // schema: prop_val
-    const r5 = r.filter( c => !c.includes('-')  && !c.includes('_') ); // schema: classname
+
+//    const r1 = r.filter( c =>  c.includes('--')                     ); // schema: prop--var
+//    const r2 = r.filter( c => !c.includes('--') &&  c.includes('-') ); // schema: prop-val
+//    const r3 = r.filter( c =>  c.includes('__')                     ); // schema: prop__var
+//    const r4 = r.filter( c => !c.includes('__') &&  c.includes('_') ); // schema: prop_val
+//    const r5 = r.filter( c => !c.includes('-')  && !c.includes('_') ); // schema: classname
+
+    const r1 = fltr( r, c => {  inc(c,'--')                } ); // schema: prop--var
+    const r2 = fltr( r, c => { !inc(c,'--') &&  inc(c,'-') } ); // schema: prop-val
+    const r3 = fltr( r, c => {  inc(c,'__')                } ); // schema: prop__var
+    const r4 = fltr( r, c => { !inc(c,'__') &&  inc(c,'_') } ); // schema: prop_val
+    const r5 = fltr( r, c => { !inc(c,'-')  && !inc(c,'_') } ); // schema: classname
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
