@@ -185,12 +185,12 @@ var qsa=s=>(document.querySelectorAll(s)),
           ////////// SET VALUE
 
           w = s[0],
-          v = s[1]; console.log('VALUE: '+v);
+          v = s[1];
           v = values[v] || v;
 
 
 
-          if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ console.log('COLOR! '+v); v = '#'+v             };
+          if( w === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             };
           if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))     ){ v = v.slice(0,-1)+'%' };
           if( !isNaN(v.slice(-1)) && ( w === 'h' || w === 'w' )   ){ v = 'calc(100%/${v})' };
 
