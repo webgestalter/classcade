@@ -136,7 +136,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
     s = selector || '[class]' ,
 
-    r  = [...new Set(Array.from(qsa(s)).flatMap(el => Array.from(el.classList)))],
+    r  = [...new Set(Array.from(qsa(s)).flatMap(el=>Array.from(el.classList)))],
 
 //    const r1 = r.filter( c =>  c.includes('--')                     ); // schema: prop--var
 //    const r2 = r.filter( c => !c.includes('--') &&  c.includes('-') ); // schema: prop-val
