@@ -110,21 +110,23 @@ var qsa=s=>(document.querySelectorAll(s)),
        'masonry'
      ],
        alias = {
-       absolute  : 'pos-abs',
-       block     : 'dis-b',
-       fixed     : 'pos-fix',
-       flex      : 'dis-f',
-       italic    : 'fs-it',
-       justify   : 'ta-j',
-       nowrap    : 'fw-nw',
-       relative  : 'pos-r',
-       pointer   : 'cur-p',
-       sticky    : 'pos-st',
-       underline : 'td-ul',
-       wrap      : 'fw-w',
+       absolute     : 'pos-abs',
+       block        : 'dis-b',
+       fixed        : 'pos-fix',
+       flex         : 'dis-f',
+       italic       : 'fs-it',
+       justify      : 'ta-j',
+       nowrap       : 'fw-nw',
+       relative     : 'pos-r',
+       pointer      : 'cur-p',
+       sticky       : 'pos-st',
+       underline    : 'td-ul',
+       wrap         : 'fw-w',
 
-       fit       : 'w-50',
-       half      : 'w-100'
+       fit          : 'w-50',
+       half         : 'w-100',
+
+       antialiased  : '-webkit-font-smoothing:antialiased'
      },
 
    classcade = selector => {
