@@ -259,6 +259,24 @@ var qsa=s=>(document.querySelectorAll(s)),
 
     xtra2.forEach( c => { window[c]('.'+c) });
 
+},
+
+cc(s,c){
+
+  s = isStr(s) ? QSA(s) : [s] ;
+  c = !isArray(c) ? [c] : c ;
+
+
+  s.forEach( z => {
+    c.forEach( y => {
+      if( strB(y,'!') ){
+        z.classList.remove(y.slice(1))
+      } else {
+        z.classList.add(y)
+      }
+    })
+  })
+
 }
 
 classcade();
