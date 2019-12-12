@@ -271,7 +271,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 },
 
-cc(s,c){
+cc = (s,c) => {
 
   s = isStr(s) ? QSA(s) : [s] ;
   c = !isArray(c) ? [c] : c ;
