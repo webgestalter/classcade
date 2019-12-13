@@ -223,7 +223,7 @@ var qsa=s=>(document.querySelectorAll(s)),
         v = values[v] || v;
         if( ['bg','c'].includes(s[0]) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
         if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ v = v.slice(0,-1)+'%' };
-        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1))    ){ v = 'calc(100%/${v})' };
+        if( ( ['h','w'].includes(s[0]) && isNaN(v.slice(-1))          ){ v = 'calc(100%/${v})' };
 
         var c = b || a ;
         qsa('.'+c).forEach(z=>{z.style[p]=v})
