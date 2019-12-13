@@ -282,6 +282,7 @@ cc = (s,c) => {
       if( strB(y,'!') ){
         z.classList.remove(y.slice(1))
       } else {
+        LOG('add class: '+y);
         z.classList.add(y)
       }
     })
