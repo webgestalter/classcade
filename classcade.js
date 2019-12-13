@@ -209,28 +209,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
 
-       classApplierChilds = (a,b)    => {
-
-        var s = a.split('-'),
-            w = s[0],
-
-        ////////// SET PROPERTY
-
-        p = properties[w],
-
-        ////////// SET VALUE
-
-        v = s[1];
-        v = values[v] || v;
-        if( ['bg','c'].includes(w) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
-        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))      ){ v = v.slice(0,-1)+'%' };
-        if( ['h','w'].includes(w) && isNaN(v.slice(-1))            ){ v = 'calc(100%/${v})' };
-
-        var c = b || a ;
-        qsa('.'+c).forEach(z=>{z.style[p]=v})
-
-      },
-      simpleClassesChilds = theArray => {
+       simpleClassesChilds = theArray => {
           theArray.forEach( c => { classApplier('_',c) });
         },
 
