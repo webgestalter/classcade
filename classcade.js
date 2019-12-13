@@ -181,9 +181,9 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
-         classApplier = (a,b)    => {
+         classApplier = (trenner,a,b)    => {
 
-          var s = a.split('-'),
+          var s = a.split(trenner),
               w = s[0],
 
           ////////// SET PROPERTY
@@ -204,7 +204,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
         },
         simpleClasses = theArray => {
-          theArray.forEach( c => { classApplier(c) });
+          theArray.forEach( c => { classApplier('-',c) });
         },
 
 ////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
@@ -212,18 +212,19 @@ var qsa=s=>(document.querySelectorAll(s)),
        classApplierChilds = (a,b)    => {
 
         var s = a.split('-'),
+            w = s[0],
 
         ////////// SET PROPERTY
 
-        p = properties[s[0]],
+        p = properties[w],
 
         ////////// SET VALUE
 
         v = s[1];
         v = values[v] || v;
-        if( ['bg','c'].includes(s[0]) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
-        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ v = v.slice(0,-1)+'%' };
-        if( ['h','w'].includes(s[0]) && isNaN(v.slice(-1)             ){ v = 'calc(100%/${v})' };
+        if( ['bg','c'].includes(w) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
+        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))      ){ v = v.slice(0,-1)+'%' };
+        if( ['h','w'].includes(w) && isNaN(v.slice(-1)             ){ v = 'calc(100%/${v})' };
 
         var c = b || a ;
         qsa('.'+c).forEach(z=>{z.style[p]=v})
