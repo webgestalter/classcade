@@ -197,7 +197,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 
 
-          if( w === ('bg'||'c') && v.length === (3||4||6||8)      ){ v = '#'+v             };
+          if( w === ('bg'||'c') && v.length === (3||4||6||8)  ){ v = '#'+v             };
           if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
           if( !isNaN(v.slice(-1)) && w === ['h','w']          ){ v = 'calc(100%/${v})' };
 
