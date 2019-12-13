@@ -184,14 +184,14 @@ var qsa=s=>(document.querySelectorAll(s)),
          classApplier = (a,b)    => {
 
           var s = a.split('-'),
+              w = s[0],
 
           ////////// SET PROPERTY
 
-          p = properties[s[0]],
+          p = properties[w],
 
           ////////// SET VALUE
 
-          w = s[0],
           v = s[1];
           v = values[v] || v;
 
