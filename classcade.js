@@ -243,7 +243,6 @@ cc = (s,c) => {
   s = isStr(s) ? QSA(s) : [s] ;
   c = !isArray(c) ? [c] : c ;
 
-
   s.forEach( z => {
     c.forEach( y => {
       if( strB(y,'!') ){
