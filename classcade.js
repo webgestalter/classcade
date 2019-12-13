@@ -134,8 +134,8 @@ var qsa=s=>(document.querySelectorAll(s)),
        underline    : 'td-ul',
        wrap         : 'fw-w',
 
-       fit          : 'w-50',
-       half         : 'w-100',
+       fit          : 'w-100p',
+       half         : 'w-50p',
 
        antialiased  : '-webkit-font-smoothing:antialiased'
      },
@@ -150,12 +150,6 @@ var qsa=s=>(document.querySelectorAll(s)),
     s = selector || '[class]' ,
 
     r  = [...new Set(Array.from(qsa(s)).flatMap(el=>Array.from(el.classList)))],
-
-//    const r1 = r.filter( c =>  c.includes('--')                     ); // schema: prop--var
-//    const r2 = r.filter( c => !c.includes('--') &&  c.includes('-') ); // schema: prop-val
-//    const r3 = r.filter( c =>  c.includes('__')                     ); // schema: prop__var
-//    const r4 = r.filter( c => !c.includes('__') &&  c.includes('_') ); // schema: prop_val
-//    const r5 = r.filter( c => !c.includes('-')  && !c.includes('_') ); // schema: classname
 
     r1 = fltr( r, c =>  inc(c,'--')                ), // schema: prop--var
     r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // schema: prop-val
