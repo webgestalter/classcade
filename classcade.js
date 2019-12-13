@@ -199,7 +199,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
           if( ['bg','c'].includes(w) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
           if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))        ){ v = v.slice(0,-1)+'%' };
-          if( !isNaN(v.slice(-1)) && w === ['h','w']                 ){ v = 'calc(100%/${v})' };
+          if( !isNaN(v.slice(-1)) && ['h','w'].includes(w)           ){ v = 'calc(100%/${v})' };
 
           var c = b || a ;
           qsa('.'+c).forEach(z=>{z.style[p]=v})
