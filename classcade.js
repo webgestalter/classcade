@@ -231,7 +231,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
       },
       simpleClassesChilds = theArray => {
-          theArray.forEach( c => { classApplierChilds(c) });
+          theArray.forEach( c => { classApplier('_',c) });
         },
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
