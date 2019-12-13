@@ -197,9 +197,9 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 
 
-          if( ( w === 'bg' || w === 'c' ) && ( v.length === 6 || v.length === 8 ) ){ v = '#'+v             };
-          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))                     ){ v = v.slice(0,-1)+'%' };
-          if( !isNaN(v.slice(-1)) && ( w === 'h' || w === 'w' )                   ){ v = 'calc(100%/${v})' };
+          if( w === ['bg','c'] && v.length === [3,4,6,8]      ){ v = '#'+v             };
+          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
+          if( !isNaN(v.slice(-1)) && w === ['h','w']          ){ v = 'calc(100%/${v})' };
 
           var c = b || a ;
           qsa('.'+c).forEach(z=>{z.style[p]=v})
