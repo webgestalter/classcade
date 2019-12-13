@@ -151,11 +151,11 @@ var qsa=s=>(document.querySelectorAll(s)),
 
     r  = [...new Set(Array.from(qsa(s)).flatMap(el=>Array.from(el.classList)))],
 
-    r1 = fltr( r, c =>  inc(c,'--')                ), // schema: prop--var
-    r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // schema: prop-val
-    r3 = fltr( r, c =>  inc(c,'__')                ), // schema: prop__var
-    r4 = fltr( r, c => !inc(c,'__') &&  inc(c,'_') ), // schema: prop_val
-    r5 = fltr( r, c => !inc(c,'-')  && !inc(c,'_') ), // schema: classname
+    r1 = fltr( r, c =>  inc(c,'--')                ), // prop--var
+    r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // prop-val
+    r3 = fltr( r, c =>  inc(c,'__')                ), // prop__var
+    r4 = fltr( r, c => !inc(c,'__') &&  inc(c,'_') ), // prop_val
+    r5 = fltr( r, c => !inc(c,'-')  && !inc(c,'_') ), // alias
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
