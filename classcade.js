@@ -224,7 +224,7 @@ var qsa=s=>(document.querySelectorAll(s)),
        aliasClasses = theArray => {
          Object.keys(alias).forEach( d => {
            theArray.forEach( c => {
-             if( c === d ){ classApplier(alias[d],c) }
+             if( c === d ){ classApplier('-',alias[d],c) }
            });
          });
        };
