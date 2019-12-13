@@ -155,11 +155,11 @@ var qsa=s=>(document.querySelectorAll(s)),
     r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // schema: prop-val
     r3 = fltr( r, c =>  inc(c,'__')                ), // schema: prop__var
     r4 = fltr( r, c => !inc(c,'__') &&  inc(c,'_') ), // schema: prop_val
-    r5 = fltr( r, c => !inc(c,'-')  && !inc(c,'_') ); // schema: classname
+    r5 = fltr( r, c => !inc(c,'-')  && !inc(c,'_') ), // schema: classname
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
-    var    varClasses = theArray => {
+           varClasses = theArray => {
       theArray.forEach( c => {
         var s = c.split('--'),
             x = properties[s[0]],              // set property
@@ -167,9 +167,6 @@ var qsa=s=>(document.querySelectorAll(s)),
         qsa('.'+c).forEach(z=>{z.style[x]=y})
       })
     },
-
-////////// VARIABLE CLASSES FOR CHILDS /////////////////////////////////////////
-
      varClassesChilds = theArray => {
               theArray.forEach( c => {
                 var s = c.split('--'),
@@ -181,7 +178,7 @@ var qsa=s=>(document.querySelectorAll(s)),
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
-         classApplier = (trenner,a,b)    => {
+         classApplier = (trenner,a,b) => {
 
           var s = a.split(trenner),
               w = s[0],
@@ -203,13 +200,10 @@ var qsa=s=>(document.querySelectorAll(s)),
           qsa('.'+c).forEach(z=>{z.style[p]=v})
 
         },
-        simpleClasses = theArray => {
+        simpleClasses = theArray      => {
           theArray.forEach( c => { classApplier('-',c) });
         },
-
-////////// SIMPLE CLASSES FOR CHILDS ///////////////////////////////////////////
-
-       simpleClassesChilds = theArray => {
+  simpleClassesChilds = theArray      => {
           theArray.forEach( c => { classApplier('_',c) });
         },
 
