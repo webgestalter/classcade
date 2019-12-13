@@ -195,8 +195,6 @@ var qsa=s=>(document.querySelectorAll(s)),
           v = s[1];
           v = values[v] || v;
 
-
-
           if( ['bg','c'].includes(w) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
           if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))        ){ v = v.slice(0,-1)+'%' };
           if( !isNaN(v.slice(-1)) && ['h','w'].includes(w)           ){ v = 'calc(100%/${v})' };
@@ -223,9 +221,9 @@ var qsa=s=>(document.querySelectorAll(s)),
 
         v = s[1];
         v = values[v] || v;
-        if( s[0] === 'bg' && ( v.length === 6 || v.length === 8 )  ){ v = '#'+v             };
-        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))      ){ v = v.slice(0,-1)+'%' };
-        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1)) ){ v = 'calc(100%/${v})' };
+        if( ['bg','c'].includes(s[0]) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
+        if( v.endsWith !== 'p' && isNaN(v.charAt(v.length-2))         ){ v = v.slice(0,-1)+'%' };
+        if( ( s[0] === 'h' || s[0] === 'w' ) && isNaN(v.slice(-1))    ){ v = 'calc(100%/${v})' };
 
         var c = b || a ;
         qsa('.'+c).forEach(z=>{z.style[p]=v})
