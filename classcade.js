@@ -247,9 +247,9 @@ var  props = {
 
             //////////
 
-            if( I(['bg','c','f'],w) && I([3,4,6,8],L(v))        ){ v = '#'+v             };
-            if( v.endsWith('p') && !isNaN(v.charAt(L(v)-2)) ){ v = S(v,0,-1)+'%' };
-            if( !isNaN(S(v,-1)) && I(['h','w'],w)           ){ v = 'calc(100%/${v})' };
+            if( I(['bg','c','f'],w) && I([3,4,6,8],L(v)) && v !== 'none' ){ v = '#'+v             };
+            if( v.endsWith('p') && !isNaN(v.charAt(L(v)-2))              ){ v = S(v,0,-1)+'%'     };
+            if( !isNaN(S(v,-1)) && I(['h','w'],w)                        ){ v = 'calc(100%/${v})' };
 
             var c = b || a ;
             FE(QSA('.'+c),z=>{z.style[p]=v})
