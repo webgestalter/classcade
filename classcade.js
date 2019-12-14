@@ -230,6 +230,8 @@ var  props = {
 
           ////////// SET VALUE
 
+          if(p === 'undefined'){ break }
+
           v = s[1];
           v = values[v] || v;
 
