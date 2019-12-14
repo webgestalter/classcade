@@ -133,6 +133,7 @@ var  props = {
   so  : 'solid',
   st  : 'sticky',
   str : 'stretch',
+  uc  : 'uppercase',
   ul  : 'underline',
   tc  : 'table-cell',
   w   : 'wrap'
@@ -168,6 +169,7 @@ var  props = {
      sticky       : 'pos-st'    ,
      stretch      : 'pi-str'    ,
      underline    : 'td-ul'     ,
+     uppercase    : 'tt-uc'     ,
      wrap         : 'fw-w'      ,
 
      fit          : 'w-100p'    ,
