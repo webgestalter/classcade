@@ -152,6 +152,7 @@ var  props = {
      'masonry'
    ],
      alias = {
+     abs          : 'pos-abs'   ,
      absolute     : 'pos-abs'   ,
      block        : 'dis-b'     ,
      bold         : 'ftw-bld'   ,
@@ -161,6 +162,7 @@ var  props = {
      italic       : 'fs-it'     ,
      justify      : 'ta-j'      ,
      nowrap       : 'fw-nw'     ,
+     rel          : 'pos-r'     ,
      relative     : 'pos-r'     ,
      pointer      : 'cur-p'     ,
      spaceA       : 'pc-sa'     ,
@@ -169,6 +171,7 @@ var  props = {
      sticky       : 'pos-st'    ,
      stretch      : 'pi-str'    ,
      underline    : 'td-ul'     ,
+     upper        : 'tt-uc'     ,
      uppercase    : 'tt-uc'     ,
      wrap         : 'fw-w'      ,
 
