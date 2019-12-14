@@ -226,7 +226,7 @@ var  props = {
 
           ////////// SET PROPERTY
 
-          p = props[s[0]];
+          p = props[w];
 
           ////////// SET VALUE
 
@@ -235,14 +235,10 @@ var  props = {
             var v = s[1];
                 v = values[v] || v;
 
-            LOG('a: '+a);
-            LOG('p: '+p);
-            LOG('v: '+v);
-
             ////////// FIX props & VALUES
 
-            if(p.includes('|')){p=pFixer(p)}
-            if(v.includes('|')){v=vFixer(v)}
+            if(I(p,'|')){p=pFixer(p)}
+            if(I(v,'|')){v=vFixer(v)}
 
             //////////
 
@@ -290,7 +286,7 @@ var  props = {
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-    xtra2.forEach( c => { window[c]('.'+c) });
+    xtra2.forEach( c => { W[c]('.'+c) });
 
 },
 
