@@ -190,16 +190,16 @@ var properties = {
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
-           varClasses = theArray => {
-                theArray.forEach( c => {
+           varClasses = arr => {
+                arr.forEach( c => {
                   var s = c.split('--'),
                       x = properties[s[0]],              // set property
                       y = 'var(--'+s[1]+')';             // set value
                   QSA('.'+c).forEach(z=>{z.style[x]=y})
                 })
               },
-     varClassesChilds = theArray => {
-              theArray.forEach( c => {
+     varClassesChilds = arr => {
+              arr.forEach( c => {
                 var s = c.split('--'),
                     x = properties[s[0]],              // set property
                     y = 'var(--'+s[1]+')';             // set value
@@ -209,7 +209,7 @@ var properties = {
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
-         classApplier = (trenner,a,b) => {
+         classApply = (trenner,a,b) => {
 
            var pFixer = s => {
              var a = s.split('*'),
@@ -249,25 +249,25 @@ var properties = {
           QSA('.'+c).forEach(z=>{z.style[p]=v})
 
         },
-        simpleClasses = theArray      => {
-          theArray.forEach( c => { classApplier('-',c) });
+        simpleClasses = arr      => {
+          arr.forEach( c => { classApply('-',c) });
         },
-  simpleClassesChilds = theArray      => {
-          theArray.forEach( c => { classApplier('_',c) });
+  simpleClassesChilds = arr      => {
+          arr.forEach( c => { classApply('_',c) });
         },
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
 
-       specialClasses  = theArray => {
+       specialClasses  = arr => {
 
     },
 
 ////////// ALIAS CLASSES ///////////////////////////////////////////////////////
 
-       aliasClasses = theArray => {
+       aliasClasses = arr => {
          Object.keys(alias).forEach( d => {
-           theArray.forEach( c => {
-             if( c === d ){ classApplier('-',alias[d],c) }
+           arr.forEach( c => {
+             if( c === d ){ classApply('-',alias[d],c) }
            });
          });
        };
