@@ -59,6 +59,7 @@ var  props = {
     gtr : 'g|-template-rows',
     h   : 'height',
     l   : 'left',
+    lh  : 'line-height',
     ls  : 'list-style',
     lsp : 'letter-spacing',
     m   : 'margin',
