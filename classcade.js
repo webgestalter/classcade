@@ -233,6 +233,7 @@ var  props = {
           v = s[1];
           v = values[v] || v;
 
+          LOG('a: '+a);
           LOG('p: '+p);
           LOG('v: '+v);
 
