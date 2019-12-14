@@ -178,15 +178,14 @@ var  props = {
      // SHORTHANDS
      var ea = (a,b) => { a.forEach(b)  },
           f = (a,b) => ( a.filter(b)   ),
-          i = (a,b) => ( a.includes(b) ),
 
     r  = [...new Set(Array.from(QSA('[class]',context)).flatMap(el=>Array.from(el.classList)))],
 
-    r1 = f(r,c => i(c,'--')           ), // prop--var
-    r2 = f(r,c =>!i(c,'--')&& i(c,'-')), // prop-val
-    r3 = f(r,c => i(c,'__')           ), // prop__var
-    r4 = f(r,c =>!i(c,'__')&& i(c,'_')), // prop_val
-    r5 = f(r,c =>!i(c,'-') &&!i(c,'_')), // alias
+    r1 = f(r,c => I(c,'--')           ), // prop--var
+    r2 = f(r,c =>!I(c,'--')&& I(c,'-')), // prop-val
+    r3 = f(r,c => I(c,'__')           ), // prop__var
+    r4 = f(r,c =>!I(c,'__')&& I(c,'_')), // prop_val
+    r5 = f(r,c =>!I(c,'-') &&!I(c,'_')), // alias
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
@@ -214,12 +213,12 @@ var  props = {
            var pFixer = s => {
              var a = s.split('|'),
                  r = (props[a[0]]||values[a[0]]) + a[1];
-             if(i(r,'|')){ r = pFixer(r) } else { return r }
+             if(I(r,'|')){ r = pFixer(r) } else { return r }
            },
                vFixer = s => {
              var a = s.split('|'),
                  r = (values[a[0]]||props[a[0]]) + a[1];
-             if(i(r,'|')){ r = pFixer(r) } else { return r }
+             if(I(r,'|')){ r = pFixer(r) } else { return r }
            },
 
           s = a.split(trenner),
@@ -236,14 +235,14 @@ var  props = {
 
           ////////// FIX props & VALUES
 
-          if(i(p,'|')){p=pFixer(p)}
-          if(i(v,'|')){v=vFixer(v)}
+          if(I(p,'|')){p=pFixer(p)}
+          if(I(v,'|')){v=vFixer(v)}
 
           //////////
 
-          if( i(['bg','c'],w) && i([3,4,6,8],v.length)        ){ v = '#'+v             };
+          if( I(['bg','c'],w) && I([3,4,6,8],v.length)        ){ v = '#'+v             };
           if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
-          if( !isNaN(v.slice(-1)) && i(['h','w'],w)           ){ v = 'calc(100%/${v})' };
+          if( !isNaN(v.slice(-1)) && I(['h','w'],w)           ){ v = 'calc(100%/${v})' };
 
           var c = b || a ;
           QSA('.'+c).forEach(z=>{z.style[p]=v})
