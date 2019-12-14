@@ -233,6 +233,9 @@ var  props = {
           v = s[1];
           v = values[v] || v;
 
+          LOG('p: '+p);
+          LOG('v: '+v);
+
           ////////// FIX props & VALUES
 
           if(p.includes('|')){p=pFixer(p)}
