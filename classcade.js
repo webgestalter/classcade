@@ -60,6 +60,7 @@ var  props = {
     h   : 'height',
     l   : 'left',
     ls  : 'list-style',
+    lsp : 'letter-spacing',
     m   : 'margin',
     mb  : 'm|-bottom',
     ml  : 'm|-left',
