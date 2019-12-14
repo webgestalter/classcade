@@ -214,12 +214,12 @@ var  props = {
            var pFixer = s => {
              var a = s.split('|'),
                  r = (props[a[0]]||values[a[0]]) + a[1];
-             if(i(r,|)){ r = pFixer(r) } else { return r }
+             if(i(r,'|')){ r = pFixer(r) } else { return r }
            },
                vFixer = s => {
              var a = s.split('|'),
                  r = (values[a[0]]||props[a[0]]) + a[1];
-             if(i(r,|)){ r = pFixer(r) } else { return r }
+             if(i(r,'|')){ r = pFixer(r) } else { return r }
            },
 
           s = a.split(trenner),
