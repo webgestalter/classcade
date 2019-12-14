@@ -1,14 +1,14 @@
 (function (root,f) {
   if( typeof define === 'function' && define.amd ){
     define('masonry', () => (f) )
-  } elementse if( typeof module === 'object' && module.exports ){
+  } else if( typeof module === 'object' && module.exports ){
     module.exports = f
-  } elementse {
+  } else {
     root.masonry = f
   }
 }(this, function masonry(con){
 
-    if (typeof (con) === 'string') { con = D.querySelector(con) }
+    if (typeof (con) === 'string') { con = QS(con) }
 
     var pf   = z     => (parseFloat(z)),
         s    = z     => (W.getComputedStyle(z)),
@@ -23,10 +23,10 @@
         sort = z     => {z=z.sort((u,v)=>(b(v)-b(u)||x(v)-x(u)))};
 
     function Boundary(fR){
-      var elements = fR; sort(elements);
-      this.add = a  => {elements.push(a);sort(elements);elements.pop()}
-      this.min = () => (elements[elements.length - 1]);
-      this.max = () => (elements[0]);
+      var els = fR; sort(els);
+      this.add = a  => {els.push(a);sort(els);els.pop()}
+      this.min = () => (els[L(els) - 1]);
+      this.max = () => (els[0]);
     }
 
     var pe    = (a,b,c) => {a.style.position='absolute';a.style.top=p(b);a.style.left=p(c)},
@@ -38,12 +38,12 @@
 
     //
 
-    var elements = con.children;
-    if(elements.length){ pfe(elements[0]) }
-    for( var i = 1; i < elements.length && tis(elements,i); i++ ){ patfl(elements[i-1],elements[i]) }
-    var fR  = [].slice.call(elements,0,i),
+    var els = con.children;
+    if(L(els)){ pfe(els[0]) }
+    for( var i = 1; i < L(els) && tis(els,i); i++ ){ patfl(els[i-1],els[i]) }
+    var fR  = [].slice.call(els,0,i),
         bnd = new Boundary(fR);
-    for( ; i < elements.length; i++ ){ patsc(bnd.min(),elements[i]);bnd.add(elements[i]) }
+    for( ; i < L(els); i++ ){ patsc(bnd.min(),els[i]);bnd.add(els[i]) }
     ac(con,bnd.max())
 
 }))
