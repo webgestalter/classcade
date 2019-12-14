@@ -235,8 +235,8 @@ var  props = {
 
           ////////// FIX props & VALUES
 
-          if(I(p,'|')){p=pFixer(p)}
-          if(I(v,'|')){v=vFixer(v)}
+          if(p.includes('|')){p=pFixer(p)}
+          if(v.includes('|')){v=vFixer(v)}
 
           //////////
 
