@@ -230,28 +230,30 @@ var  props = {
 
           ////////// SET VALUE
 
-          if(p === 'undefined'){ break }
+          if( p !== U ){
 
-          v = s[1];
-          v = values[v] || v;
+            v = s[1];
+            v = values[v] || v;
 
-          LOG('a: '+a);
-          LOG('p: '+p);
-          LOG('v: '+v);
+            LOG('a: '+a);
+            LOG('p: '+p);
+            LOG('v: '+v);
 
-          ////////// FIX props & VALUES
+            ////////// FIX props & VALUES
 
-          if(p.includes('|')){p=pFixer(p)}
-          if(v.includes('|')){v=vFixer(v)}
+            if(p.includes('|')){p=pFixer(p)}
+            if(v.includes('|')){v=vFixer(v)}
 
-          //////////
+            //////////
 
-          if( I(['bg','c'],w) && I([3,4,6,8],v.length)        ){ v = '#'+v             };
-          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
-          if( !isNaN(v.slice(-1)) && I(['h','w'],w)           ){ v = 'calc(100%/${v})' };
+            if( I(['bg','c'],w) && I([3,4,6,8],v.length)        ){ v = '#'+v             };
+            if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
+            if( !isNaN(v.slice(-1)) && I(['h','w'],w)           ){ v = 'calc(100%/${v})' };
 
-          var c = b || a ;
-          QSA('.'+c).forEach(z=>{z.style[p]=v})
+            var c = b || a ;
+            QSA('.'+c).forEach(z=>{z.style[p]=v})
+
+          }
 
         },
         simpleClasses = arr      => {
