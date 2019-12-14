@@ -252,7 +252,7 @@ var  props = {
           arr.forEach( c => { classApply('-',c) });
         },
   simpleClassesChilds = arr      => {
-          arr.forEach( c => { classApply('_',c) });
+      //    arr.forEach( c => { classApply('_',c) });
         },
 
 ////////// SPECIAL CLASSES /////////////////////////////////////////////////////
