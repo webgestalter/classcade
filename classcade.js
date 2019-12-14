@@ -176,8 +176,7 @@ var  props = {
      classcade = context => {
 
      // SHORTHANDS
-     var ea = (a,b) => { a.forEach(b)  },
-          f = (a,b) => ( a.filter(b)   ),
+     var f = (a,b) => ( a.filter(b) ),
 
     r  = [...new Set(Array.from(QSA('[class]',context)).flatMap(el=>Array.from(CL(el))))],
 
@@ -190,19 +189,19 @@ var  props = {
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
            varClasses = arr => {
-                arr.forEach( c => {
+                FE(arr, c => {
                   var s = c.split('--'),
                       x = props[s[0]],              // set property
                       y = 'var(--'+s[1]+')';             // set value
-                  QSA('.'+c).forEach(z=>{z.style[x]=y})
+                  FE(QSA('.'+c),z=>{z.style[x]=y})
                 })
               },
      varClassesChilds = arr => {
-              arr.forEach( c => {
-                var s = c.split('--'),
+              FE(arr, c => {
+                var s = c.split('__'),
                     x = props[s[0]],              // set property
                     y = 'var(--'+s[1]+')';             // set value
-                QSA('.'+c).forEach(z=>{z.style[x]=y})
+                FE(QSA('.'+c),z=>{z.style[x]=y})
               })
             },
 
@@ -243,17 +242,17 @@ var  props = {
             //////////
 
             if( I(['bg','c'],w) && I([3,4,6,8],L(v))        ){ v = '#'+v             };
-            if( v.endsWith('p') && !isNaN(v.charAt(L(v)-2)) ){ v = v.slice(0,-1)+'%' };
-            if( !isNaN(v.slice(-1)) && I(['h','w'],w)       ){ v = 'calc(100%/${v})' };
+            if( v.endsWith('p') && !isNaN(v.charAt(L(v)-2)) ){ v = S(v,0,-1)+'%' };
+            if( !isNaN(S(v,-1)) && I(['h','w'],w)           ){ v = 'calc(100%/${v})' };
 
             var c = b || a ;
-            QSA('.'+c).forEach(z=>{z.style[p]=v})
+            FE(QSA('.'+c),z=>{z.style[p]=v})
 
           }
 
         },
         simpleClasses = arr      => {
-          arr.forEach( c => { classApply('-',c) });
+          FE(arr,c=>{classApply('-',c)})
         },
   simpleClassesChilds = arr      => {
       //    arr.forEach( c => { classApply('_',c) });
@@ -268,8 +267,8 @@ var  props = {
 ////////// ALIAS CLASSES ///////////////////////////////////////////////////////
 
        aliasClasses = arr => {
-         Object.keys(alias).forEach( d => {
-           arr.forEach( c => {
+         FE(Object.keys(alias), d => {
+           FE(arr, c => {
              if( c === d ){ classApply('-',alias[d],c) }
            });
          });
@@ -286,7 +285,7 @@ var  props = {
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-    xtra2.forEach( c => { W[c]('.'+c) });
+    FE(xtra2, c => { W[c]('.'+c) });
 
 },
 
@@ -295,10 +294,10 @@ cc    = (s,c) => {
   s = isStr(s) ? QSA(s) : [s] ;
   c = !isArray(c) ? [c] : c ;
 
-  s.forEach( z => {
-    c.forEach( y => {
-      if( strB(y,'!') ){
-        CL(z).remove(y.slice(1))
+  FE(s,z=>{
+    FE(c,y=>{
+      if(strB(y,'!')){
+        CL(z).remove(S(y,1))
       } else {
         CL(z).add(y)
       }
