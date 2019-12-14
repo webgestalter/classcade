@@ -179,7 +179,7 @@ var  props = {
      var ea = (a,b) => { a.forEach(b)  },
           f = (a,b) => ( a.filter(b)   ),
 
-    r  = [...new Set(Array.from(QSA('[class]',context)).flatMap(el=>Array.from(el.classList)))],
+    r  = [...new Set(Array.from(QSA('[class]',context)).flatMap(el=>Array.from(CL(el))))],
 
     r1 = f(r,c => I(c,'--')           ), // prop--var
     r2 = f(r,c =>!I(c,'--')&& I(c,'-')), // prop-val
@@ -242,9 +242,9 @@ var  props = {
 
             //////////
 
-            if( I(['bg','c'],w) && I([3,4,6,8],v.length)        ){ v = '#'+v             };
-            if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
-            if( !isNaN(v.slice(-1)) && I(['h','w'],w)           ){ v = 'calc(100%/${v})' };
+            if( I(['bg','c'],w) && I([3,4,6,8],L(v))        ){ v = '#'+v             };
+            if( v.endsWith('p') && !isNaN(v.charAt(L(v)-2)) ){ v = v.slice(0,-1)+'%' };
+            if( !isNaN(v.slice(-1)) && I(['h','w'],w)       ){ v = 'calc(100%/${v})' };
 
             var c = b || a ;
             QSA('.'+c).forEach(z=>{z.style[p]=v})
@@ -298,9 +298,9 @@ cc    = (s,c) => {
   s.forEach( z => {
     c.forEach( y => {
       if( strB(y,'!') ){
-        z.classList.remove(y.slice(1))
+        CL(z).remove(y.slice(1))
       } else {
-        z.classList.add(y)
+        CL(z).add(y)
       }
     })
   })
