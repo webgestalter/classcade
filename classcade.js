@@ -137,14 +137,14 @@ var  props = {
   w   : 'wrap'
 },
       xtra = {
-  hw  : ['h*','w*'],
-  tl  : ['t*','l*'],
-  tr  : ['t*','r*'],
-  rbl : ['r*','b*','l*'],
-  trl : ['t*','r*','l*'],
-  trb : ['t*','r*','b*'],
-  tbl : ['t*','b*','l*'],
-  trbl: ['t*','r*','b*','l*']
+  hw  : ['h|','w|'],
+  tl  : ['t|','l|'],
+  tr  : ['t|','r|'],
+  rbl : ['r|','b|','l|'],
+  trl : ['t|','r|','l|'],
+  trb : ['t|','r|','b|'],
+  tbl : ['t|','b|','l|'],
+  trbl: ['t|','r|','b|','l|']
 },
      xtra2 = [
      'masonry'
@@ -214,12 +214,12 @@ var  props = {
            var pFixer = s => {
              var a = s.split('|'),
                  r = (props[a[0]]||values[a[0]]) + a[1];
-             if(i(r,*)){ r = pFixer(r) } else { return r }
+             if(i(r,|)){ r = pFixer(r) } else { return r }
            },
                vFixer = s => {
-             var a = s.split('*'),
+             var a = s.split('|'),
                  r = (values[a[0]]||props[a[0]]) + a[1];
-             if(i(r,*)){ r = pFixer(r) } else { return r }
+             if(i(r,|)){ r = pFixer(r) } else { return r }
            },
 
           s = a.split(trenner),
