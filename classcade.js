@@ -226,14 +226,14 @@ var  props = {
 
           ////////// SET PROPERTY
 
-          p = props[s[0]],
+          p = props[s[0]];
 
           ////////// SET VALUE
 
           if( p !== U ){
 
-            v = s[1];
-            v = values[v] || v;
+            var v = s[1];
+                v = values[v] || v;
 
             LOG('a: '+a);
             LOG('p: '+p);
