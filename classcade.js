@@ -10,167 +10,200 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░//
 ////////////////////////////////////////////////////////////
 
-var qsa=(s,c)=>((c||document).querySelectorAll(s)),
-
-  properties = {
-        ac  : 'align-content'   ,
-        ai  : 'align-items'     ,
-        as  : 'align-self'      ,
-        b   : 'bottom'          ,
-        bor : 'border'          ,
-        borb: 'border-bottom'   ,
-        borl: 'border-left'     ,
-        borr: 'border-right'    ,
-        bort: 'border-top'      ,
-        bs  : 'box-sizing'      ,
-        bsh : 'box-shadow'      ,
-        bg  : 'background'      ,
-        brad: 'border-radius'   ,
-        c   : 'color'           ,
-        cc  : 'column-count'    ,
-        cg  : 'column-gap'      ,
-        cur : 'cursor'          ,
-        dis : 'display'         ,
-        f   : 'fill'            ,
-        fb  : 'flex-basis'      ,
-        fd  : 'flex-direction'  ,
-        fg  : 'flex-grow'       ,
-        fs  : 'flex-shrink'     ,
-        fw  : 'flex-wrap'       ,
-        fts : 'font-size'       ,
-        ftw : 'font-weight'     ,
-        jc  : 'justify-content' ,
-        h   : 'height'          ,
-        l   : 'left'            ,
-        ls  : 'list-style'      ,
-        m   : 'margin'          ,
-        mb  : 'margin-bottom'   ,
-        ml  : 'margin-left'     ,
-        mr  : 'margin-right'    ,
-        mt  : 'margin-top'      ,
-        of  : 'overflow'        ,
-        ofx : 'overflow-x'      ,
-        ofy : 'overflow-y'      ,
-        op  : 'opacity'         ,
-        p   : 'padding'         ,
-        pc  : 'place-content'   ,
-        r   : 'right'           ,
-        pos : 'position'        ,
-        t   : 'top'             ,
-        ta  : 'text-align'      ,
-        tc  : 'color'           ,
-        td  : 'text-decoration' ,
-        tt  : 'text-transform'  ,
-        va  : 'vertical-align'  ,
-        w   : 'width'           ,
+var properties = {
+        ac  : 'align-content'     ,
+        ai  : 'align-items'       ,
+        as  : 'align-self'        ,
+        b   : 'bottom'            ,
+        bor : 'border'            ,
+        borb: 'bor*-bottom'      ,
+        borl: 'bor*-left'        ,
+        borr: 'bor*-right'       ,
+        bort: 'bor*-top'         ,
+        bs  : 'box-sizing'        ,
+        bsh : 'box-shadow'        ,
+        bg  : 'background'        ,
+        brad: 'border-radius'     ,
+        c   : 'color'             ,
+        cc  : 'column-count'      ,
+        cg  : 'column-gap'        ,
+        cur : 'cursor'            ,
+        dis : 'display'           ,
+        f   : 'fill'              ,
+        fb  : 'flex-basis'        ,
+        fd  : 'flex-direction'    ,
+        fg  : 'flex-grow'         ,
+        fs  : 'flex-shrink'       ,
+        fw  : 'flex-wrap'         ,
+        fts : 'font-size'         ,
+        ftw : 'font-weight'       ,
+        jc  : 'justify-content'   ,
+        ji  : 'justify-items'     ,
+        js  : 'justify-self'      ,
+        g   : 'grid'              ,
+        ga  : 'g*-area'          ,
+        gac : 'g*-auto-columns'  ,
+        gaf : 'g*-auto-flow'     ,
+        gar : 'g*-auto-rows'     ,
+        gc  : 'g*-column'        ,
+        gce : 'gc*-end'          ,
+        gcg : 'gc*-gap'          ,
+        gcs : 'gc*-start'        ,
+        gg  : 'g*-gap'           ,
+        gr  : 'g*-row'           ,
+        gre : 'gr*-end'          ,
+        grg : 'gr*-gap'          ,
+        grs : 'gr*-start'        ,
+        gta : 'g*-template-areas' ,
+        gtc : 'g*-template-columns' ,
+        gtr : 'g*-template-rows'    ,
+        h   : 'height'            ,
+        l   : 'left'              ,
+        ls  : 'list-style'        ,
+        m   : 'margin'            ,
+        mb  : 'm*-bottom'        ,
+        ml  : 'm*-left'          ,
+        mr  : 'm*-right'         ,
+        mt  : 'm*-top'           ,
+        of  : 'overflow'          ,
+        ofx : 'of*-x'            ,
+        ofy : 'of*-y'            ,
+        op  : 'opacity'           ,
+        p   : 'padding'           ,
+        pb  : 'p*-bottom'        ,
+        pl  : 'p*-left'          ,
+        pr  : 'p*-right'         ,
+        pt  : 'p*-top'           ,
+        pc  : 'place-content'     ,
+        pi  : 'place-items'       ,
+        ps  : 'place-self'        ,
+        r   : 'right'             ,
+        pos : 'position'          ,
+        t   : 'top'               ,
+        ta  : 'text-align'        ,
+        tc  : 'color'             ,
+        td  : 'text-decoration'   ,
+        tt  : 'text-transform'    ,
+        va  : 'vertical-align'    ,
+        w   : 'width'             ,
         zi  : 'z-index'
       },
-      values = {
-    a   : 'auto'          ,
-    a0  : 'auto 0'        ,
-    abs : 'absolute'      ,
-    b   : 'block'         ,
-    bl  : 'baseline'      ,
-    bld : 'bold'      ,
-    c   : 'center'        ,
-    col : 'column'        ,
-    colr: 'column-reverse',
-    da  : 'dashed'        ,
-    do  : 'dotted'        ,
-    f   : 'flex'          ,
-    fix : 'fixed'         ,
-    fe  : 'flex-end'      ,
-    fs  : 'flex-start'    ,
-    h   : 'hidden'        ,
-    i   : 'inline'        ,
-    ib  : 'inline-block'  ,
-    inh : 'inherit'       ,
-    it  : 'italic'        ,
-    j   : 'justify'        ,
-    l   : 'left'          ,
-    lt  : 'line-through'  ,
-    m   : 'middle'        ,
-    n   : 'none'          ,
-    nw  : 'nowrap'        ,
-    ol  : 'overline'      ,
-    p   : 'pointer'       ,
-    r   : 'right'         ,
-    rel : 'relative'      ,
-    rowr: 'row-reverse'   ,
-    sa  : 'solid'         ,
-    sa  : 'space-around'  ,
-    sb  : 'space-between' ,
-    st  : 'sticky'        ,
-    ul  : 'underline'     ,
-    w   : 'wrap'
-  },
-        xtra = {
-    hw  : ['h,w'],
-    tl  : ['t,l'],
-    tr  : ['t,r'],
-    rbl : ['r,b,l'],
-    trl : ['t,r,l'],
-    trb : ['t,r,b'],
-    tbl : ['t,b,l'],
-    trbl: ['t,r,b,l']
-  },
-       xtra2 = [
-       'masonry'
-     ],
-       alias = {
-       absolute     : 'pos-abs',
-       block        : 'dis-b',
-       bold         : 'ftw-bld',
-       fixed        : 'pos-fix',
-       flex         : 'dis-f',
-       italic       : 'fs-it',
-       justify      : 'ta-j',
-       nowrap       : 'fw-nw',
-       relative     : 'pos-r',
-       pointer      : 'cur-p',
-       spaceA       : 'pc-sa',
-       spaceB       : 'pc-sb',
-       sticky       : 'pos-st',
-       underline    : 'td-ul',
-       wrap         : 'fw-w',
+        values = {
+      a   : 'auto'          ,
+      a0  : 'auto 0'        ,
+      abs : 'absolute'      ,
+      b   : 'block'         ,
+      bl  : 'baseline'      ,
+      bld : 'bold'          ,
+      c   : 'center'        ,
+      col : 'column'        ,
+      colr: '[col]-reverse' ,
+      da  : 'dashed'        ,
+      do  : 'dotted'        ,
+      e   : 'end'           ,
+      f   : 'flex'          ,
+      fix : 'fixed'         ,
+      fe  : '[f]-end'       ,
+      fs  : '[f]-start'     ,
+      g   : 'grid'          ,
+      h   : 'hidden'        ,
+      i   : 'inline'        ,
+      ib  : '[i]-block'     ,
+      ig  : '[i]-grid'      ,
+      inh : 'inherit'       ,
+      it  : 'italic'        ,
+      j   : 'justify'       ,
+      l   : 'left'          ,
+      lt  : 'line-through'  ,
+      m   : 'middle'        ,
+      maxc: 'max-content'   ,
+      minc: 'min-content'   ,
+      n   : 'none'          ,
+      nw  : 'nowrap'        ,
+      ol  : 'overline'      ,
+      p   : 'pointer'       ,
+      r   : 'right'         ,
+      rel : 'relative'      ,
+      rowr: 'row-reverse'   ,
+      s   : 'start'         ,
+      sa  : 'space-around'  ,
+      sb  : 'space-between' ,
+      se  : 'space-evenly' ,
+      so  : 'solid'         ,
+      st  : 'sticky'        ,
+      str : 'stretch'       ,
+      ul  : 'underline'     ,
+      tc  : 'table-cell'    ,
+      w   : 'wrap'
+    },
+          xtra = {
+      hw  : ['h,w'],
+      tl  : ['t,l'],
+      tr  : ['t,r'],
+      rbl : ['r,b,l'],
+      trl : ['t,r,l'],
+      trb : ['t,r,b'],
+      tbl : ['t,b,l'],
+      trbl: ['t,r,b,l']
+    },
+         xtra2 = [
+         'masonry'
+       ],
+         alias = {
+         absolute     : 'pos-abs'   ,
+         block        : 'dis-b'     ,
+         bold         : 'ftw-bld'   ,
+         fixed        : 'pos-fix'   ,
+         flex         : 'dis-f'     ,
+         grid         : 'dis-g'     ,
+         italic       : 'fs-it'     ,
+         justify      : 'ta-j'      ,
+         nowrap       : 'fw-nw'     ,
+         relative     : 'pos-r'     ,
+         pointer      : 'cur-p'     ,
+         spaceA       : 'pc-sa'     ,
+         spaceB       : 'pc-sb'     ,
+         spaceE       : 'pc-se'     ,
+         sticky       : 'pos-st'    ,
+         stretch      : 'pi-str'    ,
+         underline    : 'td-ul'     ,
+         wrap         : 'fw-w'      ,
 
-       fit          : 'w-100p',
-       half         : 'w-50p',
+         fit          : 'w-100p'    ,
+         half         : 'w-50p'
+       },
 
-       antialiased  : '-webkit-font-smoothing:antialiased'
-     },
-
-   classcade = context => {
+     classcade = context => {
 
      // SHORTHANDS
-     var   ea = (a,b) => { a.forEach(b)  },
-         fltr = (a,b) => ( a.filter(b)   ),
-          inc = (a,b) => ( a.includes(b) ),
+     var ea = (a,b) => { a.forEach(b)  },
+          f = (a,b) => ( a.filter(b)   ),
+          i = (a,b) => ( a.includes(b) ),
 
-    r  = [...new Set(Array.from(qsa('[class]',context)).flatMap(el=>Array.from(el.classList)))],
+    r  = [...new Set(Array.from(QSA('[class]',context)).flatMap(el=>Array.from(el.classList)))],
 
-    r1 = fltr( r, c =>  inc(c,'--')                ), // prop--var
-    r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // prop-val
-    r3 = fltr( r, c =>  inc(c,'__')                ), // prop__var
-    r4 = fltr( r, c => !inc(c,'__') &&  inc(c,'_') ), // prop_val
-    r5 = fltr( r, c => !inc(c,'-')  && !inc(c,'_') ), // alias
+    r1 = f(r,c => i(c,'--')           ), // prop--var
+    r2 = f(r,c =>!i(c,'--')&& i(c,'-')), // prop-val
+    r3 = f(r,c => i(c,'__')           ), // prop__var
+    r4 = f(r,c =>!i(c,'__')&& i(c,'_')), // prop_val
+    r5 = f(r,c =>!i(c,'-') &&!i(c,'_')), // alias
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
            varClasses = theArray => {
-      theArray.forEach( c => {
-        var s = c.split('--'),
-            x = properties[s[0]],              // set property
-            y = 'var(--'+s[1]+')';             // set value
-        qsa('.'+c).forEach(z=>{z.style[x]=y})
-      })
-    },
+                theArray.forEach( c => {
+                  var s = c.split('--'),
+                      x = properties[s[0]],              // set property
+                      y = 'var(--'+s[1]+')';             // set value
+                  QSA('.'+c).forEach(z=>{z.style[x]=y})
+                })
+              },
      varClassesChilds = theArray => {
               theArray.forEach( c => {
                 var s = c.split('--'),
                     x = properties[s[0]],              // set property
                     y = 'var(--'+s[1]+')';             // set value
-                qsa('.'+c).forEach(z=>{z.style[x]=y})
+                QSA('.'+c).forEach(z=>{z.style[x]=y})
               })
             },
 
@@ -178,8 +211,19 @@ var qsa=(s,c)=>((c||document).querySelectorAll(s)),
 
          classApplier = (trenner,a,b) => {
 
-          var s = a.split(trenner),
-              w = s[0],
+           var pFixer = s => {
+             var a = s.split('*'),
+                 r = (properties[a[0]]||values[a[0]]) + a[1];
+             if(i(r,*)){ r = pFixer(r) } else { return r }
+           },
+               vFixer = s => {
+             var a = s.split('*'),
+                 r = (values[a[0]]||properties[a[0]]) + a[1];
+             if(i(r,*)){ r = pFixer(r) } else { return r }
+           },
+
+          s = a.split(trenner),
+          w = s[0],
 
           ////////// SET PROPERTY
 
@@ -190,12 +234,19 @@ var qsa=(s,c)=>((c||document).querySelectorAll(s)),
           v = s[1];
           v = values[v] || v;
 
-          if( ['bg','c'].includes(w) && [3,4,6,8].includes(v.length) ){ v = '#'+v             };
-          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))        ){ v = v.slice(0,-1)+'%' };
-          if( !isNaN(v.slice(-1)) && ['h','w'].includes(w)           ){ v = 'calc(100%/${v})' };
+          ////////// FIX PROPERTIES & VALUES
+
+          if(i(p,'*')){p=pFixer(p)}
+          if(i(v,'*')){v=vFixer(v)}
+
+          //////////
+
+          if( i(['bg','c'],w) && i([3,4,6,8],v.length)        ){ v = '#'+v             };
+          if( v.endsWith('p') && !isNaN(v.charAt(v.length-2)) ){ v = v.slice(0,-1)+'%' };
+          if( !isNaN(v.slice(-1)) && i(['h','w'],w)           ){ v = 'calc(100%/${v})' };
 
           var c = b || a ;
-          qsa('.'+c).forEach(z=>{z.style[p]=v})
+          QSA('.'+c).forEach(z=>{z.style[p]=v})
 
         },
         simpleClasses = theArray      => {
@@ -246,7 +297,6 @@ cc    = (s,c) => {
       if( strB(y,'!') ){
         z.classList.remove(y.slice(1))
       } else {
-        LOG('add class: '+y);
         z.classList.add(y)
       }
     })
