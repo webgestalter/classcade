@@ -226,7 +226,7 @@ var  props = {
 
           ////////// SET PROPERTY
 
-          p = props[w],
+          p = props[s[0]],
 
           ////////// SET VALUE
 
