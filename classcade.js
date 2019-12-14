@@ -10,7 +10,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░//
 ////////////////////////////////////////////////////////////
 
-var qsa=s=>(document.querySelectorAll(s)),
+var qsa=(s,c)=>((c||document).querySelectorAll(s)),
 
   properties = {
         ac  : 'align-content'   ,
@@ -140,16 +140,14 @@ var qsa=s=>(document.querySelectorAll(s)),
        antialiased  : '-webkit-font-smoothing:antialiased'
      },
 
-   classcade = selector => {
+   classcade = context => {
 
      // SHORTHANDS
      var   ea = (a,b) => { a.forEach(b)  },
          fltr = (a,b) => ( a.filter(b)   ),
           inc = (a,b) => ( a.includes(b) ),
 
-    s = selector || '[class]' ,
-
-    r  = [...new Set(Array.from(qsa(s)).flatMap(el=>Array.from(el.classList)))],
+    r  = [...new Set(Array.from(qsa('[class]',context)).flatMap(el=>Array.from(el.classList)))],
 
     r1 = fltr( r, c =>  inc(c,'--')                ), // prop--var
     r2 = fltr( r, c => !inc(c,'--') &&  inc(c,'-') ), // prop-val
