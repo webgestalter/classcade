@@ -210,13 +210,13 @@ var  props = {
 
          classApply = (trenner,a,b) => {
 
-           var pFixer = s => {
-             var a = s.split('|'),
+           var pFixer = j => {
+             var a = j.split('|'),
                  r = (props[a[0]]||values[a[0]]) + a[1];
              if(I(r,'|')){ r = pFixer(r) } else { return r }
            },
-               vFixer = s => {
-             var a = s.split('|'),
+               vFixer = j => {
+             var a = j.split('|'),
                  r = (values[a[0]]||props[a[0]]) + a[1];
              if(I(r,'|')){ r = pFixer(r) } else { return r }
            },
