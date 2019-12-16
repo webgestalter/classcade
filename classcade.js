@@ -210,7 +210,7 @@ var  props = {
                   var s = c.split('--'),
                       x = props[s[0]],              // set property
                       y = 'var(--'+s[1]+')';             // set value
-                  FE(QSA('.'+c),z=>{z.style[x]=y})
+                  FE(QSA('.'+c,context),z=>{z.style[x]=y})
                 })
               },
      varClassesChilds = arr => {
@@ -218,7 +218,7 @@ var  props = {
                 var s = c.split('__'),
                     x = props[s[0]],              // set property
                     y = 'var(--'+s[1]+')';        // set value
-                FE(QSA('.'+c),z=>{z.style[x]=y})
+                FE(QSA('.'+c,context),z=>{z.style[x]=y})
               })
             },
 
