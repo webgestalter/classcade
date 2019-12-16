@@ -186,7 +186,7 @@ var  props = {
      // SHORTHANDS
      var f = (a,b) => ( a.filter(b) ),
 
-    r  = [...new Set(Array.from(QSA('[class]',context)).flatMap(el=>Array.from(CL(el))))],
+    r  = [...new Set(A.from(QSA('[class]',context)).flatMap(el=>A.from(CL(el))))],
 
     r1 = f(r,c => I(c,'--')           ), // prop--var
     r2 = f(r,c =>!I(c,'--')&& I(c,'-')), // prop-val
@@ -275,7 +275,7 @@ var  props = {
 ////////// ALIAS CLASSES ///////////////////////////////////////////////////////
 
        aliasClasses = arr => {
-         FE(Object.keys(alias), d => {
+         FE(O.keys(alias), d => {
            FE(arr, c => {
              if( c === d ){ classApply('-',alias[d],c) }
            });
