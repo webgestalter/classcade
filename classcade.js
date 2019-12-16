@@ -254,7 +254,7 @@ var  props = {
             if( !isNaN(S(v,-1)) && I(['h','w'],w)                        ){ v = 'calc(100%/${v})' };
 
             var c = b || a ;
-            FE(QSA('.'+c),z=>{z.style[p]=v})
+            FE(QSA('.'+c,context),z=>{z.style[p]=v})
 
           }
 
