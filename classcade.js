@@ -160,6 +160,7 @@ var  props = {
      fixed        : 'pos-fix'   ,
      flex         : 'dis-f'     ,
      grid         : 'dis-g'     ,
+     hidden       : 'dis-n'     ,
      italic       : 'fs-it'     ,
      justify      : 'ta-j'      ,
      nowrap       : 'fw-nw'     ,
