@@ -249,7 +249,7 @@ var  props = {
             //////////
 
             if( I(['bg','c','f'],w) && I([3,4,6,8],L(v)) && v !== 'none' ){ v = '#'+v             };
-            if( v.endsWith('p') && !isNaN(v.charAt(L(v)-2))              ){ v = S(v,0,-1)+'%'     };
+            if( strE(v,'p') && !isNaN(v.charAt(L(v)-2))                  ){ v = S(v,0,-1)+'%'     };
             if( !isNaN(S(v,-1)) && I(['h','w'],w)                        ){ v = 'calc(100%/${v})' };
 
             var c = b || a ;
@@ -301,15 +301,13 @@ cc    = (s,c) => {
   s = isStr(s) ? QSA(s) : [s] ;
   c = !isArray(c) ? [c] : c ;
 
-  FE(s,z=>{
-    FE(c,y=>{
-      if(strB(y,'!')){
-        CL(z).remove(S(y,1))
-      } else {
-        CL(z).add(y)
-      }
-    })
-  })
+  FE(s,z=>{FE(c,y=>{
+    if(strB(y,'!')){
+      CL(z).remove(S(y,1))
+    } else {
+      CL(z).add(y)
+    }
+  })})
 
 },
 ccVar = (variable,value,context) => {
