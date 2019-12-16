@@ -317,4 +317,8 @@ ccVar = (variable,value,context) => {
 
 classcade();
 
-addEvent(W,'resize',()=>{ classcade(); LOG('resize window and run classcade again') });
+window.addEventListener('resize', function(event){
+  classcade();
+  LOG('resize window and run classcade again')
+});
+// addEvent(W,'resize',()=>{ classcade(); LOG('resize window and run classcade again') });
