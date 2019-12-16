@@ -316,3 +316,5 @@ ccVar = (variable,value,context) => {
 }
 
 classcade();
+
+addEvent(W,'resize',()=>{ classcade() });
