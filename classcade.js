@@ -307,13 +307,7 @@ cc    = (s,c) => {
   s = isStr(s) ? QSA(s) : [s] ;
   c = !isArray(c) ? [c] : c ;
 
-  FE(s,z=>{
-    FE(c,y=>{
-      _(z).c(y)
-    })
-  })
-
-  //FE(s,z=>{FE(c,y=>{if(strB(y,'!')){CL(z).remove(S(y,1))}else{CL(z).add(y)}})})
+  FE(s,z=>{FE(c,y=>{_(z).c(y)})})
 
 },
 ccVar = (variable,value,context) => {
