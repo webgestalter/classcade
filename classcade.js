@@ -190,7 +190,7 @@ var  props = {
      rtl          : 'dir-rtl'
    },
 
-     classcade = context => {
+ classcade = context => {
 
      // SHORTHANDS
      var f = (a,b) => ( a.filter(b) ),
