@@ -294,6 +294,11 @@ var  props = {
 
     FE(xtra2, c => { W[c]('.'+c) });
 
+    window.addEventListener('resize', function(event){
+      classcade();
+      LOG('resize window and run classcade again')
+    });
+
 },
 
 cc    = (s,c) => {
@@ -317,8 +322,5 @@ ccVar = (variable,value,context) => {
 
 classcade();
 
-window.addEventListener('resize', function(event){
-  classcade();
-  LOG('resize window and run classcade again')
-});
+
 // addEvent(W,'resize',()=>{ classcade(); LOG('resize window and run classcade again') });
