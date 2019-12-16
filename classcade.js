@@ -208,7 +208,7 @@ var  props = {
               FE(arr, c => {
                 var s = c.split('__'),
                     x = props[s[0]],              // set property
-                    y = 'var(--'+s[1]+')';             // set value
+                    y = 'var(--'+s[1]+')';        // set value
                 FE(QSA('.'+c),z=>{z.style[x]=y})
               })
             },
@@ -291,6 +291,9 @@ var  props = {
     // specialClasses(r5);
          aliasClasses(r5);
 
+    // FE(r2,c=>{classApply('-',c)}); // simpleClasses
+    // FE(r4,c=>{classApply('_',c)}); // simpleChildClasses
+
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
     FE(xtra2, c => { W[c]('.'+c) });
@@ -310,6 +313,7 @@ cc    = (s,c) => {
     } else {
       CL(z).add(y)
     }
+    // _(z).s(y)
   })})
 
 },
