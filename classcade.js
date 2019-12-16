@@ -91,9 +91,12 @@ var  props = {
     tc  : 'color',
     td  : 'text-decoration',
     ti  : 'text-indent',
+    tof : 'text-overflow',
+    tsh : 'text-shadow',
     tt  : 'text-transform',
     va  : 'vertical-align',
     w   : 'width',
+    ws  : 'word-spacing',
     zi  : 'z-index'
   },
     values = {
