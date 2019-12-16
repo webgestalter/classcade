@@ -28,6 +28,7 @@ var  props = {
     cc  : 'column-count',
     cg  : 'column-gap',
     cur : 'cursor',
+    dir : 'direction',
     dis : 'display',
     f   : 'fill',
     fb  : 'flex-basis',
@@ -89,6 +90,7 @@ var  props = {
     ta  : 'text-align',
     tc  : 'color',
     td  : 'text-decoration',
+    ti  : 'text-indent',
     tt  : 'text-transform',
     va  : 'vertical-align',
     w   : 'width',
@@ -182,7 +184,10 @@ var  props = {
      wrap         : 'fw-w'      ,
 
      fit          : 'w-100p'    ,
-     half         : 'w-50p'
+     half         : 'w-50p'     ,
+
+     ltr          : 'dir-ltr'   ,
+     rtl          : 'dir-rtl'
    },
 
      classcade = context => {
