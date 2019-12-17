@@ -36,7 +36,7 @@ var  props = {
     fg  : 'flex-grow',
     fs  : 'flex-shrink',
     fw  : 'flex-wrap',
-    ft  : 'font-size',
+    ft  : 'font',
     ftf : 'ft|-family',
     fts : 'ft|-size',
     ftv : 'ft|-variant',
