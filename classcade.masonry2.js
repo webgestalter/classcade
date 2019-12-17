@@ -1,4 +1,4 @@
-var resizeMasonryItem     = item => {
+var resizeItem  = item => {
 
   var      grid = D.getElementsByClassName('masonry')[0],
          rowGap = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
@@ -8,24 +8,24 @@ var resizeMasonryItem     = item => {
 
   item.style.gridRowEnd = 'span '+rowSpan;
 },
-    resizeAllMasonryItems = ()   => {
-      var allItems = D.getElementsByClassName('masonry-brick');
-      for(var i=0;i<allItems.length;i++){
-        resizeMasonryItem(allItems[i]);
+    resizeItems = ()   => {
+      var items = D.getElementsByClassName('masonry-brick');
+      for(var i=0;i<items.length;i++){
+        resizeItem(items[i]);
       }
 },
-    waitForImages         = ()   => {
-      var allItems = D.getElementsByClassName('masonry-brick');
-      for(var i=0;i<allItems.length;i++){
-        imagesLoaded( allItems[i], instance => {
+    waitForIMG  = ()   => {
+      var items = D.getElementsByClassName('masonry-brick');
+      for(var i=0;i<items.length;i++){
+        imagesLoaded( items[i], instance => {
           var item = instance.elements[0];
-          resizeMasonryItem(item);
+          resizeItem(item);
         } );
       }
 };
 
 ['load','resize'].forEach( event => {
-  W.addEventListener(event,resizeAllMasonryItems);
+  W.addEventListener(event,resizeItems);
 });
 
-waitForImages();
+waitForIMG();
