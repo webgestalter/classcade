@@ -1,31 +1,29 @@
-var resizeItem  = item => {
+var resizeItem  = el => {
 
-  var      grid = D.getElementsByClassName('masonry')[0],
-         rowGap = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
-      rowHeight = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  var grid = D.getElementsByClassName('masonry')[0],
+      rowG = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
+      rowH = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
 
-  var rowSpan = Math.ceil((item.querySelector('.masonry-content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+  var rowSpan = Math.ceil((QS('.masonry-content',el).getBoundingClientRect().height+rowG)/(rowH+rowG));
 
-  item.style.gridRowEnd = 'span '+rowSpan;
+  el.style.gridRowEnd = 'span '+rowSpan;
 },
     resizeItems = ()   => {
       var items = D.getElementsByClassName('masonry-brick');
-      for(var i=0;i<items.length;i++){
+      for(var i=0; i < L(items); i++){
         resizeItem(items[i]);
       }
 },
     waitForIMG  = ()   => {
       var items = D.getElementsByClassName('masonry-brick');
-      for(var i=0;i<items.length;i++){
+      for(var i=0; i < L(items); i++){
         imagesLoaded( items[i], instance => {
-          var item = instance.elements[0];
-          resizeItem(item);
+          var el = instance.elements[0];
+          resizeItem(el);
         } );
       }
 };
 
-['load','resize'].forEach( event => {
-  W.addEventListener(event,resizeItems);
-});
+FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
 
 waitForIMG();
