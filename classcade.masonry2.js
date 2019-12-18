@@ -24,10 +24,10 @@ function masonry(){
         //    resizeItem(el);
         //  } );
 
-          imgStatus.watch(items[i],function(instance){
+          imgStatus.watch(".masonry img",function(instance){
             if(instance.isDone()){
               console.log("image loaded");
-              var el = instance.elements[0];
+              var el = _(instance)._('.masonry-brick');
               resizeItem(el);
             }
           });
