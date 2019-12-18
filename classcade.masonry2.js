@@ -1,4 +1,4 @@
-  var resizeItem  = el => {
+  var masonryResizeItem  = el => {
 
     var grid = D.getElementsByClassName('masonry')[0],
         rowG = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
@@ -8,10 +8,10 @@
 
     el.style.gridRowEnd = 'span '+rowSpan;
   },
-      resizeItems = ()   => {
+      masonryResize = ()   => {
         var items = D.getElementsByClassName('masonry-brick');
         for(var i=0; i < L(items); i++){
-          resizeItem(items[i]);
+          masonryResizeItem(items[i]);
         }
   },
       waitForIMG  = ()   => {
@@ -19,7 +19,7 @@
         for(var i=0; i < L(items); i++){
           imagesLoaded( items[i], instance => {
             var el = instance.elements[0];
-            resizeItem(el);
+            masonryResizeItem(el);
           } );
         }
 
@@ -28,11 +28,11 @@
         //   if(instance.isDone()){
         //     console.log("image loaded");
         //     var el = _(instance)._('.masonry-brick');
-        //     resizeItem(el);
+        //     masonryResizeItem(el);
         //   }
         // });
   };
 
-  FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
+  FE( ['load','resize'], e => { AEL(W,e,masonryResize) });
 
   waitForIMG();
