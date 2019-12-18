@@ -37,7 +37,7 @@ function masonry(){
 
   };
 
-  FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
+  // FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
 
   waitForIMG();
 }
