@@ -19,6 +19,8 @@ function masonry(){
         var items = D.getElementsByClassName('masonry-brick');
         for(var i=0; i < L(items); i++){
 
+          LOG('waitForIMG() triggered');
+
         //  imagesLoaded( items[i], instance => {
         //    var el = instance.elements[0];
         //    resizeItem(el);
