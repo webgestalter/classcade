@@ -1,10 +1,11 @@
   var masonryResizeItem  = el => {
 
     var grid = D.getElementsByClassName('masonry')[0],
+    //  rowG = _(grid).style('grid-row-gap'),
+    //  rowH = _(grid).style('grid-auto-rows'),
         rowG = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
-        rowH = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-
-    var rowSpan = Math.ceil((QS('.masonry-content',el).getBoundingClientRect().height+rowG)/(rowH+rowG));
+        rowH = parseInt(W.getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
+     rowSpan = Math.ceil((QS('.masonry-content',el).getBoundingClientRect().height+rowG)/(rowH+rowG));
 
     el.style.gridRowEnd = 'span '+rowSpan;
   },
