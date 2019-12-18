@@ -10,7 +10,7 @@
 //░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░//
 ////////////////////////////////////////////////////////////
 
-var props = {
+var  props = {
     ac  : 'align-content',
     ai  : 'align-items',
     as  : 'align-self',
@@ -99,7 +99,7 @@ var props = {
     ws  : 'word-spacing',
     zi  : 'z-index'
   },
-   values = {
+    values = {
   a   : 'auto',
   a0  : 'a| 0',
   abs : 'absolute',
@@ -148,7 +148,7 @@ var props = {
   tc  : 'table-cell',
   w   : 'wrap'
 },
-     xtra = {
+      xtra = {
   hw  : ['h|','w|'],
   tl  : ['t|','l|'],
   tr  : ['t|','r|'],
@@ -158,10 +158,10 @@ var props = {
   tbl : ['t|','b|','l|'],
   trbl: ['t|','r|','b|','l|']
 },
-    xtra2 = [
+     xtra2 = [
      'masonry'
    ],
-    alias = {
+     alias = {
      abs          : 'pos-abs'   ,
      absolute     : 'pos-abs'   ,
      block        : 'dis-b'     ,
@@ -193,7 +193,7 @@ var props = {
      rtl          : 'dir-rtl'
    },
 
-classcade = context => {
+ classcade = context => {
 
      // SHORTHANDS
      var f = (a,b) => ( a.filter(b) ),
@@ -308,7 +308,7 @@ classcade = context => {
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-    //FE(xtra2, c => { LOG('classcade function: '+c); window[c]('.'+c) });
+  //  FE(xtra2, c => { W[c]('.'+c) });
 
   //  addEvent(W,'resize',()=>{ classcade() });
 
