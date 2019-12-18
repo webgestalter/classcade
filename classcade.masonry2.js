@@ -17,23 +17,23 @@
   },
       waitForIMG  = ()   => {
 
-        // var items = D.getElementsByClassName('masonry-brick');
-        // for(var i=0; i < L(items); i++){
-        //  imagesLoaded( items[i], instance => {
-        //    var el = instance.elements[0];
-        //    resizeItem(el);
-        //  } );
-        // }
+        var items = D.getElementsByClassName('masonry-brick');
+        for(var i=0; i < L(items); i++){
+         imagesLoaded( items[i], instance => {
+           var el = instance.elements[0];
+           resizeItem(el);
+         } );
+        }
 
         LOG('waitForIMG() triggered');
 
-        imgStatus.watch(".masonry img",function(instance){
-          if(instance.isDone()){
-            console.log("image loaded");
-            var el = _(instance)._('.masonry-brick');
-            resizeItem(el);
-          }
-        });
+        // imgStatus.watch(".masonry img",function(instance){
+        //   if(instance.isDone()){
+        //     console.log("image loaded");
+        //     var el = _(instance)._('.masonry-brick');
+        //     resizeItem(el);
+        //   }
+        // });
 
   };
 
