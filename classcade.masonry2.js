@@ -1,4 +1,3 @@
-
   var resizeItem  = el => {
 
     var grid = D.getElementsByClassName('masonry')[0],
@@ -16,17 +15,15 @@
         }
   },
       waitForIMG  = ()   => {
-
         var items = D.getElementsByClassName('masonry-brick');
         for(var i=0; i < L(items); i++){
-         imagesLoaded( items[i], instance => {
-           var el = instance.elements[0];
-           resizeItem(el);
-         } );
+          imagesLoaded( items[i], instance => {
+            var el = instance.elements[0];
+            resizeItem(el);
+          } );
         }
 
-        LOG('waitForIMG() triggered');
-
+        // LOG('waitForIMG() triggered');
         // imgStatus.watch(".masonry img",function(instance){
         //   if(instance.isDone()){
         //     console.log("image loaded");
@@ -34,9 +31,8 @@
         //     resizeItem(el);
         //   }
         // });
-
   };
 
-  // FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
+  FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
 
   waitForIMG();
