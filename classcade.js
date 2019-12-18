@@ -308,7 +308,7 @@ classcade = context => {
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-    FE(xtra2, c => { LOG('classcade function: '+c); window[c]('.'+c) });
+    //FE(xtra2, c => { LOG('classcade function: '+c); window[c]('.'+c) });
 
   //  addEvent(W,'resize',()=>{ classcade() });
 
