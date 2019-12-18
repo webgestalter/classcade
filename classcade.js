@@ -308,7 +308,7 @@ var  props = {
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
-  //  FE(xtra2, c => { W[c]('.'+c) });
+    FE(xtra2, c => { W[c]('.'+c) });
 
   //  addEvent(W,'resize',()=>{ classcade() });
 
