@@ -1,4 +1,4 @@
-function masonry(){
+
   var resizeItem  = el => {
 
     var grid = D.getElementsByClassName('masonry')[0],
@@ -40,4 +40,3 @@ function masonry(){
   // FE( ['load','resize'], e => { AEL(W,e,resizeItems) });
 
   waitForIMG();
-}
