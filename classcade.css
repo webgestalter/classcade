@@ -26,6 +26,16 @@ button,.clickable {cursor:pointer}
 
 /* FLEX */
 
+.cubes3 {
+	align-items:flex-start;
+	display:flex;
+	flex-wrap:wrap;
+}
+.cubes3 > * {
+	flex-basis:calc(100%/3);
+	flex-grow:0;
+	flex-shrink:0;
+}
 .cubes5 {
 	align-items:flex-start;
 	display:flex;
