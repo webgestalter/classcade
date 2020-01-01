@@ -1,7 +1,8 @@
-/* defaults */
+/* RESET */
 
 *                 {box-sizing:border-box}
 button,.clickable {cursor:pointer}
+img 							{max-width:100%;}
 
 /* effects */
 
