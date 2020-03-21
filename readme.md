@@ -61,7 +61,14 @@ bg-000000    | background:#000000; |
 ## Alias Classes
 There are several so called "alias classes":
 
-classname    | CSS equivalent | info
------------- | -------------  | -------------
-flex         | display:flex;  |
-grid         | display:grid;  |
+   classname | CSS equivalent     | info
+------------ | -------------      | -------------
+abs          | position:absolute; |
+absolute     | position:absolute; |
+flex         | display:flex;      |
+fix          | position:fixed;    |
+fixed        | position:fixed;    |
+grid         | display:grid;      |
+rel          | position:relative; |
+relative     | position:relative; |
+sticky       | position:sticky;   |
