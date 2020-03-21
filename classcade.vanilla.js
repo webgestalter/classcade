@@ -14,9 +14,8 @@ classcade = context => {
 
   ////////// IS?-FUNCTIONS
 
-  var is      = a => {},
-      isArray = a => {},
-      isStr   = a => {},
+  var is      = (a,b) => ( typeof a==b ),
+      isArray =   a   => ( (!!a) && (a.constructor===Array) ),
 
   ////////// PROPERTIES & VALUES
 
@@ -203,108 +202,101 @@ classcade = context => {
        rtl          : 'dir-rtl'
      },
 
-  //////////
+  ////////// CLASSES OF HTML-DOCUMENT
 
-    // create array containing all elements with class-property
-    r  = [...new Set( Array.from( (context||document).querySelectorAll('[class]') ).flatMap( el => Array.from(el.classList) ) )],
+  // create array containing all elements with class-property
+  r  = [...new Set( Array.from( (context||document).querySelectorAll('[class]') ).flatMap( el => Array.from(el.classList) ) )],
 
-    // create arrays containing all elements with specific classes
-    r1 = r.filter( c =>  c.includes('--')                    ), // property--var
-    r2 = r.filter( c => !c.includes('--') &&  c.includes('-')), // property-val
-    r3 = r.filter( c =>  c.includes('__')                    ), // property__var
-    r4 = r.filter( c => !c.includes('__') &&  c.includes('_')), // property_val
-    r5 = r.filter( c => !c.includes('-')  && !c.includes('_')), // alias
+  // create arrays containing all elements with specific classes
+  r1 = r.filter( className =>  className.includes('--')                             ), // property--variableName
+  r2 = r.filter( className => !className.includes('--') &&  className.includes('-') ), // property-value
+  r3 = r.filter( className =>  className.includes('__')                             ), // property__variableName
+  r4 = r.filter( className => !className.includes('__') &&  className.includes('_') ), // property_value
+  r5 = r.filter( className => !className.includes('-')  && !className.includes('_') ), // alias
 
-////////// VARIABLE CLASSES ////////////////////////////////////////////////////
+  ////////// APPLICATION FUNCTIONS
 
-           varClasses = (arr,seperator) => {
-                arr.forEach( c => {
-                  var s = c.split(seperator),
-                      x = properties[s[0]],    // set property
-                      y = 'var(--'+s[1]+')';   // set value
-                  (context||document).querySelector('.'+c).forEach( z => { z.style[x] = y })
-                })
-              },
+     apply = (seperator,a,b)   => {
 
-////////// SIMPLE CLASSES //////////////////////////////////////////////////////
+      var s = a.split(seperator),
+          p = s[0],
 
-           classApply = (trenner,a,b) => {
+      ///// SET PROPERTY
 
-          var s = a.split(trenner),
-              w = s[0],
+      property = properties[p];
 
-          ////////// SET PROPERTY
+      ///// SET VALUE
 
-          p = properties[w];
+      if( property !== undefined ){
 
-          ////////// SET VALUE
+        var value = s[1];
+            value = values[value] || value;
+            value = ( ['bg','c','f'].includes(p) && value !== 'none'               ) ? '#' + value
+                  : ( value.endsWith('p') && !isNaN(value.charAt(value.length-2))  ) ? value.slice(0,-1) + '%'
+                  : ( !isNaN(value.slice(-1)) && ['h','w'].includes(p)             ) ? 'calc(100%/${value})'
+                  : value ;
 
-          if( p !== undefined ){
+        ///// APPLY PROPERTY & VALUE
 
-            var v = s[1];
-                v = values[v] || v;
+        var className = b || a ;
+        (context||document).querySelectorAll( '.' + className ).forEach( el => { el.style[property] = value })
 
-            //////////
-
-            if( ['bg','c','f'].includes(w) && [3,4,6,8].includes(v.length) && v !== 'none' ){ v = '#'+v             };
-            if( v.endsWith('p') && !isNaN(v.charAt(v.length-2))                            ){ v = v.slice(0,-1)+'%' };
-            if( !isNaN(v.slice(-1)) && ['h','w'].includes(w)                               ){ v = 'calc(100%/${v})' };
-
-            var c = b || a ;
-            (context||document).querySelectorAll( '.' + c ).forEach( z => { z.style[p] = v })
-
-          }
-
-        },
-        simpleClasses = arr           => {
-          arr.forEach( c => { classApply('-',c) })
-        },
-  simpleClassesChilds = arr           => {
-      //    arr.forEach( c => { classApply('_',c) });
-        },
-
-////////// SPECIAL CLASSES /////////////////////////////////////////////////////
-
-       specialClasses  = arr => {
+      }
 
     },
+    simple = (array,seperator) => {
 
-////////// ALIAS CLASSES ///////////////////////////////////////////////////////
+    array.forEach( className => { apply(seperator,className) })
 
-       aliasClasses = arr => {
+  },
+  variable = (array,seperator) => {
 
-         Object.keys(alias).forEach( d => {
-           arr.forEach( c => {
-             if( c === d ){ classApply('-',alias[d],c) }
-           })
-         })
+       array.forEach( className => {
 
-       };
+         var s = className.split(seperator),
+      property = properties[s[0]],
+         value = 'var(--' + s[1] + ')';
+
+         (context||document).querySelectorAll( '.' + className ).forEach( el => { el.style[property] = value })
+
+       })
+
+     },
+     alias = array             => {
+
+    Object.keys(alias).forEach( aliasName => {
+      array.forEach( className => {
+        if( className === aliasName ){ apply('-',alias[aliasName],className) }
+      })
+    })
+
+  };
 
 ////////////////////////////////////////////////////////////////////////////////
-////////// APPLICTION //////////////////////////////////////////////////////////
+////////// APPLICATION /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-           varClasses(r1,'--'); // variableName--value
-           varClasses(r3,'__'); // variableName__value
-        simpleClasses(r2);
-    // specialClasses(r5);
-         aliasClasses(r5);
+  variable(r1,'--'); // property--variableName
+  variable(r3,'__'); // property__variableName
+    simple(r2,'-');  // property-value
+    simple(r4,'_');  // property_value
+// special(r5);
+     alias(r5);
 
-    // FE(r2,c=>{classApply('-',c)}); // simpleClasses
-    // FE(r4,c=>{classApply('_',c)}); // simpleChildClasses
+    // r2.forEach( c => { apply('-',c) } ); // simpleClasses
+    // r4.forEach( c => { apply('_',c) } ); // simpleChildClasses
 
 ////////// FUNCTION CLASSES ////////////////////////////////////////////////////
 
     //FE(xtra2, c => { LOG('classcade function: '+c); window[c]('.'+c) });
 
-  //  addEvent(W,'resize',()=>{ classcade() });
+  //  addEvent( window, 'resize', () => { classcade() } );
 
 },
 
 cc    = (selector,context) => {
 
-  selector =   isStr(selector) ? document.querySelectorAll(selector) : [selector] ;
+  selector = is(selector,'string') ? document.querySelectorAll(selector) : [selector] ;
    context = !isArray(context) ? [context] : context ;
 
   selector.forEach( z => {
