@@ -211,28 +211,20 @@ classcade = context => {
     // create arrays containing all elements with specific classes
     r1 = r.filter( c =>  c.includes('--')                    ), // property--var
     r2 = r.filter( c => !c.includes('--') &&  c.includes('-')), // property-val
-    r3 = r.filter( c =>  c.includes('__')                    ), // property
-    r4 = r.filter( c => !c.includes('__') &&  c.includes('_')), // property
+    r3 = r.filter( c =>  c.includes('__')                    ), // property__var
+    r4 = r.filter( c => !c.includes('__') &&  c.includes('_')), // property_val
     r5 = r.filter( c => !c.includes('-')  && !c.includes('_')), // alias
 
 ////////// VARIABLE CLASSES ////////////////////////////////////////////////////
 
-           varClasses = arr => {
+           varClasses = (arr,seperator) => {
                 arr.forEach( c => {
-                  var s = c.split('--'),
+                  var s = c.split(seperator),
                       x = properties[s[0]],    // set property
                       y = 'var(--'+s[1]+')';   // set value
                   (context||document).querySelector('.'+c).forEach( z => { z.style[x] = y })
                 })
               },
-     varClassesChilds = arr => {
-              arr.forEach( c => {
-                var s = c.split('__'),
-                    x = properties[s[0]],     // set property
-                    y = 'var(--'+s[1]+')';    // set value
-                (context||document).querySelector('.'+c).forEach( z => { z.style[x] = y })
-              })
-            },
 
 ////////// SIMPLE CLASSES //////////////////////////////////////////////////////
 
@@ -293,7 +285,8 @@ classcade = context => {
 ////////// APPLICTION //////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-           varClasses(r1);
+           varClasses(r1,'--'); // variableName--value
+           varClasses(r3,'__'); // variableName__value
         simpleClasses(r2);
     // specialClasses(r5);
          aliasClasses(r5);
