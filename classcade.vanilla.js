@@ -34,8 +34,8 @@ classcade = context => {
       bg  : 'background',
       brad: 'border-radius',
       c   : 'color',
-      cc  : 'column-count',
-      cg  : 'column-gap',
+      cc  : 'column-count',   // ✓
+      cg  : 'column-gap',     // ✓
       cur : 'cursor',
       dir : 'direction',
       dis : 'display',
@@ -46,6 +46,7 @@ classcade = context => {
       fs  : 'flex-shrink',
       fw  : 'flex-wrap',
       ft  : 'font',
+      ftc : 'color',
       ftf : 'font-family',
       fts : 'font-size',
       ftv : 'font-variant',
@@ -59,20 +60,20 @@ classcade = context => {
       gaf : 'grid-auto-flow',
       gar : 'grid-auto-rows',
       gc  : 'grid-column',
-      gce : 'gc|-end',
-      gcg : 'gc|-gap',
-      gcs : 'gc|-start',
-      gg  : 'g|-gap',
-      gr  : 'g|-row',
-      gre : 'gr|-end',
-      grg : 'gr|-gap',
-      grs : 'gr|-start',
-      gt  : 'g|-template',
-      gta : 'gt|-areas',
-      gtc : 'gt|-columns',
-      gtr : 'gt|-rows',
-      h   : 'height',
-      l   : 'left',
+      gce : 'grid-column-end',
+      gcg : 'grid-column-gap',
+      gcs : 'grid-column-start',
+      gg  : 'grid-gap',
+      gr  : 'grid-row',
+      gre : 'grid-row-end',
+      grg : 'grid-row-gap',
+      grs : 'grid-row-start',
+      gt  : 'grid-template',
+      gta : 'grid-template-areas',
+      gtc : 'grid-template-columns',
+      gtr : 'grid-template-rows',
+      h   : 'height',               // ✓
+      l   : 'left',                 // ✓
       lh  : 'line-height',
       ls  : 'list-style',
       lsp : 'letter-spacing',
@@ -93,9 +94,10 @@ classcade = context => {
       pc  : 'place-content',
       pi  : 'place-items',
       ps  : 'place-self',
-      r   : 'right',
-      pos : 'position',
-      t   : 'top',
+      pos : 'position',           // ✓
+      rad : 'border-radius',      // ✓
+      r   : 'right',              // ✓
+      t   : 'top',                // ✓
       ta  : 'text-align',
       tc  : 'color',
       td  : 'text-decoration',
@@ -104,7 +106,7 @@ classcade = context => {
       tsh : 'text-shadow',
       tt  : 'text-transform',
       va  : 'vertical-align',
-      w   : 'width',
+      w   : 'width',            // ✓
       ws  : 'word-spacing',
       zi  : 'z-index'
     },
@@ -157,17 +159,8 @@ classcade = context => {
     tc  : 'table-cell',
     w   : 'wrap'
     },
-        xtra = {
-    hw  : ['h|','w|'],
-    tl  : ['t|','l|'],
-    tr  : ['t|','r|'],
-    rbl : ['r|','b|','l|'],
-    trl : ['t|','r|','l|'],
-    trb : ['t|','r|','b|'],
-    tbl : ['t|','b|','l|'],
-    trbl: ['t|','r|','b|','l|']
-    },
-       xtra2 = [
+        xtra = ['cf','hw','tl','tr','rbl','trl','trb','tbl','trbl'],
+        func = [
        'masonry'
      ],
        alias = {
@@ -181,16 +174,23 @@ classcade = context => {
        hidden       : 'dis-n'     ,
        italic       : 'fs-it'     ,
        justify      : 'ta-j'      ,
+       low          : 'tt-lc'     ,
+       lower        : 'tt-lc'     ,
+       lowercase    : 'tt-lc'     ,
        nowrap       : 'fw-nw'     ,
        rel          : 'pos-rel'   ,
        relative     : 'pos-rel'   ,
        pointer      : 'cur-p'     ,
        spaceA       : 'pc-sa'     ,
+       spaceAround  : 'pc-sa'     ,
        spaceB       : 'pc-sb'     ,
+       spaceBetween : 'pc-sb'     ,
        spaceE       : 'pc-se'     ,
+       spaceEvenly  : 'pc-se'     ,
        sticky       : 'pos-st'    ,
        stretch      : 'pi-str'    ,
        underline    : 'td-ul'     ,
+       up           : 'tt-uc'     ,
        upper        : 'tt-uc'     ,
        uppercase    : 'tt-uc'     ,
        wrap         : 'fw-w'      ,
@@ -216,7 +216,7 @@ classcade = context => {
 
   ////////// APPLICATION FUNCTIONS
 
-     apply = (seperator,a,b)   => {
+       apply = (seperator,a,b)   => {
 
       var s = a.split(seperator),
           p = s[0],
@@ -244,12 +244,12 @@ classcade = context => {
       }
 
     },
-    simple = (array,seperator) => {
+    ccSimple = (array,seperator) => {
 
     array.forEach( className => { apply(seperator,className) })
 
   },
-  variable = (array,seperator) => {
+  ccVariable = (array,seperator) => {
 
        array.forEach( className => {
 
@@ -262,7 +262,7 @@ classcade = context => {
        })
 
      },
-     alias = array             => {
+     ccAlias = array             => {
 
     Object.keys(alias).forEach( aliasName => {
       array.forEach( className => {
@@ -272,29 +272,19 @@ classcade = context => {
 
   };
 
-////////////////////////////////////////////////////////////////////////////////
-////////// APPLICATION /////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+  ////////// APPLICATION
 
-  variable(r1,'--'); // property--variableName
-  variable(r3,'__'); // property__variableName
-    simple(r2,'-');  // property-value
-    simple(r4,'_');  // property_value
-// special(r5);
-     alias(r5);
-
-    // r2.forEach( c => { apply('-',c) } ); // simpleClasses
-    // r4.forEach( c => { apply('_',c) } ); // simpleChildClasses
-
-////////// FUNCTION CLASSES ////////////////////////////////////////////////////
-
-    //FE(xtra2, c => { LOG('classcade function: '+c); window[c]('.'+c) });
-
-  //  addEvent( window, 'resize', () => { classcade() } );
+  ccVariable(r1,'--'); // property--variableName
+  ccVariable(r3,'__'); // property__variableName
+    ccSimple(r2,'-');  // property-value
+    ccSimple(r4,'_');  // property_value
+     ccAlias(r5);      // alias
 
 },
 
-cc    = (selector,context) => {
+///////////////////////////// ADDITIONAL FUNCTIONS /////////////////////////////
+
+cc = (selector,context) => {
 
   selector = is(selector,'string') ? document.querySelectorAll(selector) : [selector] ;
    context = !isArray(context) ? [context] : context ;
@@ -306,9 +296,33 @@ cc    = (selector,context) => {
   })
 
 },
+
+// cc() is for applying styles to DOM elements by classcade syntax.
+//
+// for example ››› cc('.myDiv','bg-0')
+// for example ››› cc('.myDiv',['bg-0','c-f'])
+
 ccVar = (variable,value,context) => {
   var str = (context||'html')+'{}';
   addCSS(str);
 }
 
+//////////////////////////////// RUN CLASSCADE /////////////////////////////////
+
 classcade();
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// r2.forEach( c => { apply('-',c) } ); // simpleClasses
+// r4.forEach( c => { apply('_',c) } ); // simpleChildClasses
+
+////////// FUNCTION CLASSES ////////////////////////////////////////////////////
+
+//FE(xtra2, c => { LOG('classcade function: '+c); window[c]('.'+c) });
+
+//  addEvent( window, 'resize', () => { classcade() } );
