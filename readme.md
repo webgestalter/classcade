@@ -4,10 +4,8 @@
   Instead of writing the same CSS code over and over again<br/>
   just apply it directly to your website elements by predefined and reusable classes.  
 </p><p align="center">
-  **standard:**
   <a href="https://webgestalter.github.io/classcade/classcade.js">classcade.js</a>
-  | **minified:**
-  <a href="https://webgestalter.github.io/classcade/classcade.min.js">classcade.min.js</a>
+  | <a href="https://webgestalter.github.io/classcade/classcade.min.js">classcade.min.js</a>
 </p>
 
 # Get Started
