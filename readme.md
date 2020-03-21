@@ -52,6 +52,28 @@ Here are some more complex examples:
 
 # Parameters
 
+#### Properties
+
+   classname | CSS equivalent      | info
+------------ | -------------       | -------------
+bg-0         | background:#000000; |
+bg-000       | background:#000000; |
+bg-000000    | background:#000000; |
+
+#### Seperators
+
+The Values
+
+   seperator | target
+------------ | -------------
+\-           | declaration gets applied to current element
+\-\-         | declares custom property as value
+\_           | declaration gets applied to the childs of current element
+\_\_         | declares custom property as value to the childs of current element
+
+#### Values
+The values are different matters from the given property or class prefix.
+
    classname | CSS equivalent      | info
 ------------ | -------------       | -------------
 bg-0         | background:#000000; |
