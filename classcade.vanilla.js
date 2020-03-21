@@ -205,8 +205,10 @@ classcade = context => {
 
   //////////
 
-    var r  = [...new Set( Array.from( (context||document).querySelectorAll('[class]') ).flatMap( el => Array.from(el.classList) ) )],
+    // create array containing all elements with class-property
+    r  = [...new Set( Array.from( (context||document).querySelectorAll('[class]') ).flatMap( el => Array.from(el.classList) ) )],
 
+    // create arrays containing all elements with specific classes
     r1 = r.filter( c =>  c.includes('--')                    ), // property--var
     r2 = r.filter( c => !c.includes('--') &&  c.includes('-')), // property-val
     r3 = r.filter( c =>  c.includes('__')                    ), // property
@@ -284,7 +286,7 @@ classcade = context => {
              if( c === d ){ classApply('-',alias[d],c) }
            })
          })
-         
+
        };
 
 ////////////////////////////////////////////////////////////////////////////////
