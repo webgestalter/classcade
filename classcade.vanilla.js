@@ -159,10 +159,6 @@ classcade = context => {
     tc  : 'table-cell',
     w   : 'wrap'
     },
-        xtra = ['cf','hw','tl','tr','rbl','trl','trb','tbl','trbl'],
-        func = [
-       'masonry'
-     ],
        alias = {
        abs          : 'pos-abs'   ,
        absolute     : 'pos-abs'   ,
@@ -201,6 +197,7 @@ classcade = context => {
        ltr          : 'dir-ltr'   ,
        rtl          : 'dir-rtl'
      },
+        xtra = ['cf','hw','tl','tr','rbl','trl','trb','tbl','trbl'],
 
   ////////// CLASSES OF HTML-DOCUMENT
 
