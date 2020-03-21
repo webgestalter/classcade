@@ -49,3 +49,10 @@ There are several so called "alias classes":
 
 ## More Complex Examples
 Here are some more complex examples:
+
+# Parameters
+
+   classname | CSS equivalent      | info
+------------ | -------------       | -------------
+bg-0         | background:#000000; | 2
+Content in the first column | Content in the second column
