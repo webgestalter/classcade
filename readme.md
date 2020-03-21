@@ -30,17 +30,17 @@ Or you could even direct link which would always supply the uptodate version
 ### Set Background-Color
 
 By default the cookie lifetime is set to 1000 days. So you only need to set 1st and 2nd parameter.
-<pre><code>
+```
   <div class='bg-0'></div>
   <div class='bg-000'></div>
   <div class='bg-000000'></div>
-</code></pre>
+```
 
 You also could set background color with transparence:
-<pre><code>
+```
   <div class='bg-000a'></div>
   <div class='bg-000000aa'></div>
-</code></pre>
+```
 
 ### Alias Classes
 There are several so called "alias classes":
