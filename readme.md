@@ -6,13 +6,9 @@
 </p><p align="center">
   standard:
   <a href="https://webgestalter.github.io/classcade/classcade.js">classcade.js</a>
-  |
-  <a href="https://webgestalter.github.io/classcade/classcade.css">classcade.css</a>
   <br/>
   minified:
   <a href="https://webgestalter.github.io/classcade/classcade.min.js">classcade.min.js</a>
-  |
-  <a href="https://webgestalter.github.io/classcade/classcade.min.css">classcade.min.css</a>
 </p>
 
 # Get Started
@@ -20,20 +16,16 @@
 Just include `classcade.min.css` to the head
 
 ```
-<link href="classcade.min.css" rel="stylesheet" media="screen">
+<script src='classcade.min.js'></script>
 ```
 
 Or you could even direct link which would always supply the uptodate version
 
 ```
-<link href="https://webgestalter.github.io/classcade/min.css" rel="stylesheet" media="screen">
+<script src='https://webgestalter.github.io/classcade/classcade.min.js'></script>
 ```
 
-
-# classcade.js
-a tiny library for functional CSS in pure JavaScript
-
-## Usage
+# Usage
 
 ### Set Background-Color
 
