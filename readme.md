@@ -54,5 +54,14 @@ Here are some more complex examples:
 
    classname | CSS equivalent      | info
 ------------ | -------------       | -------------
-bg-0         | background:#000000; | 2
-Content in the first column | Content in the second column
+bg-0         | background:#000000; |
+bg-000       | background:#000000; |
+bg-000000    | background:#000000; |
+
+## Alias Classes
+There are several so called "alias classes":
+
+classname    | CSS equivalent | info
+------------ | -------------  | -------------
+flex         | display:flex;  |
+grid         | display:grid;  |
