@@ -44,9 +44,9 @@ You also could set background color with transparence:
 
 ### Alias Classes
 There are several so called "alias classes":
-<pre><code>
+```
   <div class='flex'></div>
-</code></pre>
+```
 
 ## More Complex Examples
 Here are some more complex examples:
