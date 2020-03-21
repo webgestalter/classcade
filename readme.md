@@ -6,14 +6,13 @@
 </p><p align="center">
   standard:
   <a href="https://webgestalter.github.io/classcade/classcade.js">classcade.js</a>
-  <br/>
-  minified:
+  | minified:
   <a href="https://webgestalter.github.io/classcade/classcade.min.js">classcade.min.js</a>
 </p>
 
 # Get Started
 
-Just include `classcade.min.css` to the head
+Just include `classcade.min.js` before the closing `</body>` tag.
 
 ```
 <script src='classcade.min.js'></script>
@@ -42,7 +41,7 @@ You also could set background color with transparence:
   <div class='bg-000000aa'></div>
 ```
 
-### Alias Classes
+## Alias Classes
 There are several so called "alias classes":
 ```
   <div class='flex'></div>
