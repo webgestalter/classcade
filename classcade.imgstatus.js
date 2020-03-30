@@ -1,4 +1,4 @@
-;(function(){
+;(function imagesLoaded(){
   this.loaded = 0;
   this.failed = 0;
   this.total  = 0;
