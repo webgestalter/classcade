@@ -14,7 +14,7 @@
     }
   },
   waitForIMG = () => {
-    var items = D.getElementsByClassName('masonry-brick');
+    var items = document.getElementsByClassName('masonry-brick');
     for(var i=0; i < L(items); i++){
       imagesLoaded( items[i], instance => {
         var el = instance.elements[0];
