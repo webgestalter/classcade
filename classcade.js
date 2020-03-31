@@ -22,7 +22,7 @@ var props = {
     bort: 'bor|-top',
     bs  : 'box-sizing',
     bsh : 'box-shadow',
-    bg  : 'background-color',
+    bg  : 'background',
     brad: 'border-radius',
     c   : 'color',
     cc  : 'column-count',
